@@ -11,9 +11,7 @@ function App() {
   const dispatch = useDispatch()
   return (
     <div className="App">
-      <h1>Counter {counter}</h1>
-      <button onClick={() => dispatch(Increment())}>+</button>
-      <button onClick={() => dispatch(Decrement())}>-</button> 
+      
     </div>
   );
 }
