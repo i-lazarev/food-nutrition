@@ -1,7 +1,6 @@
 import React from 'react';
 import './App.css';
 import { useSelector, useDispatch } from 'react-redux'
-import { Increment, Decrement } from './actions/index'
 
 
 function App() {
