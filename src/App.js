@@ -1,16 +1,13 @@
 import React from 'react';
 import './App.css';
-import { useSelector, useDispatch } from 'react-redux'
+import Header from './components/Header';
 
 
-function App() {
-  // here you use the state with useSelector
-  const counter = useSelector(state => state.counter)
-  // here you dispatch the function you created in actions
-  const dispatch = useDispatch()
+const App =()=> {
+ 
   return (
     <div className="App">
-      
+      <Header/>
     </div>
   );
 }
