@@ -39,7 +39,7 @@ const Header = () => {
               <InputGroup>
                 <Input className="input-search" placeholder="Search" />
                 <InputGroupText>
-                  <FontAwesome name="search" size="1x" />
+                  <FontAwesome name="search"  />
                 </InputGroupText>
               </InputGroup>
             </NavItem>
