@@ -6,18 +6,30 @@ export default function Signup () {
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
   const history=useHistory();
+  const [errMsg, setErrMsg]=useState('')
 
   const handleSubmit=(e)=>{
     e.preventDefault();
     if(username.length>0 && password.length>5){
     fetch("", {
       method: "POST",
-      body: JSON.stringify({ username: username, email: email, password: password }),
+      body: JSON.stringify({
+        username: username,
+        email: email,
+        password: password
+      }),
       headers: { "Content-Type": "application/json" }
-    });
-    history.push('/creat-account')
+    })
+      .then(response => response.json())
+      .then(data => {
+        data.error
+          ? setErrMsg(data.error)
+          : history.push('/creat-account')
+            });
+      }
+    
   }
- }
+ 
 
   return (
     <div>
@@ -40,7 +52,7 @@ export default function Signup () {
           value={password}
           onChange={e => setPassword(e.target.value)}
         />
-
+       
         <button type="submit"> next</button>
       </form>
     </div>

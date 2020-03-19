@@ -10,19 +10,101 @@ export default function Info() {
     const [ecto, setEcto]= useState(false);
     const [meso, setMeso]= useState(false);
     const [endo, setEndo]= useState(false);
+    const [NEAT, setNEAT]=useState(0);
     const [gain, setGain]= useState(false);
     const [lose, setLose]= useState(false);
     const [maintain, setMaintain]= useState(false);
+    const [goal, setGoal]=useState(0);
     const [lowCarbs, setLowCarbs]=useState(false);
     const [moderateCarbs, setModerateCarbs]=useState(false);
     const [highCarbs, setHighCarbs]=useState(false);
-    const [daysOfWorkout, setDaysOfWorkouts]=useState('0');
-    const [durationOfWorkout, setDurationOfWorkout]=useState('0');
+    const [daysOfWorkout, setDaysOfWorkouts]=useState(0);
+    const [durationOfWorkout, setDurationOfWorkout]=useState(0);
+    const [index, setIndex]=useState('')
+
+    const ratios = [
+  {
+    name: "high-carbs for bodybuilding",
+    carbs: 50, // 40-60
+    protein: 30, // 25-35
+    fat: 20 // 15-25
+  },
+  {
+    name: "moderate-carbs for maintenance",
+    carbs: 40, // 30-50
+    protein: 30, // 25-35
+    fat: 30 // 25-35
+  },
+  {
+    name: "low-carbs for reduction",
+    carbs: 20, // 10-20
+    protein: 50, // 40-50
+    fat: 30 // 30-40
+  }
+];
 
     const handleSubmit=(e)=>{
        e.preventDefault();
-      console.log(male, female);
+       let result =
+      9.99 * parseFloat(weight) +
+      6.25 * parseFloat(height) -
+      4.92 * parseFloat(age);
+
+    console.log(result);
+
+    let BMR = Math.floor(male ? result + 5 : result - 161);
+    console.log(BMR);
+    let percentOfBMR = Math.floor((7 * BMR) / 100);
+
+    let EPOC = parseFloat(daysOfWorkout) * percentOfBMR;
+    console.log(EPOC);
+    let TEA = Math.floor(
+      (parseFloat(daysOfWorkout) *
+        parseFloat(durationOfWorkout) *
+        9 +
+        EPOC) /
+        7
+    );
+    console.log(TEA);
+    let total = BMR + TEA + NEAT;
+    console.log(total);
+    let TEF = Math.floor(total / 10);
+
+    let TDEE = total + TEF;
+
+    let goalCal = TDEE + goal;
+
+    let protein = Math.floor(
+      (TDEE * ratios[index].protein) / 100 / 4
+    );
+    let carbs = Math.floor((TDEE * ratios[index].carbs) / 100 / 4);
+    let fat = Math.floor((TDEE * ratios[index].fat) / 100 / 9);
+    let sugar;
+    male ? (sugar = 37.5) : (sugar = 25);
+    
+
+    if (TDEE) {
+      console.log(TDEE, goalCal, protein, carbs, fat, sugar);
+      fetch(`https://falafel-server.onigiri.now.sh/info`, {
+        method: "POST",
+        body: JSON.stringify({
+          username: this.state.username,
+          tdee: TDEE,
+          goal: goalCal,
+          protein: protein,
+          carbs: carbs,
+          fat: fat,
+          sugar: sugar
+        }),
+        headers: { "Content-Type": "application/json" }
+      })
+        .then(response => response.json())
+        .then(data => console.log(data));
+        history.push("/login");
+    }else{
+      console.log('some fields are missing')
     }
+   }
 
     return (
       <div>
@@ -95,6 +177,7 @@ export default function Info() {
                     setEcto(e.target.checked);
                     setEndo(!e.target.checked);
                     setMeso(!e.target.checked);
+                    setNEAT(900);
                   }}
                 />
                 Ectomorph
@@ -111,6 +194,7 @@ export default function Info() {
                     setEcto(!e.target.checked);
                     setEndo(!e.target.checked);
                     setMeso(e.target.checked);
+                    setNEAT(500);
                   }}
                 />
                 Mesomorph
@@ -127,6 +211,7 @@ export default function Info() {
                     setEcto(!e.target.checked);
                     setEndo(e.target.checked);
                     setMeso(!e.target.checked);
+                    setNEAT(400);
                   }}
                 />
                 Endomorph
@@ -167,6 +252,7 @@ export default function Info() {
                     setGain(e.target.checked);
                     setLose(!e.target.checked);
                     setMaintain(!e.target.checked);
+                    setGoal(500);
                   }}
                 />
                 gain muscles/ bulk
@@ -179,6 +265,7 @@ export default function Info() {
                     setGain(!e.target.checked);
                     setLose(e.target.checked);
                     setMaintain(!e.target.checked);
+                    setGoal(-500);
                   }}
                 />
                 lose weight/ cut
@@ -204,6 +291,7 @@ export default function Info() {
                     setLowCarbs(e.target.checked);
                     setHighCarbs(!e.target.checked);
                     setModerateCarbs(!e.target.checked);
+                    setIndex('2');
                   }}
                 />
                 low-carbs{" "}
@@ -231,6 +319,7 @@ export default function Info() {
                     setLowCarbs(!e.target.checked);
                     setHighCarbs(!e.target.checked);
                     setModerateCarbs(e.target.checked);
+                    setIndex('1');
                   }}
                 />
                 moderate-carbs{" "}
@@ -258,6 +347,7 @@ export default function Info() {
                     setLowCarbs(!e.target.checked);
                     setHighCarbs(e.target.checked);
                     setModerateCarbs(!e.target.checked);
+                    setIndex('0');
                   }}
                 />
                 high-carbs{" "}
