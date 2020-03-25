@@ -23,7 +23,7 @@ const LoginHeader = (props) => {
                 <Collapse isOpen={isOpen} navbar>
                     <Nav className="mr-auto" navbar>
                         <NavItem style={{ marginLeft: '400px', fontSize: '25px' }}>
-                            <NavLink href="https://github.com/reactstrap/reactstrap">Log in</NavLink>
+                            <NavLink href='Login'>Log in</NavLink>
                         </NavItem>
 
                     </Nav>
