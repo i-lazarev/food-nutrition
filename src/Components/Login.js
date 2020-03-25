@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { Button, Form, FormGroup, Label, Input, Container } from 'reactstrap';
+import LoginHeader from './LoginHeader';
+
 
 
 const Login = (props) => {
@@ -19,6 +21,8 @@ const Login = (props) => {
         setEmail('')
     }
     return (
+        <div>
+        <LoginHeader/>
         <Container>
             <Form onSubmit={submit}>
                 <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
@@ -45,7 +49,7 @@ const Login = (props) => {
                 <Button className="mt-4">Login</Button>
             </Form>
         </Container>
-        
+        </div>
     );
 }
 
