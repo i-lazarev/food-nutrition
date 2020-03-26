@@ -11,7 +11,7 @@ export default function Signup () {
   const handleSubmit=(e)=>{
     e.preventDefault();
     if(username.length>0 && password.length>5){
-    fetch("", {
+    fetch("http://localhost:5000/sign-up", {
       method: "POST",
       body: JSON.stringify({
         username: username,
@@ -24,7 +24,7 @@ export default function Signup () {
       .then(data => {
         data.error
           ? setErrMsg(data.error)
-          : history.push('/creat-account')
+          : history.push({pathname: '/create-account', state: {email: email }})
             });
       }
     
@@ -33,20 +33,23 @@ export default function Signup () {
 
   return (
     <div>
+      <div style={{height: '100px'}}>
+        {errMsg}
+      </div>
       <form onSubmit={handleSubmit}>
-        <label>username</label>
+        <div>username</div>
         <input
           type="text"
           value={username}
           onChange={e => setUsername(e.target.value)}
         />
-        <label>email</label>
+        <div>email</div>
         <input
           type="email"
           value={email}
           onChange={e => setEmail(e.target.value)}
         />
-        <label>password</label>
+        <div>password</div>
         <input
           type="password"
           value={password}

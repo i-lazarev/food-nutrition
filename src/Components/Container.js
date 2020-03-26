@@ -1,7 +1,7 @@
 import React from 'react';
 import {BrowserRouter as Router, Route, Switch, Link, NavLink} from 'react-router-dom';
 import Signup from './Signup';
-import Info from './Info';
+import Info from './CreateAccount';
 
 
 export default function Container() {
