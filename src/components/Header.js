@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useState} from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+
 import "../styles/header.css";
-import FontAwesome from "react-fontawesome";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUtensils } from "@fortawesome/free-solid-svg-icons";
+import {Link} from "react-router-dom"
 import {
   Collapse,
   Navbar,
@@ -11,14 +13,15 @@ import {
   NavbarBrand,
   Nav,
   NavItem,
-  NavLink,
-  Input,
-  InputGroup,
-  InputGroupText
+  NavLink
 } from "reactstrap";
+import SearchBar from "./SearchBar";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+ // const [query, setQuery] = useContext(ApiContext);
+
+  
 
   const toggle = () => setIsOpen(!isOpen);
   return (
@@ -31,17 +34,18 @@ const Header = () => {
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto, nav-bar" navbar>
             <NavItem>
-              <NavLink href="#">
+              <Link to="/recipies">
                 Recipies <FontAwesomeIcon icon={faUtensils} />
-              </NavLink>
+              </Link>
             </NavItem>
             <NavItem>
-              <InputGroup>
-                <Input className="input-search" placeholder="Search" />
-                <InputGroupText>
+            <SearchBar />
+              {/* <form style={{"display":"flex"}}>
+                <Input type="text" name="search" className="input-search" placeholder="Search" onChange={updateQuery}/>
+                <button>
                   <FontAwesome name="search"  />
-                </InputGroupText>
-              </InputGroup>
+                </button>
+              </form> */}
             </NavItem>
             <div style={{ display: "flex" }}>
               <NavItem>

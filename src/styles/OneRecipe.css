@@ -1,0 +1,33 @@
+.main-section {
+  margin: 0 10%;
+}
+.image-ingredients {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.card-size {
+  width: 30%;
+}
+.ingredients-list {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+}
+.nutrition-ingredients {
+  display: flex;
+  justify-content: space-between;
+}
+.ingredients {
+  padding-left: 5%;
+  box-shadow:4px 1px 10px 4px grey;
+  padding:10px;
+  margin: 10px;
+  border-radius: 3px;
+}
+li {
+  list-style: none;
+}
+.nutrition-list {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+  }
+
