@@ -10,6 +10,7 @@ import {
     Form,
     Input,
 } from 'reactstrap';
+import Recipe from './Recipe';
 
 
 const HomePage = (props) => {
@@ -33,6 +34,7 @@ const HomePage = (props) => {
         })
         const data = await response.json()
            setRecipes(data.results)
+           console.log(data.results);
     }
 
     return (
@@ -56,7 +58,11 @@ const HomePage = (props) => {
                         </NavItem>
                     </Nav>
                 </Collapse>
-            </Navbar>     
+            </Navbar>  
+            {recipes.map(rec => (
+                <Recipe title={rec.title} image={rec.image}/>
+                
+            ))}
         </div>
     );
 }
