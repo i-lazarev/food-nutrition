@@ -10,32 +10,15 @@ import {
     Form,
     Input,
 } from 'reactstrap';
-import Recipe from './Recipe';
+import MostSeen from './MostSeen';
+import AllFood from './AllFood';
 
 
 const HomePage = (props) => {
     const [isOpen, setIsOpen] = useState(false);
     const toggle = () => setIsOpen(!isOpen);
 
-    const [recipes, setRecipes] = useState([])
-
-
-    useEffect(() => {
-        getRecipes()
-    }, [])
-
-    const getRecipes = async () => {
-       const response = await fetch("https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search?number=10&offset=0&query=burger", {
-            "method": "GET",
-            "headers": {
-                "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-                "x-rapidapi-key": "57c6580995msh16a1bdca19a22f4p19d9c9jsn96e04208e387"
-            }
-        })
-        const data = await response.json()
-           setRecipes(data.results)
-           console.log(data.results);
-    }
+    // const [recipes, setRecipes] = useState([])
 
     return (
         <div>
@@ -59,10 +42,8 @@ const HomePage = (props) => {
                     </Nav>
                 </Collapse>
             </Navbar>  
-            {recipes.map(rec => (
-                <Recipe title={rec.title} image={rec.image}/>
-                
-            ))}
+            <MostSeen/>
+            <AllFood/>
         </div>
     );
 }

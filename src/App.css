@@ -1,6 +1,40 @@
-.container {
-  display: flex;
-  justify-content: center;
-  justify-items: center;
-  margin-top: 10rem;
+* {
+	box-sizing: border-box;
 }
+
+.container {
+	display: flex;
+	justify-content: center;
+	justify-items: center;
+	margin-top: 10rem;
+}
+
+/* MostSeen page */
+.recipies-section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+}
+
+.card {
+  width: 350px;
+  min-height: 250px;
+  margin: 20px;
+  border-radius: 20px;
+  -webkit-box-shadow: 4px 1px 10px 4px rgb(223, 60, 60);
+  box-shadow: 2px 1px 10px 2px rgb(150, 144, 147);
+}
+
+.card-image {
+  max-height: 100%;
+  border-radius: 1px;
+}
+
+/* AllFood Page */
+
+
+
