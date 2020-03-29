@@ -36,5 +36,32 @@
 
 /* AllFood Page */
 
+.recipies-section-all-food {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
 
+}
+
+.card-image-all-food{
+   /* min-height: 300px; */
+   width: 200px;
+   height: 200px;
+   line-height: 200px;
+   border-radius: 50%;
+   -moz-border-radius: 50%;
+   -webkit-border-radius: 50%;
+}
+
+.card-all-food{
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+}
 

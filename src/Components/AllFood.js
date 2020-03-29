@@ -10,22 +10,16 @@ function AllFood() {
 
 
     return (
-        <div className="recipies-section">
+        <div className="recipies-section-all-food">
             {recipes.map(rec => (
-                <Animated key={rec.id} animationIn="fadeIn"><Card
-                    className="card"
-
-                >
-                    <CardImg
-                        className="card-image"
+                <div  className="card-all-food">
+                    <img
+                        className="card-image-all-food"
                         top
                         width="100px"
                         src={`https://spoonacular.com/recipeImages/${rec.image}`}
-                        alt={rec.title}
-
-                    />
-                </Card>
-                </Animated>
+                        alt={rec.title} />
+                </div>
             ))}
         </div>
     )
