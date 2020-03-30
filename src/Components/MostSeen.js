@@ -17,7 +17,7 @@ function MostSeen() {
                         alt={rec.title}
                     />
                 </Card>
-                
+
             ))}
         </div>
     )
@@ -25,3 +25,14 @@ function MostSeen() {
 
 
 export default MostSeen
+
+const recSection {
+
+    display: 'webkit-box',
+    display: 'ms-lexbox',
+    display: 'flex',
+    msFlexWrap: 'wrap',
+    flexWrap: 'wrap',
+    msFlexPack: 'distribute',
+    justifyContent: 'space-around'
+}
