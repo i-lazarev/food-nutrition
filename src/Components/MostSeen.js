@@ -2,8 +2,6 @@ import React, { useState, useContext } from 'react'
 import { ContextAPI } from './ContextAPI'
 import { Card, CardImg } from 'reactstrap'
 
-import { Link } from 'react-router-dom'
-
 function MostSeen() {
     const [recipes, setRecipes] = useContext(ContextAPI)
     return (
