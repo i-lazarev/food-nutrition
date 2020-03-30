@@ -24,15 +24,16 @@ function AllFood() {
 
 
     return (
-        <div className="recipies-section-all-food">
+        <div style={recSection}>
             {recipes.map(rec => (
-                <div  className="card-all-food">
+                <div style={card}>
                     <img
                         className="card-image-all-food"
                         top='true'
                         width="100px"
                         src={`https://spoonacular.com/recipeImages/${rec.image}`}
                         alt={rec.title} />
+                    <h4 style={title}>{rec.title}</h4>
                 </div>
             ))}
         </div>
@@ -41,3 +42,30 @@ function AllFood() {
 
 
 export default AllFood
+
+const recSection = {
+    display: 'webkit-box',
+    display: 'ms-lexbox',
+    display: 'flex',
+    msFlexWrap: 'wrap',
+    flexWrap: 'wrap',
+    msFlexPack: 'distribute',
+    justifyContent: 'space-around',
+    marginTop: '15px'
+}
+
+const card = {
+    width: '200px',
+    minHeight: '200px',
+    lineHeight: '200px',
+    borderRadius: '50%',
+    mozBorderRadius: '50%',
+    webkitBorderRadius: '50%'
+}
+
+const title = {
+    marginTop: '10px',
+    textAlign: 'center',
+    fontFamily: 'Arial, Helvetica, sans-serif' ,
+    fontStyle: 'italic'
+}

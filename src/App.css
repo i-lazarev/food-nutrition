@@ -11,45 +11,7 @@
 	margin-top: 10rem;
 }
 
-/* MostSeen page */
-.recipies-section {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  -ms-flex-pack: distribute;
-  justify-content: space-around;
-}
-
-.card {
-  width: 250px;
-  min-height: 250px;
-  margin: 20px;
-  border-radius: 20px;
-  -webkit-box-shadow: 4px 1px 10px 4px rgb(223, 60, 60);
-  box-shadow: 2px 1px 10px 2px rgb(150, 144, 147);
-}
-
-.card-image {
-  max-height: 100%;
-  border-radius: 1px;
-}
-
 /* AllFood Page */
-
-.recipies-section-all-food {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  -ms-flex-pack: distribute;
-  justify-content: space-around;
-  margin-top: 15px;
-
-}
-
 .card-image-all-food{
    /* min-height: 300px; */
    width: 200px;
@@ -58,13 +20,7 @@
    border-radius: 50%;
    -moz-border-radius: 50%;
    -webkit-border-radius: 50%;
+   font-weight: 100 ;
 }
 
-.card-all-food{
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  -moz-border-radius: 50%;
-  -webkit-border-radius: 50%;
-}
 
