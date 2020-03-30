@@ -29,7 +29,7 @@ function AllFood() {
                 <div  className="card-all-food">
                     <img
                         className="card-image-all-food"
-                        top
+                        top='true'
                         width="100px"
                         src={`https://spoonacular.com/recipeImages/${rec.image}`}
                         alt={rec.title} />

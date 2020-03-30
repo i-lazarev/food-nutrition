@@ -9,7 +9,7 @@ export const RecipeProvider = (props) => {
     }, [])
 
     const getRecipes = async () => {
-        const response = await fetch("https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search?number=3&offset=0&query=tomato", {
+        const response = await fetch(`https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search?number=3&offset=0&query=tomato`, {
             "method": "GET",
             "headers": {
                 "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",

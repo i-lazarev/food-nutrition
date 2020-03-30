@@ -6,15 +6,11 @@ import { Link } from 'react-router-dom'
 
 function MostSeen() {
     const [recipes, setRecipes] = useContext(ContextAPI)
-
-
     return (
         <div className="recipies-section">
             {recipes.map(rec => (
                 <Card
-                    className="card"
-
-                >
+                    className="card">
                     <CardImg
                         className="card-image"
                         top
