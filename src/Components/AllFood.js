@@ -24,7 +24,7 @@ function AllFood() {
 
 
     return (
-        <div style={recSection}>
+        <div style={Section}>
             {recipes.map(rec => (
                 <div style={card}>
                     <img
@@ -43,7 +43,7 @@ function AllFood() {
 
 export default AllFood
 
-const recSection = {
+const Section = {
     display: 'webkit-box',
     display: 'ms-lexbox',
     display: 'flex',
@@ -66,6 +66,6 @@ const card = {
 const title = {
     marginTop: '10px',
     textAlign: 'center',
-    fontFamily: 'Arial, Helvetica, sans-serif' ,
+    fontFamily: 'Arial, Helvetica, sans-serif',
     fontStyle: 'italic'
 }
