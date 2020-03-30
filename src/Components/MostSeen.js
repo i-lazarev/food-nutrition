@@ -1,7 +1,6 @@
 import React, { useState, useContext } from 'react'
 import { ContextAPI } from './ContextAPI'
 import { Card, CardImg } from 'reactstrap'
-import { Animated } from "react-animated-css";
 
 import { Link } from 'react-router-dom'
 
@@ -12,7 +11,7 @@ function MostSeen() {
     return (
         <div className="recipies-section">
             {recipes.map(rec => (
-                <Animated key={rec.id} animationIn="fadeIn"><Card
+                <Card
                     className="card"
 
                 >
@@ -22,10 +21,9 @@ function MostSeen() {
                         width="100px"
                         src={`https://spoonacular.com/recipeImages/${rec.image}`}
                         alt={rec.title}
-
                     />
                 </Card>
-                </Animated>
+                
             ))}
         </div>
     )

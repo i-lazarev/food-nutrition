@@ -20,10 +20,10 @@ const LoginHeader = (props) => {
             <Navbar color="light" light expand="md">
                 <NavbarBrand href="/">food-nutrition</NavbarBrand>
                 <NavbarToggler onClick={toggle} />
-                <Collapse isOpen={isOpen} navbar>
-                    <Nav className="mr-auto" navbar>
-                        <NavItem style={{ marginLeft: '400px', fontSize: '25px' }}>
-                            <NavLink href='Login'>Log in</NavLink>
+                <Collapse isOpen={isOpen} navbar >
+                    <Nav navbar style={mainDiv} >
+                        <NavItem  >
+                            <NavLink href='Login' >Log in</NavLink>
                         </NavItem>
 
                     </Nav>
@@ -37,3 +37,9 @@ const LoginHeader = (props) => {
 export default LoginHeader;
 
 
+const mainDiv = {
+    width: '100%',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+}
