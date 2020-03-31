@@ -15,6 +15,7 @@ function MostSeen() {
                         width="100px"
                         src={`https://spoonacular.com/recipeImages/${rec.image}`}
                         alt={rec.title}
+                        key={rec.id}
                     />
                 </Card>
 
@@ -41,11 +42,11 @@ const card = {
     minHeight: '250px',
     margin: '20px',
     borderRadius: '20px',
-    webkitBoxShadow: '4px 1px 10px 4px rgb(223, 60, 60)',
+    WebkitBoxShadow: '4px 1px 10px 4px rgb(223, 60, 60)',
     boxShadow: '2px 1px 10px 2px rgb(150, 144, 147)'
 }
 
 const cardImage = {
-    maxHeight: '100' ,
+    maxHeight: '100',
     borderRadius: '1px'
 }

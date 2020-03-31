@@ -59,8 +59,8 @@ const card = {
     minHeight: '200px',
     lineHeight: '200px',
     borderRadius: '50%',
-    mozBorderRadius: '50%',
-    webkitBorderRadius: '50%'
+    MozBorderRadius: '50%',
+    WebkitBorderRadius: '50%'
 }
 
 const title = {

@@ -21,7 +21,7 @@ export const RecipeProvider = (props) => {
         // console.log(data.results);
     }
 
-    const [recipes, setRecipes] = useState([])
+    const [recipes, setRecipes] = useState([getRecipes])
 
 
     return (

@@ -64,8 +64,7 @@ const HomePage = (props) => {
                         <Form
                             onSubmit={getSearch}
                             style={{ "display": "flex" }}
-
-                        >
+                            >
                             <Input type='text'
                                 placeholder='Search'
                                 value={search}
@@ -78,7 +77,7 @@ const HomePage = (props) => {
                                 />
                                 search
                             </Button>
-
+        
                         </Form>
                         <NavItem >
                             <NavLink href="/creat-an-account">Create an account</NavLink>
