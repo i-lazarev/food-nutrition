@@ -95,36 +95,23 @@ app.post("/create-account", (req, res) => {
 });
 
 
-// app.post("/login", (req, res) => {
-//   User.findOne({ username: req.body.username })
-//     .then(user => {
-//       // user with this email not found? => error
-//       if (!user) {
-//         res.status(400).send({ err: "invalid username or password" });
-//       } else {
-//         // compare passwords using bcrypt.compare() function
-//         bcrypt.compare(req.body.password, user.password).then(success => {
-//           // user password does not match password from login form? => error
-//           if (!success) {
-//             res.status(400).send({ err: "invalid username or password" });
-//           } else {
-//             // create JWT token by signing
-//             let secret = 'secret';
-//             let token = jwt.sign(
-//               { username: user.username, aud: "iPhone-App" }, //???
-//               secret
-//             );
-
-//             // ,{ expiresIn: "1h" }
-
-            
-//             res.send({ token: user.username }); // => same as: { "token": token }
-//           }
-//         });
-//       }
-//     })
-//     .catch(err => res.status(400).json("err: " + err));
-// });
+app.post("/login", (req, res) => {
+  User.findOne({ email: req.body.email }).then(user => {
+    if (!user) {
+      return res.send("u don't have an account, sign up now!");
+    }
+    let match = bcrypt.compareSync(req.body.password, user.password);
+    if (match) {
+      let token = jwt.sign({ userId: user.id, email: user.email }, secret, {
+        expiresIn: "1h"
+      }); // the lifetime (=expiration time) for the token after which it is getting invalid
+      return res.send({ token: token });
+      //return res.send(user)
+    } else {
+      res.send("authentication problem");
+    }
+  });
+});
 
 
 
