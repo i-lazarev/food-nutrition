@@ -26,7 +26,8 @@ const userSchema = new mongoose.Schema(
     maintain: Boolean,
     lowCarbs: Boolean,
     moderateCarbs: Boolean,
-    highCarbs: Boolean
+    highCarbs: Boolean,
+    fav: [{}]
   },
 
   { versionKey: false }

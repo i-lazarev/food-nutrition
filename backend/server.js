@@ -6,6 +6,8 @@ const jwt = require("jsonwebtoken");
 const User = require("./Models/user.model");
 require("dotenv").config();
 
+const secret='secret';
+
 // CONNECT TO MONGODB
 mongoose.connect(
   "mongodb+srv://alef:hello123@cluster0-2yq8x.mongodb.net/Onigiri?retryWrites=true&w=majority",

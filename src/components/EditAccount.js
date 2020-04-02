@@ -58,7 +58,7 @@ export default function EditAccount(props) {
         .then(data => {
           console.log(data);
         });
-  }, [input])
+  })
 
   const handleSubmit = e => {
     e.preventDefault();

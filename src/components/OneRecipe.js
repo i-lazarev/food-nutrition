@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "../styles/OneRecipe.css";
+import Header from "./Header";
 
 const OneRecipe = ({ match }) => {
   const [recipe, setRecipe] = useState({});
@@ -45,6 +46,7 @@ const OneRecipe = ({ match }) => {
 
   return (
     <div className="main-section">
+      <Header/>>
       <h2>{recipe.title}</h2>
       <div className="image-ingredients">
         <img src={recipe.image} alt={recipe.title} />
@@ -73,7 +75,7 @@ const OneRecipe = ({ match }) => {
         </div>
       </div>
       <div>
-        <h3>Istructions</h3>
+        <h3>Instructions</h3>
         <p>{recipe.instructions}</p>
       </div>
 

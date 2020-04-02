@@ -15,6 +15,8 @@ import {
   Button
 } from "reactstrap";
 import { ApiContext } from "./ApiContext";
+import Header from "./Header";
+import Footer from "./Footer";
 
 const Search = () => {
   const [recipies, setRecipies] = useState([]);
@@ -135,7 +137,8 @@ const Search = () => {
 
   return (
     
-    <div className="main-section">
+    <div>
+    <Header/>
     <h1>Recipe Name</h1>
 
       <div className="drop-down-menu"
@@ -249,12 +252,13 @@ const Search = () => {
             />
             <CardBody>
               <CardTitle>{res.title}</CardTitle>
-              <Link to={`recipies/${res.id}`} className="btn-flip" data-back="Click me" data-front="Details"/>
+              <Link to={`recipe/${res.id}`} className="btn-flip" data-back="Click me" data-front="Details"/>
             </CardBody>
           </Card></Animated>
         ))}
       </div>
       <Button className="load-more animated infinite bounce delay-2s" onClick={()=>setRecipeNumber(recipeNumber + 10)}>More</Button>
+     <Footer/>
     </div>
   );
 };
