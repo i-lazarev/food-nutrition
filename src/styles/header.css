@@ -8,8 +8,8 @@
 .input-search{
     width: 300px;
 }
+
 .input-search:focus{
     border-color: #cccccc;
-    -webkit-box-shadow: none;
     box-shadow: none;
 }

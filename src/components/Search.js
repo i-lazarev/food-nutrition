@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import "../styles/Search.css";
-import {Animated} from "react-animated-css";
+import { Animated } from "react-animated-css";
 
 import {
   ButtonDropdown,
@@ -134,19 +134,12 @@ const Search = () => {
   };
 
   return (
-    
     <div className="main-section">
-    <h1>Recipe Name</h1>
+      <h1>Recipe Name</h1>
 
-      <div className="drop-down-menu"
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between"
-        }}
-      >
+      <div className="drop-down-menu">
         <div className="cuisine-dropdown ">
-          <label className="cuisineTitle">Cuisine </label>
+          <label className="cuisineTitle">Cuisine:</label>
           <ButtonDropdown
             isOpen={dropdownOpen.cuisine}
             toggle={() => toggle("cuisine")}
@@ -168,7 +161,7 @@ const Search = () => {
           </ButtonDropdown>
         </div>
         <div className="diet-dropdown">
-          <label className="cuisineTitle">Diet </label>
+          <label className="cuisineTitle">Diet:</label>
           <ButtonDropdown
             isOpen={dropdownOpen.diet}
             toggle={() => toggle("diet")}
@@ -190,7 +183,7 @@ const Search = () => {
           </ButtonDropdown>
         </div>
         <div className="intolerance-dropdown">
-          <label className="cuisineTitle">Intolerance </label>
+          <label className="cuisineTitle">Intolerance:</label>
           <ButtonDropdown
             isOpen={dropdownOpen.intolerance}
             toggle={() => toggle("intolerance")}
@@ -212,7 +205,7 @@ const Search = () => {
           </ButtonDropdown>
         </div>
         <div className="type-dropdown">
-          <label className="cuisineTitle">Type</label>
+          <label className="cuisineTitle">Type:</label>
           <ButtonDropdown
             isOpen={dropdownOpen.type}
             toggle={() => toggle("type")}
@@ -236,29 +229,26 @@ const Search = () => {
       </div>
       <div className="recipies-section">
         {recipies.map(res => (
-          <Animated key={res.id} animationIn="fadeIn"><Card
-            className="card"
-            
-          >
-            <CardImg
-             className="card-image"
-              top
-              width="100px"
+          <Link className="one-recipe" to={`recipies/${res.id}`}>
+            <img
+              className="one-recipe-img"
               src={`https://spoonacular.com/recipeImages/${res.image}`}
+              height="100%"
+              
+              
               alt={res.title}
-            />
-            <CardBody>
-              <CardTitle>{res.title}</CardTitle>
-              <Link to={`recipies/${res.id}`} className="btn-flip" data-back="Click me" data-front="Details"/>
-            </CardBody>
-          </Card></Animated>
+            ></img>
+          </Link>
         ))}
       </div>
-      <Button className="load-more animated infinite bounce delay-2s" onClick={()=>setRecipeNumber(recipeNumber + 10)}>More</Button>
+      <Button
+        className="load-more"
+        onClick={() => setRecipeNumber(recipeNumber + 10)}
+      >
+        More
+      </Button>
     </div>
   );
 };
 
 export default Search;
-
-

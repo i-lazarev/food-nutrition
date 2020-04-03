@@ -40,12 +40,6 @@ const Header = () => {
             </NavItem>
             <NavItem>
             <SearchBar />
-              {/* <form style={{"display":"flex"}}>
-                <Input type="text" name="search" className="input-search" placeholder="Search" onChange={updateQuery}/>
-                <button>
-                  <FontAwesome name="search"  />
-                </button>
-              </form> */}
             </NavItem>
             <div style={{ display: "flex" }}>
               <NavItem>
