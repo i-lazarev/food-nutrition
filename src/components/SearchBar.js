@@ -11,6 +11,7 @@ export default function SearchBar() {
     const updateQuery =(e) =>{
         e.preventDefault()
        setQuery(input)
+       console.log(query)
       }
 
     return (

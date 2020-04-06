@@ -1,53 +1,19 @@
 import React, { useState, useEffect } from "react";
 import "../styles/OneRecipe.css";
 
-const OneRecipe = ({ match }) => {
-  const [recipe, setRecipe] = useState({});
+const OneRecipe = (props) => {
+  const [recipe, setRecipe] = useState(props.location.state[0]);
   const [ingredient, setIngredient] = useState([]);
   const [ingDetails, setIngDetails] = useState([]);
   useEffect(() => {
-    fetch(
-      `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/${match.params.id}/information`,
-      {
-        method: "GET",
-        headers: {
-          "x-rapidapi-host":
-            "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-          "x-rapidapi-key": "57c6580995msh16a1bdca19a22f4p19d9c9jsn96e04208e387"
-        }
-      }
-    )
-      .then(res => res.json())
-      .then(res => {
-        setRecipe(res);
-        setIngredient(res.extendedIngredients);
-      })
-      .catch(err => {
-        console.log(err);
-      });
-    fetch(
-      `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/${match.params.id}/nutritionWidget.json`,
-      {
-        method: "GET",
-        headers: {
-          "x-rapidapi-host":
-            "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-          "x-rapidapi-key": "57c6580995msh16a1bdca19a22f4p19d9c9jsn96e04208e387"
-        }
-      }
-    )
-      .then(res => res.json())
-      .then(res => setIngDetails(res))
-      .catch(err => {
-        console.log(err);
-      });
-  }, [match.params.id]);
+    console.log(recipe)
+  });
 
   return (
     <div className="main-section">
-      <h2>{recipe.title}</h2>
+      <h2>{recipe.recipe.label}</h2>
       <div className="image-ingredients">
-        <img src={recipe.image} alt={recipe.title} />
+        <img src={recipe.recipe.image} alt={recipe.title} />
         <div className="nutrition-ingredients">
           <div className="ingredients">
             <h3>Nutrition</h3>
@@ -77,7 +43,7 @@ const OneRecipe = ({ match }) => {
         <p>{recipe.instructions}</p>
       </div>
 
-      <div>{console.log(recipe)}</div>
+      
     </div>
   );
 };

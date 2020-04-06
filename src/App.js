@@ -17,7 +17,7 @@ const App = () => {
           <Switch>
             {/* <Route path="/" exact component={HomePage} /> */}
             <Route path="/recipies" exact component={Search} />
-            <Route path="/recipies/:id" component={OneRecipe} />
+            <Route path="/recipe" component={OneRecipe} />
             {/* <Route path="/login" exact component={Login} /> */}
           </Switch>
         </div>
