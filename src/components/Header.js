@@ -22,6 +22,7 @@ import {
   NavLink
 } from "reactstrap";
 import SearchBar from "./SearchBar";
+import Profile from "./Profile";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -74,7 +75,12 @@ const Header = () => {
                 }}
               >
                 <NavLink onClick={handleShowInfo}>
-                  <span>show info</span> {show?<FontAwesomeIcon icon={faAngleDown} />:<FontAwesomeIcon icon={faAngleUp} />}
+                  <span>show info</span>{" "}
+                  {show ? (
+                    <FontAwesomeIcon icon={faAngleDown} />
+                  ) : (
+                    <FontAwesomeIcon icon={faAngleUp} />
+                  )}
                 </NavLink>
                 <NavItem>
                   <NavLink href="/favorite">
@@ -82,7 +88,7 @@ const Header = () => {
                   </NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink>
+                  <NavLink href="/edit-account-info">
                     <FontAwesomeIcon icon={faUserEdit} />
                   </NavLink>
                 </NavItem>
@@ -103,6 +109,7 @@ const Header = () => {
           </Nav>
         </Collapse>
       </Navbar>
+      {show ? <Profile /> : ''}
     </div>
   );
 };

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import "../styles/Search.css";
-import {Animated} from "react-animated-css";
+import { Animated } from "react-animated-css";
 
 import {
   ButtonDropdown,
@@ -29,13 +29,11 @@ const Search = () => {
 
   useEffect(() => {
     fetch(
-      `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search?cuisine=${cuisine}&diet=${diet}&intolerances=${intolerance}&number=${recipeNumber}&type=${type}&offset=0&query=${query}`,
+      `https://api.spoonacular.com/recipes/search?cuisine=${cuisine}&diet=${diet}&intolerances=${intolerance}&number=${recipeNumber}&type=${type}&offset=0&query=${query}&apiKey=db603acba1014e209b0cda8a89aae478`,
       {
         method: "GET",
         headers: {
-          "x-rapidapi-host":
-            "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-          "x-rapidapi-key": "57c6580995msh16a1bdca19a22f4p19d9c9jsn96e04208e387"
+          "Content-Type": "application/json"
         }
       }
     )
@@ -136,12 +134,12 @@ const Search = () => {
   };
 
   return (
-    
     <div>
-    <Header/>
-    <h1>Recipe Name</h1>
+      <Header />
+      <h1>Recipe Name</h1>
 
-      <div className="drop-down-menu"
+      <div
+        className="drop-down-menu"
         style={{
           display: "flex",
           alignItems: "center",
@@ -239,30 +237,37 @@ const Search = () => {
       </div>
       <div className="recipies-section">
         {recipies.map(res => (
-          <Animated key={res.id} animationIn="fadeIn"><Card
-            className="card"
-            
-          >
-            <CardImg
-             className="card-image"
-              top
-              width="100px"
-              src={`https://spoonacular.com/recipeImages/${res.image}`}
-              alt={res.title}
-            />
-            <CardBody>
-              <CardTitle>{res.title}</CardTitle>
-              <Link to={`recipe/${res.id}`} className="btn-flip" data-back="Click me" data-front="Details"/>
-            </CardBody>
-          </Card></Animated>
+          <Animated key={res.id} animationIn="fadeIn">
+            <Card className="card">
+              <CardImg
+                className="card-image"
+                top
+                width="100px"
+                src={`https://spoonacular.com/recipeImages/${res.image}`}
+                alt={res.title}
+              />
+              <CardBody>
+                <CardTitle>{res.title}</CardTitle>
+                <Link
+                  to={`recipe/${res.id}`}
+                  className="btn-flip"
+                  data-back="Click me"
+                  data-front="Details"
+                />
+              </CardBody>
+            </Card>
+          </Animated>
         ))}
       </div>
-      <Button className="load-more animated infinite bounce delay-2s" onClick={()=>setRecipeNumber(recipeNumber + 10)}>More</Button>
-     <Footer/>
+      <Button
+        className="load-more animated infinite bounce delay-2s"
+        onClick={() => setRecipeNumber(recipeNumber + 10)}
+      >
+        More
+      </Button>
+      <Footer />
     </div>
   );
 };
 
 export default Search;
-
-

@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useHistory } from "react-router-dom";
+import { TokenContext } from "./TokenContext";
 
 export default function EditAccount(props) {
   const [height, setHeight] = useState("");
@@ -22,6 +23,7 @@ export default function EditAccount(props) {
   const [durationOfWorkout, setDurationOfWorkout] = useState(0);
   const [index, setIndex] = useState("");
   const history = useHistory();
+  const token = useContext(TokenContext);
 
   const ratios = [
     {
@@ -43,22 +45,19 @@ export default function EditAccount(props) {
       fat: 30 // 30-40
     }
   ];
-  
-  useEffect(() => {
-      fetch("http://localhost:5000/edit-account", {
-        method: "POST",
-        body: JSON.stringify({ email: props.location.state.email }),
-        headers: {
-          "Content-Type": "application/json",
 
-          Authorization: `Bearer ${props.location.state.token}`
-        }
-      })
-        .then(res => res.json())
-        .then(data => {
-          console.log(data);
-        });
-  })
+  useEffect(() => {
+    fetch("http://localhost:5000/profile", {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`
+      }
+    })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+      });
+  });
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -95,10 +94,9 @@ export default function EditAccount(props) {
 
     if (TDEE) {
       console.log(TDEE, goalCal, protein, carbs, fat, sugar);
-      fetch("http://localhost:5000/create-account", {
+      fetch("http://localhost:5000/edit-account", {
         method: "POST",
         body: JSON.stringify({
-          email: props.location.state.email,
           tdee: TDEE,
           goal: goalCal,
           protein: protein,
@@ -122,11 +120,14 @@ export default function EditAccount(props) {
           moderateCarbs: moderateCarbs,
           highCarbs: highCarbs
         }),
-        headers: { "Content-Type": "application/json" }
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`
+        }
       })
         .then(response => response.json())
         .then(data => console.log(data));
-      // history.push("/login");
+      // history.push("/");
     } else {
       console.log("some fields are missing");
     }

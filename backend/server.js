@@ -104,7 +104,7 @@ app.post("/login", (req, res) => {
     }
     let match = bcrypt.compareSync(req.body.password, user.password);
     if (match) {
-      let token = jwt.sign({ userId: user.id, email: user.email }, secret, {
+      let token = jwt.sign({ userId: user._id, email: user.email }, secret, {
         expiresIn: "1h"
       }); // the lifetime (=expiration time) for the token after which it is getting invalid
       return res.send({ token: token });
@@ -115,5 +115,49 @@ app.post("/login", (req, res) => {
   });
 });
 
+const authenticateToken=(req,res,next)=>{
+  const authHeader=req.headers['Authorization'];
+  const token =authHeader.split(' ')[1];
+  if (token ==null) return res.sendStatus(401);
 
+  jwt.verify(token, secret, (err, email)=>{
+    if(err) return res.sendStatus(401);
+    req.user=email;
+    next()
+  })
+}
 
+app.get('/profile', authenticateToken, (req,res)=>{
+    User.findOne({email: req.user.email}).then(user=>res.send(user));
+})
+
+app.post("/edit-account", authenticateToken, (req, res) => {
+  User.findOne({ email: req.user.email })
+    .then(user => {
+      user.tdee = req.body.tdee;
+      user.goalCal = req.body.goal;
+      user.protein = req.body.protein;
+      user.carbs = req.body.carbs;
+      user.fat = req.body.fat;
+      user.sugar = req.body.sugar;
+      user.height = req.body.height;
+      user.weight = req.body.weight;
+      user.age = req.body.age;
+      user.male = req.body.male;
+      user.female = req.body.female;
+      user.daysOfWorkout = req.body.daysOfWorkout;
+      user.durationOfWorkout = req.body.durationOfWorkout;
+      user.ecto = req.body.ecto;
+      user.meso = req.body.meso;
+      user.endo = req.body.endo;
+      user.lose = req.body.lose;
+      user.gain = req.body.gain;
+      user.maintain = req.body.maintain;
+      user.lowCarbs = req.body.lowCarbs;
+      user.moderateCarbs = req.body.moderateCarbs;
+      user.highCarbs = req.body.highCarbs;
+      user.save();
+      res.json("info saved");
+    })
+    .catch(err => res.status(400).json("Error: " + err));
+});

@@ -8,13 +8,11 @@ const OneRecipe = ({ match }) => {
   const [ingDetails, setIngDetails] = useState([]);
   useEffect(() => {
     fetch(
-      `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/${match.params.id}/information`,
+      `https://api.spoonacular.com/recipes/${match.params.id}/information?amount=1&apiKey=db603acba1014e209b0cda8a89aae478`,
       {
         method: "GET",
         headers: {
-          "x-rapidapi-host":
-            "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-          "x-rapidapi-key": "57c6580995msh16a1bdca19a22f4p19d9c9jsn96e04208e387"
+          "Content-Type": "application/json"
         }
       }
     )
@@ -27,13 +25,11 @@ const OneRecipe = ({ match }) => {
         console.log(err);
       });
     fetch(
-      `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/${match.params.id}/nutritionWidget.json`,
+      `https://api.spoonacular.com/recipes/${match.params.id}/nutritionWidget.json?&apiKey=db603acba1014e209b0cda8a89aae478`,
       {
         method: "GET",
         headers: {
-          "x-rapidapi-host":
-            "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-          "x-rapidapi-key": "57c6580995msh16a1bdca19a22f4p19d9c9jsn96e04208e387"
+          "Content-Type": "application/json"
         }
       }
     )
