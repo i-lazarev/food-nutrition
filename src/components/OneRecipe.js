@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import {Link, Redirect} from "react-router-dom";
 import "../styles/OneRecipe.css";
+import Header from "./Header";
 
 const OneRecipe = (props) => {
   const [recipeInfo, setrecipeInfo] = useState(props.location.state[0]);
@@ -18,7 +19,8 @@ const OneRecipe = (props) => {
 
   return (
     <div className="main-section">
-      <h2 style={{"textAlign":"center"}}>{capitalize(recipeInfo.recipe.label)}</h2>
+      <Header/>>
+      <h2>{recipe.title}</h2>
       <div className="image-ingredients">
         <img src={recipeInfo.recipe.image} alt={recipeInfo.recipe.title} />
         <div className="nutrition-ingredients">
@@ -43,8 +45,8 @@ const OneRecipe = (props) => {
         </div>
       </div>
       <div>
-        <a href={recipeInfo.recipe.url}>Instructions</a> 
-        
+        <h3>Instructions</h3>
+        <p>{recipe.instructions}</p>
       </div>
 
       

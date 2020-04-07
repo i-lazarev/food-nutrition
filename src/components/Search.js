@@ -4,6 +4,8 @@ import "../styles/Search.css";
 
 import { Button } from "reactstrap";
 import { ApiContext } from "./ApiContext";
+import Header from "./Header";
+import Footer from "./Footer";
 
 const Search = () => {
   const [recipes, setRecipes] = useState([]);
@@ -40,8 +42,10 @@ const Search = () => {
   // }
 
   return (
-    <div className="main-section">
-      <h1 style={{ textAlign: "center" }}>FILTER</h1>
+    
+    <div>
+    <Header/>
+    <h1>Recipe Name</h1>
 
       <div className="drop-down-menu">
         <div className="diet-dropdown">
@@ -81,17 +85,16 @@ const Search = () => {
               src={res.image}
               height="100%"
               alt={res.title}
-            ></img>
-
-            </div>
+            />
+            <CardBody>
+              <CardTitle>{res.title}</CardTitle>
+              <Link to={`recipe/${res.id}`} className="btn-flip" data-back="Click me" data-front="Details"/>
+            </CardBody>
+          </Card></Animated>
         ))}
       </div>
-      <Button
-        className="load-more"
-        onClick={() => setRecipeNumber(recipeNumber + 10)}
-      >
-        More
-      </Button>
+      <Button className="load-more animated infinite bounce delay-2s" onClick={()=>setRecipeNumber(recipeNumber + 10)}>More</Button>
+     <Footer/>
     </div>
   );
 };
