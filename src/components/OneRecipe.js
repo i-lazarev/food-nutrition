@@ -1,37 +1,41 @@
 import React, { useState, useEffect } from "react";
+import {Link, Redirect} from "react-router-dom";
 import "../styles/OneRecipe.css";
 
 const OneRecipe = (props) => {
-  const [recipe, setRecipe] = useState(props.location.state[0]);
+  const [recipeInfo, setrecipeInfo] = useState(props.location.state[0]);
   const [ingredient, setIngredient] = useState([]);
   const [ingDetails, setIngDetails] = useState([]);
   useEffect(() => {
-    console.log(recipe)
+    console.log(recipeInfo)
   });
+  const digest = recipeInfo.recipe.digest
+  const ingredients = recipeInfo.recipe.ingredients
+
+  const capitalize=(word)=>{
+   return word.charAt(0).toUpperCase() + word.substring(1)
+  }
 
   return (
     <div className="main-section">
-      <h2>{recipe.recipe.label}</h2>
+      <h2 style={{"textAlign":"center"}}>{capitalize(recipeInfo.recipe.label)}</h2>
       <div className="image-ingredients">
-        <img src={recipe.recipe.image} alt={recipe.title} />
+        <img src={recipeInfo.recipe.image} alt={recipeInfo.recipe.title} />
         <div className="nutrition-ingredients">
-          <div className="ingredients">
+          <div className="nutrition">
             <h3>Nutrition</h3>
             <div >
-            <li className="nutrition-list"><span>calories: </span><span>{ingDetails.calories}</span></li>
-            <li className="nutrition-list"><span>carbs: </span><span>{ingDetails.carbs}</span></li>
-            <li className="nutrition-list"><span>fat: </span><span>{ingDetails.fat}</span></li>
-            <li className="nutrition-list"><span>protein: </span><span>{ingDetails.protein}</span></li>
+            <li>Calories: {recipeInfo.recipe.calories.toFixed(1)} mg</li>
+            {digest.map(info =>(<li key ={Math.random()}>{info.label}: {info.total.toFixed(1)} {info.unit}</li>))}
             </div>
           </div>
           <div className="ingredients">
             <h3>Ingredients</h3>
             <div>
-              {ingredient.map(res => (
-                <li key={res.id} className="ingredients-list">
-                  <span>{res.name} </span>
-                  <span> {res.amount} </span>
-                  <span>{res.unit}</span>
+            
+              {ingredients.map(res => (
+                <li key={Math.random()} className="ingredients-list">
+                  {res.text}
                 </li>
               ))}
             </div>
@@ -39,8 +43,8 @@ const OneRecipe = (props) => {
         </div>
       </div>
       <div>
-        <h3>Istructions</h3>
-        <p>{recipe.instructions}</p>
+        <a href={recipeInfo.recipe.url}>Instructions</a> 
+        
       </div>
 
       

@@ -11,13 +11,14 @@ const Search = () => {
   const [diet, setDiet] = useState("");
   const [health, setHealth] = useState("");
   const [recipeNumber, setRecipeNumber] = useState(10);
+  const apiKey = "d21f98ccdf934ed5ac7c1e724093d571"
 
   useEffect(() => {
     fetch(
-      `https://api.edamam.com/search?q=${query}&app_id=3f78256c&app_key=970c0d4d94087b8a1bb7112cd5c28104${health}${diet}&from=0&to=${recipeNumber}`
+      `https://api.spoonacular.com/recipes/search?query=${query}&apiKey=${apiKey}`
     )
       .then(res => res.json())
-      .then(data => setRecipes(data.hits));
+      .then(data => setRecipes(data.results));
   }, [diet, health, query, recipeNumber]);
   
 
@@ -31,12 +32,12 @@ const Search = () => {
     "alcohol-free	"
   ];
   const history = useHistory();
-  const handleClick = (label) =>{
-    const result = recipes.filter(res=>res.recipe.label === label);
-    console.log(label)
-    history.push({pathname:"/recipe", state:result})
+  // const handleClick = (label) =>{
+  //   const result = recipes.filter(res=>res.recipe.label === label);
+  //   console.log(label)
+  //   history.push({pathname:"/recipe", state:result})
     
-  }
+  // }
 
   return (
     <div className="main-section">
@@ -72,12 +73,12 @@ const Search = () => {
       {console.log(recipes)}
         {recipes.map(res => (
 
-            <div key={Math.random()}
-             className="one-recipe" onClick={handleClick.bind(this,res.recipe.label)}>
-            {console.log(res.recipe.label)}
+            <div key={res.id}
+             className="one-recipe" >
+           
             <img
               className="one-recipe-img"
-              src={res.recipe.image}
+              src={res.image}
               height="100%"
               alt={res.title}
             ></img>
