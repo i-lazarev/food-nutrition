@@ -4,24 +4,27 @@ export const ContextAPI = createContext();
 
 export const RecipeProvider = (props) => {
 
-    useEffect(() => {
-        getRecipes()
-    }, [])
+    // const API_KEY = '0d88ab02f8954c859a43c6cc733c14d5'
 
-    const getRecipes = async () => {
-        const response = await fetch(`https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search?number=3&offset=0&query=tomato`, {
-            "method": "GET",
-            "headers": {
-                "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-                "x-rapidapi-key": "57c6580995msh16a1bdca19a22f4p19d9c9jsn96e04208e387"
-            }
-        })
-        const data = await response.json()
-        setRecipes(data.results)
-        // console.log(data.results);
-    }
+    // useEffect(() => {
+    //     getRecipes()
+    // }, [])
 
-    const [recipes, setRecipes] = useState([getRecipes])
+
+    // const getRecipes = () => {
+    //     fetch(`https://api.spoonacular.com/recipes/${match.params.id}/information?amount=1&apiKey=0d88ab02f8954c859a43c6cc733c14d5`, {
+    //         "method": "GET",
+    //         'Content-Type': 'application/json' 
+    //     })
+    //         .then(response => {
+    //             console.log(response.json());
+    //         })
+    //         .catch(err => {
+    //             console.log(err);
+    //         });
+    // }
+
+    const [recipes, setRecipes] = useState([])
 
 
     return (

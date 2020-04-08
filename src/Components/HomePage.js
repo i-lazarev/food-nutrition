@@ -13,7 +13,7 @@ import {
 } from 'reactstrap';
 import MostSeen from './MostSeen';
 import AllFood from './AllFood';
-import {ContextAPI} from './ContextAPI'
+import { ContextAPI } from './ContextAPI'
 
 
 const HomePage = (props) => {
@@ -24,22 +24,21 @@ const HomePage = (props) => {
     const [search, setSearch] = useState('')
     const [query, setQuery] = useContext(ContextAPI)
 
-    // useEffect(() => {
-    //     getRecipes()
-    // }, [query])
+    useEffect(() => {
+        getRecipes()
+    }, [query])
 
-    // const getRecipes = async () => {
-    //     const response = await fetch(`https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search?number=3&offset=0&query=${query}`, {
-    //         "method": "GET",
-    //         "headers": {
-    //             "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-    //             "x-rapidapi-key": "57c6580995msh16a1bdca19a22f4p19d9c9jsn96e04208e387"
-    //         }
-    //     })
-    //     const data = await response.json()
-    //     setRecipes(data.results)
-    //     // console.log(data.results);
-    // }
+    const getRecipes = () => {
+        fetch(`https://api.spoonacular.com/recipes/search?query=apple&apiKey=d89d17872b3f4f8fa0da39073a9defdf`, { 
+            "method": "GET",
+            'Content-Type': 'application/json'
+        })
+            .then(res => res.json())
+            .then(res => setSearch(res.results))
+            .catch(err => {
+                console.log(err);
+            });
+    }
 
     const updateSearch = (e) => {
         setSearch(e.target.value)
@@ -64,20 +63,19 @@ const HomePage = (props) => {
                         <Form
                             onSubmit={getSearch}
                             style={{ "display": "flex" }}
-                            >
+                        >
                             <Input type='text'
                                 placeholder='Search'
                                 value={search}
                                 name='search'
                                 onChange={updateSearch}
                             />
-
                             <Button style={icon} type='submit'>
                                 <img src="https://img.icons8.com/android/24/000000/search.png" alt=''
                                 />
                                 search
                             </Button>
-        
+
                         </Form>
                         <NavItem >
                             <NavLink href="/creat-an-account">Create an account</NavLink>
@@ -105,7 +103,7 @@ const icon = {
 }
 
 const mainDiv = {
-    width: '100%',  
+    width: '100%',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between'

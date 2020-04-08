@@ -1,28 +1,24 @@
 import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
 
 function AllFood() {
+
+    const [recipes, setRecipes] = useState([])
 
     useEffect(() => {
         getRecipes()
     }, [])
 
-    const getRecipes = async () => {
-        const response = await fetch("https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search?number=5&offset=0&query=tomato", {
+    const getRecipes = () => {
+        fetch(`https://api.spoonacular.com/recipes/search?query=apple&apiKey=d89d17872b3f4f8fa0da39073a9defdf`, {
             "method": "GET",
-            "headers": {
-                "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-                "x-rapidapi-key": "57c6580995msh16a1bdca19a22f4p19d9c9jsn96e04208e387"
-            }
+            'Content-Type': 'application/json'
         })
-        const data = await response.json()
-        setRecipes(data.results)
-        console.log(data.results);
+            .then(res => res.json())
+            .then(res => setRecipes(res.results))
+            .catch(err => {
+                console.log(err);
+            });
     }
-
-    const [recipes, setRecipes] = useState([])
-
-
     return (
         <div style={Section}>
             {recipes.map(rec => (

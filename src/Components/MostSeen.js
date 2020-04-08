@@ -13,7 +13,7 @@ function MostSeen() {
                         style={cardImage}
                         top
                         width="100px"
-                        src={`https://spoonacular.com/recipeImages/${rec.image}`}
+                        // src={`https://spoonacular.com/recipeImages/${rec.image}`}
                         alt={rec.title}
                         key={rec.id}
                     />
