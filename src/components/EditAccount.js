@@ -23,43 +23,61 @@ export default function EditAccount(props) {
   const [durationOfWorkout, setDurationOfWorkout] = useState(0);
   const [index, setIndex] = useState("");
   const history = useHistory();
-  const token = useContext(TokenContext);
+  const [token, setToken] = useContext(TokenContext);
 
   const ratios = [
     {
       name: "high-carbs for bodybuilding",
       carbs: 50, // 40-60
       protein: 30, // 25-35
-      fat: 20 // 15-25
+      fat: 20, // 15-25
     },
     {
       name: "moderate-carbs for maintenance",
       carbs: 40, // 30-50
       protein: 30, // 25-35
-      fat: 30 // 25-35
+      fat: 30, // 25-35
     },
     {
       name: "low-carbs for reduction",
       carbs: 20, // 10-20
       protein: 50, // 40-50
-      fat: 30 // 30-40
-    }
+      fat: 30, // 30-40
+    },
   ];
 
   useEffect(() => {
+    console.log(token);
     fetch("http://localhost:5000/profile", {
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`
-      }
+        Authorization: `Bearer ${token}`,
+      },
     })
-      .then(res => res.json())
-      .then(data => {
-        console.log(data);
-      });
-  });
+      .then((res) => res.json())
+      .then((data) =>
+        {
+          setHeight(data.height);
+          setWeight(data.weight);
+          setAge(data.age);
+          setMale(data.male);
+          setFemale(data.female);
+          setDaysOfWorkouts(data.daysOfWorkout);
+          setDurationOfWorkout(data.durationOfWorkout);
+          setEcto(data.ecto);
+          setMeso(data.meso);
+          setEndo(data.endo);
+          setLose(data.lose);
+          setGain(data.gain);
+          setMaintain(data.maintain);
+          setLowCarbs(data.lowCarbs);
+          setModerateCarbs(data.moderateCarbs);
+          setHighCarbs(data.highCarbs);
+        }
+      );
+  }, [token]);
 
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     let result =
       9.99 * parseFloat(weight) +
@@ -118,16 +136,16 @@ export default function EditAccount(props) {
           maintain: maintain,
           lowCarbs: lowCarbs,
           moderateCarbs: moderateCarbs,
-          highCarbs: highCarbs
+          highCarbs: highCarbs,
         }),
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`
-        }
+          Authorization: `Bearer ${token}`,
+        },
       })
-        .then(response => response.json())
-        .then(data => console.log(data));
-      // history.push("/");
+        .then((response) => response.json())
+        .then((data) => console.log(data));
+      history.push("/");
     } else {
       console.log("some fields are missing");
     }
@@ -141,7 +159,7 @@ export default function EditAccount(props) {
             display: "flex",
             flexWrap: "wrap",
             width: "100%",
-            justifyContent: "space-evenly"
+            justifyContent: "space-evenly",
           }}
         >
           <div style={{ width: "350px", margin: "40px 65px 0 65px" }}>
@@ -149,7 +167,7 @@ export default function EditAccount(props) {
             <div style={{ padding: "5px" }}>Height:</div>
             <input
               type="number"
-              onChange={e => setHeight(e.target.value)}
+              onChange={(e) => setHeight(e.target.value)}
               value={height}
               placeholder="Height (cm)"
               style={{ padding: "3px" }}
@@ -157,7 +175,7 @@ export default function EditAccount(props) {
             <div style={{ padding: "10px 5px 5px 5px" }}>Weight:</div>
             <input
               type="number"
-              onChange={e => setWeight(e.target.value)}
+              onChange={(e) => setWeight(e.target.value)}
               value={weight}
               placeholder="Weight (kg)"
               style={{ padding: "3px" }}
@@ -165,7 +183,7 @@ export default function EditAccount(props) {
             <div style={{ padding: "10px 5px 5px 5px" }}>Age:</div>
             <input
               type="number"
-              onChange={e => setAge(e.target.value)}
+              onChange={(e) => setAge(e.target.value)}
               value={age}
               placeholder="Age (year)"
               style={{ padding: "3px" }}
@@ -175,7 +193,7 @@ export default function EditAccount(props) {
                 <input
                   type="radio"
                   name="gender"
-                  onChange={e => {
+                  onChange={(e) => {
                     setMale(e.target.checked);
                     setFemale(!e.target.checked);
                   }}
@@ -188,7 +206,7 @@ export default function EditAccount(props) {
                 <input
                   type="radio"
                   name="gender"
-                  onChange={e => {
+                  onChange={(e) => {
                     setFemale(e.target.checked);
                     setMale(!e.target.checked);
                   }}
@@ -202,7 +220,7 @@ export default function EditAccount(props) {
               <input
                 type="radio"
                 name="bodyType"
-                onChange={e => {
+                onChange={(e) => {
                   setEcto(e.target.checked);
                   setEndo(!e.target.checked);
                   setMeso(!e.target.checked);
@@ -220,7 +238,7 @@ export default function EditAccount(props) {
               <input
                 type="radio"
                 name="bodyType"
-                onChange={e => {
+                onChange={(e) => {
                   setEcto(!e.target.checked);
                   setEndo(!e.target.checked);
                   setMeso(e.target.checked);
@@ -238,7 +256,7 @@ export default function EditAccount(props) {
               <input
                 type="radio"
                 name="bodyType"
-                onChange={e => {
+                onChange={(e) => {
                   setEcto(!e.target.checked);
                   setEndo(e.target.checked);
                   setMeso(!e.target.checked);
@@ -259,7 +277,7 @@ export default function EditAccount(props) {
               <p style={{ margin: "5px 0" }}>Days of Workout per Week:</p>
               <input
                 type="number"
-                onChange={e => setDaysOfWorkouts(e.target.value)}
+                onChange={(e) => setDaysOfWorkouts(e.target.value)}
                 value={daysOfWorkout}
                 style={{ width: "50px", textAlign: "center" }}
               />{" "}
@@ -269,7 +287,7 @@ export default function EditAccount(props) {
               <p style={{ margin: "15px 0 5px 0" }}>Duration of Workout:</p>
               <input
                 type="number"
-                onChange={e => setDurationOfWorkout(e.target.value)}
+                onChange={(e) => setDurationOfWorkout(e.target.value)}
                 value={durationOfWorkout}
                 style={{ width: "50px", textAlign: "center" }}
               />{" "}
@@ -280,7 +298,7 @@ export default function EditAccount(props) {
               <input
                 type="radio"
                 name="goal"
-                onChange={e => {
+                onChange={(e) => {
                   setGain(e.target.checked);
                   setLose(!e.target.checked);
                   setMaintain(!e.target.checked);
@@ -294,7 +312,7 @@ export default function EditAccount(props) {
               <input
                 type="radio"
                 name="goal"
-                onChange={e => {
+                onChange={(e) => {
                   setGain(!e.target.checked);
                   setLose(e.target.checked);
                   setMaintain(!e.target.checked);
@@ -308,7 +326,7 @@ export default function EditAccount(props) {
               <input
                 type="radio"
                 name="goal"
-                onChange={e => {
+                onChange={(e) => {
                   setGain(!e.target.checked);
                   setLose(!e.target.checked);
                   setMaintain(e.target.checked);
@@ -322,7 +340,7 @@ export default function EditAccount(props) {
               <input
                 type="radio"
                 name="diet"
-                onChange={e => {
+                onChange={(e) => {
                   setLowCarbs(e.target.checked);
                   setHighCarbs(!e.target.checked);
                   setModerateCarbs(!e.target.checked);
@@ -338,7 +356,7 @@ export default function EditAccount(props) {
                     color: "#fff",
                     padding: "2px 5px",
                     marginLeft: "10px",
-                    borderRadius: "5px"
+                    borderRadius: "5px",
                   }}
                 >
                   recommended
@@ -351,7 +369,7 @@ export default function EditAccount(props) {
               <input
                 type="radio"
                 name="diet"
-                onChange={e => {
+                onChange={(e) => {
                   setLowCarbs(!e.target.checked);
                   setHighCarbs(!e.target.checked);
                   setModerateCarbs(e.target.checked);
@@ -367,7 +385,7 @@ export default function EditAccount(props) {
                     color: "#fff",
                     padding: "2px 5px",
                     marginLeft: "10px",
-                    borderRadius: "5px"
+                    borderRadius: "5px",
                   }}
                 >
                   recommended
@@ -380,7 +398,7 @@ export default function EditAccount(props) {
               <input
                 type="radio"
                 name="diet"
-                onChange={e => {
+                onChange={(e) => {
                   setLowCarbs(!e.target.checked);
                   setHighCarbs(e.target.checked);
                   setModerateCarbs(!e.target.checked);
@@ -396,7 +414,7 @@ export default function EditAccount(props) {
                     color: "#fff",
                     padding: "2px 5px",
                     marginLeft: "10px",
-                    borderRadius: "5px"
+                    borderRadius: "5px",
                   }}
                 >
                   recommended
@@ -416,10 +434,10 @@ export default function EditAccount(props) {
               borderRadius: "10px",
               border: "none",
               width: "100px",
-              outline: "none"
+              outline: "none",
             }}
           >
-            Sign Up
+            update
           </button>
         </div>
       </form>

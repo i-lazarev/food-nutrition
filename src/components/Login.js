@@ -18,7 +18,7 @@ export default function Login() {
     })
       .then(res => res.json())
       .then(data => {
-        console.log(data);
+        console.log(data.token);
         setToken(data.token);
         history.push("/");
       });

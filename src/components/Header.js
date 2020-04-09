@@ -1,6 +1,6 @@
-import React, { useState, useContext} from "react";
+import React, { useState, useContext } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import {TokenContext} from './TokenContext';
+import { TokenContext } from "./TokenContext";
 import "../styles/header.css";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -10,7 +10,7 @@ import {
   faUserEdit,
   faSignOutAlt,
   faAngleUp,
-  faAngleDown
+  faAngleDown,
 } from "@fortawesome/free-solid-svg-icons";
 import {
   Collapse,
@@ -19,24 +19,25 @@ import {
   NavbarBrand,
   Nav,
   NavItem,
-  NavLink
+  NavLink,
 } from "reactstrap";
 import SearchBar from "./SearchBar";
 import Profile from "./Profile";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
- // const [query, setQuery] = useContext(ApiContext);
+  // const [query, setQuery] = useContext(ApiContext);
 
   const [token, setToken] = useContext(TokenContext);
-  const [show, setShow]=useState(false)
+  const [show, setShow] = useState(false);
   console.log(token);
-  const handleSignOut=()=>{
-      setToken(null);
-  }
-  const handleShowInfo=()=>{
-     setShow(!show);
-  }
+  const handleSignOut = () => {
+    setToken(null);
+    localStorage.removeItem("token");
+  };
+  const handleShowInfo = () => {
+    setShow(!show);
+  };
 
   const toggle = () => setIsOpen(!isOpen);
   return (
@@ -71,11 +72,11 @@ const Header = () => {
                 style={{
                   width: "250px",
                   display: "flex",
-                  justifyContent: "space-between"
+                  justifyContent: "space-between",
                 }}
               >
                 <NavLink onClick={handleShowInfo}>
-                  <span>show info</span>{" "}
+                  <span>{show?'hide info':'show info'}</span>{" "}
                   {show ? (
                     <FontAwesomeIcon icon={faAngleDown} />
                   ) : (
@@ -83,16 +84,16 @@ const Header = () => {
                   )}
                 </NavLink>
                 <NavItem>
-                  <NavLink href="/favorite">
+                  <NavLink title='your favorite recipes' href="/favorite">
                     <FontAwesomeIcon icon={faStar} />
                   </NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink href="/edit-account-info">
+                  <NavLink title='update your info' href="/edit-account-info">
                     <FontAwesomeIcon icon={faUserEdit} />
                   </NavLink>
                 </NavItem>
-                <NavLink onClick={handleSignOut}>
+                <NavLink title='sign out' onClick={handleSignOut}>
                   <FontAwesomeIcon icon={faSignOutAlt} />
                 </NavLink>
               </div>
@@ -109,7 +110,7 @@ const Header = () => {
           </Nav>
         </Collapse>
       </Navbar>
-      {show ? <Profile /> : ''}
+      {show ? <Profile /> : ""}
     </div>
   );
 };

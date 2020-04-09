@@ -116,15 +116,16 @@ app.post("/login", (req, res) => {
 });
 
 const authenticateToken=(req,res,next)=>{
-  const authHeader=req.headers['Authorization'];
+  const authHeader=req.headers['authorization'];
   const token =authHeader.split(' ')[1];
   if (token ==null) return res.sendStatus(401);
 
-  jwt.verify(token, secret, (err, email)=>{
+  jwt.verify(token, secret, (err, user)=>{
     if(err) return res.sendStatus(401);
-    req.user=email;
-    next()
+    req.user=user
+    console.log(user);
   })
+  next();
 }
 
 app.get('/profile', authenticateToken, (req,res)=>{
