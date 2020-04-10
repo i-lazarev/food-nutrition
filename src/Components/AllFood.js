@@ -9,7 +9,7 @@ function AllFood() {
     }, [])
 
     const getRecipes = () => {
-        fetch(`https://api.spoonacular.com/recipes/search?query=apple&apiKey=d89d17872b3f4f8fa0da39073a9defdf`, {
+        fetch(`https://api.spoonacular.com/recipes/search?query=apple&number=5&apiKey=d89d17872b3f4f8fa0da39073a9defdf`, {
             "method": "GET",
             'Content-Type': 'application/json'
         })
