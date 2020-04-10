@@ -30,7 +30,7 @@ const Header = () => {
 
   const [token, setToken] = useContext(TokenContext);
   const [show, setShow] = useState(false);
-  console.log(token);
+  
   const handleSignOut = () => {
     setToken(null);
     localStorage.removeItem("token");
