@@ -26,6 +26,8 @@ import Profile from "./Profile";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  // const [query, setQuery] = useContext(ApiContext);
+
   const [token, setToken] = useContext(TokenContext);
   const [show, setShow] = useState(false);
   
@@ -33,7 +35,6 @@ const Header = () => {
     setToken(null);
     localStorage.removeItem("token");
   };
-
   const handleShowInfo = () => {
     setShow(!show);
   };
@@ -63,6 +64,11 @@ const Header = () => {
             {token ? (
               <div
                 className="nav"
+                style={{
+                  width: "250px",
+                  display: "flex",
+                  justifyContent: "space-between",
+                }}
               >
                 <NavLink onClick={handleShowInfo}>
                   <span>{show?'hide info':'show info'}</span>{" "}

@@ -18,9 +18,9 @@ import EditAccount from "./EditAccount";
 
 export default function Container() {
   return (
-    <Router>
-      <Switch>
-        <TokenProvider>
+    <TokenProvider>
+      <Router>
+        <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/login" component={Login} />
           <Route path="/sign-up" component={Signup} />
@@ -29,8 +29,8 @@ export default function Container() {
           <Route path="/favorite" component={FavFood} />
           <Route path="/recipes" exact component={Search} />
           <Route path="/recipe/:id" component={OneRecipe} />
-        </TokenProvider>
-      </Switch>
-    </Router>
+        </Switch>
+      </Router>
+    </TokenProvider>
   );
 }

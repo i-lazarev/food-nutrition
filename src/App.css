@@ -1,3 +1,14 @@
 ApiProvider{
     margin:0 10rem
 }
+.App{
+    margin:0 10%;
+}
+
+.nav > * :hover {
+    cursor: pointer;
+}
+
+.star :hover {
+    cursor: pointer;
+}

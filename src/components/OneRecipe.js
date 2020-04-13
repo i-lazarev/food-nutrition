@@ -1,7 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import "../styles/OneRecipe.css";
 import Header from "./Header";
 import Footer from "./Footer";
+import { TokenContext } from "./TokenContext";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
+import { NavLink } from "reactstrap";
 
 const OneRecipe = ({ match }) => {
   const [recipe, setRecipe] = useState({});
@@ -9,6 +13,12 @@ const OneRecipe = ({ match }) => {
   const [ingDetails, setIngDetails] = useState([]);
   const [instructions, setInstructions] = useState([]);
   const [servings, setServings] = useState(1)
+  const [isFav, setIsFav] = useState(false);
+  const [token, setToken] = useContext(TokenContext);
+  const [recID, setRecID] = useState();
+
+  
+
   useEffect(() => {
     fetch(
       `https://api.spoonacular.com/recipes/${match.params.id}/information?amount=1&apiKey=d21f98ccdf934ed5ac7c1e724093d571`,
@@ -23,6 +33,10 @@ const OneRecipe = ({ match }) => {
       .then((res) => {
         setRecipe(res);
         setIngredients(res.extendedIngredients);
+        setRecID(res.id);
+        setIngredients(res.extendedIngredients);
+        if(token){
+          checkFav(res.id)};
       })
       .catch((err) => {
         console.log(err);
@@ -55,14 +69,68 @@ const OneRecipe = ({ match }) => {
       .catch((err) => {
         console.log(err);
       });
-  }, [match.params.id]);
+
+      const checkFav = (id) => {
+        fetch(`http://localhost:5000/check-fav/${id}`, {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        })
+          .then((res) => res.json())
+          .then((data) => setIsFav(data));
+      };
+
+  }, [match.params.id, token]);
+
+  const handleAddToFav = () => {
+    if (isFav) {
+      fetch(`http://localhost:5000/remove-fav/${recID}`, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          setIsFav(!isFav);
+          console.log(data);
+        });
+      
+    } else {
+      fetch("http://localhost:5000/add-fav", {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({ recipe: recipe }),
+        method: "POST",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          setIsFav(!isFav);
+          console.log(data);
+        });
+    }
+  };
+
+  
 
   return (
-    <div>
+    <div >
       <Header />
+      <h2 style={{ textAlign: "center", margin:"1rem 0" }}>{recipe.title}</h2>
+      {token ? <NavLink
       
-        <h2 style={{ textAlign: "center", margin:"1rem 0" }}>{recipe.title}</h2>
-        <div className="main-section">
+      className="star"
+      title={isFav ? "remove from favorite" : "add to favorite"}
+      onClick={handleAddToFav}
+    >
+      <FontAwesomeIcon icon={faStar} color={isFav ? "yellow" : "gray"} />
+    </NavLink> : "" }
+      
+    <div className="main-section">
         <div className="image-nutrition">
           <div className="recipe-image">
             <img id="image" src={recipe.image} alt={recipe.title} />
@@ -118,7 +186,7 @@ const OneRecipe = ({ match }) => {
 
       </div>
       <Footer />
-    </div>
+      </div>
   );
 };
 export default OneRecipe;
