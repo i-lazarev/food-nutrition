@@ -1,11 +1,3 @@
-.App{
-<<<<<<< HEAD
-    margin: 0;
-=======
-    margin:0 10%;
-}
-
-.nav > * :hover {
-    cursor: pointer;
->>>>>>> Tareq
+ApiProvider{
+    margin:0 10rem
 }
