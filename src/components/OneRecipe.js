@@ -40,7 +40,7 @@ const OneRecipe = ({ match }) => {
         setRecID(res.id);
         setIngredients(res.extendedIngredients);
         if(token){
-          checkFav(res.id)};
+        checkFav(res.id);}
       })
       .catch((err) => {
         console.log(err);
@@ -101,7 +101,6 @@ const OneRecipe = ({ match }) => {
           setIsFav(!isFav);
           console.log(data);
         });
-      
     } else {
       fetch("http://localhost:5000/add-fav", {
         headers: {
