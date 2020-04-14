@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { TokenContext } from "./TokenContext";
 import "../styles/header.css";
@@ -30,7 +30,7 @@ const Header = () => {
 
   const [token, setToken] = useContext(TokenContext);
   const [show, setShow] = useState(false);
-  
+
   const handleSignOut = () => {
     setToken(null);
     localStorage.removeItem("token");
@@ -40,6 +40,26 @@ const Header = () => {
   };
 
   const toggle = () => setIsOpen(!isOpen);
+
+  useEffect(() => {
+    if (token) {
+      fetch("http://localhost:5000/check-token", {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      })
+        .then((res) => res.json())
+        .then((data) => 
+         {
+          if (data == "expired") {
+            setToken(null);
+            localStorage.removeItem("token");
+          }
+        }
+        );
+    }
+  }, [token]);
   return (
     <div>
       <Navbar
@@ -76,7 +96,7 @@ const Header = () => {
                 }}
               >
                 <NavLink onClick={handleShowInfo}>
-                  <span>{show?'hide info':'show info'}</span>{" "}
+                  <span>{show ? "hide info" : "show info"}</span>{" "}
                   {show ? (
                     <FontAwesomeIcon icon={faAngleDown} />
                   ) : (
@@ -84,16 +104,16 @@ const Header = () => {
                   )}
                 </NavLink>
                 <NavItem>
-                  <NavLink title='your favorite recipes' href="/favorite">
+                  <NavLink title="your favorite recipes" href="/favorite">
                     <FontAwesomeIcon icon={faStar} />
                   </NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink title='update your info' href="/edit-account-info">
+                  <NavLink title="update your info" href="/edit-account-info">
                     <FontAwesomeIcon icon={faUserEdit} />
                   </NavLink>
                 </NavItem>
-                <NavLink title='sign out' onClick={handleSignOut}>
+                <NavLink title="sign out" onClick={handleSignOut}>
                   <FontAwesomeIcon icon={faSignOutAlt} />
                 </NavLink>
               </div>

@@ -29,7 +29,8 @@ const OneRecipe = ({ match }) => {
         setRecipe(res);
         setRecID(res.id);
         setIngredient(res.extendedIngredients);
-        checkFav(res.id);
+        if(token){
+        checkFav(res.id);}
       })
       .catch((err) => {
         console.log(err);
@@ -64,7 +65,6 @@ const OneRecipe = ({ match }) => {
           setIsFav(!isFav);
           console.log(data);
         });
-      
     } else {
       fetch("http://localhost:5000/add-fav", {
         headers: {
@@ -97,13 +97,18 @@ const OneRecipe = ({ match }) => {
     <div className="main-section">
       <Header />
       <h2>{recipe.title}</h2>
-      <NavLink
-        className="star"
-        title={isFav ? "remove from favorite" : "add to favorite"}
-        onClick={handleAddToFav}
-      >
-        <FontAwesomeIcon icon={faStar} color={isFav ? "yellow" : "gray"} />
-      </NavLink>
+      {token ? (
+        <NavLink
+          className="star"
+          title={isFav ? "remove from favorite" : "add to favorite"}
+          onClick={handleAddToFav}
+        >
+          <FontAwesomeIcon icon={faStar} color={isFav ? "yellow" : "gray"} />
+        </NavLink>
+      ) : (
+        ""
+      )}
+
       <div className="image-ingredients">
         <img src={recipe.image} alt={recipe.title} />
         <div className="nutrition-ingredients">

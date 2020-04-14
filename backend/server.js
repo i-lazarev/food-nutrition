@@ -120,9 +120,9 @@ const authenticateToken = (req, res, next) => {
   if (token == null) return res.sendStatus(401);
 
   jwt.verify(token, secret, (err, user) => {
-    if (err) return res.sendStatus(401);
+    if (err) return res.json('expired');
     req.user = user;
-    console.log(user);
+    
   });
   next();
 };
@@ -187,3 +187,7 @@ app.delete("/remove-fav/:id", authenticateToken, (req, res) => {
 app.get("/get-fav", authenticateToken, (req, res) => {
   User.findOne({ email: req.user.email }).then((user) => res.send(user.fav));
 });
+
+app.get('/check-token',authenticateToken, (req,res)=>{
+   res.json('token is valid');
+})
