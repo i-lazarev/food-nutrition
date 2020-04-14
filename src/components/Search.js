@@ -1,17 +1,12 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import "../styles/Search.css";
-import { Animated } from "react-animated-css";
 
 import {
   ButtonDropdown,
   DropdownToggle,
   DropdownMenu,
   DropdownItem,
-  Card,
-  CardImg,
-  CardBody,
-  CardTitle,
   Button
 } from "reactstrap";
 import { ApiContext } from "./ApiContext";
@@ -25,11 +20,12 @@ const Search = () => {
   const [diet, setDiet] = useState("");
   const [intolerance, setIntolerance] = useState("");
   const [type, setType] = useState("");
-  const [recipeNumber, setRecipeNumber] = useState(10);
+  const [recipeNumber, setRecipeNumber] = useState(12);
+  
 
   useEffect(() => {
     fetch(
-      `https://api.spoonacular.com/recipes/search?cuisine=${cuisine}&diet=${diet}&intolerances=${intolerance}&number=${recipeNumber}&type=${type}&offset=0&query=${query}&apiKey=db603acba1014e209b0cda8a89aae478`,
+      `https://api.spoonacular.com/recipes/search?cuisine=${cuisine}&diet=${diet}&intolerances=${intolerance}&number=${recipeNumber}&type=${type}&offset=0&query=${query}&apiKey=d21f98ccdf934ed5ac7c1e724093d571`,
       {
         method: "GET",
         headers: {
@@ -136,7 +132,8 @@ const Search = () => {
   return (
     <div>
       <Header />
-      <h1>Recipe Name</h1>
+      <h1 style={{textAlign:"center"}}>{query==="" ?" Search a recipe" : query.replace(/^\w/, c => c.toUpperCase())}</h1>
+      <h1>{console.log(query)}</h1>
 
       <div
         className="drop-down-menu"
@@ -237,31 +234,20 @@ const Search = () => {
       </div>
       <div className="recipies-section">
         {recipies.map(res => (
-          <Animated key={res.id} animationIn="fadeIn">
-            <Card className="card">
-              <CardImg
-                className="card-image"
-                top
-                width="100px"
-                src={`https://spoonacular.com/recipeImages/${res.image}`}
-                alt={res.title}
-              />
-              <CardBody>
-                <CardTitle>{res.title}</CardTitle>
-                <Link
-                  to={`recipe/${res.id}`}
-                  className="btn-flip"
-                  data-back="Click me"
-                  data-front="Details"
-                />
-              </CardBody>
-            </Card>
-          </Animated>
+          <Link key={res.id} className="card-image" to={`recipe/${res.id}`}
+>
+                  <img  src={`https://spoonacular.com/recipeImages/${res.image}`}
+                alt={res.title} width="100%" />
+                <p id="recipe-title">
+                  {res.title}
+                </p>
+
+          </Link>
+
         ))}
       </div>
       <Button
-        className="load-more animated infinite bounce delay-2s"
-        onClick={() => setRecipeNumber(recipeNumber + 10)}
+        onClick={() => setRecipeNumber(recipeNumber + 12)}
       >
         More
       </Button>

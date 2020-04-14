@@ -1,25 +1,62 @@
 .main-section {
-  margin: 0 10%;
+  margin: 0 3vw;
+  display: flex;
+  flex-direction: column;
 }
-.image-ingredients {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+
+.image-nutrition {
+  
+  display: flex;
+  justify-content: space-around;
+  
 }
-.card-size {
-  width: 30%;
+.recipe-image{
+
 }
-.ingredients-list {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
-}
-.nutrition-ingredients {
+.recipe-nutrition{
+  margin: 1rem 0;
   display: flex;
   justify-content: space-between;
+
 }
+
 .ingredients {
+  margin:10px;
+  width: 150px;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ingredients-list {
   padding-left: 5%;
-  box-shadow:4px 1px 10px 4px grey;
-  padding:10px;
+  box-shadow: 4px 1px 10px 4px grey;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 3px;
+}
+.ingredients-section {
+  display: flex;
+  flex-wrap: wrap;
+}
+.image-ingredient {
+  max-width: 80px;
+  max-height: 90px;
+}
+
+.imagine-ingredients-section{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 120px;
+}
+
+.instructions {
+  padding-left: 5%;
+  box-shadow: 4px 1px 10px 4px grey;
+  padding: 10px;
   margin: 10px;
   border-radius: 3px;
 }
@@ -27,7 +64,22 @@ li {
   list-style: none;
 }
 .nutrition-list {
-    display: grid;
-    grid-template-columns: 3fr 1fr;
-  }
 
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+}
+p{
+  text-align: center;
+}
+.serving-button{
+  background: none;
+  border: none;
+  padding: 10px;
+  
+}
+.serving-button:focus{
+  outline: none;
+}
+.text{
+  text-align: center;
+}

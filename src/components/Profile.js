@@ -65,3 +65,4 @@ sugar: data.sugar}));
       </div>
     );
 }
+

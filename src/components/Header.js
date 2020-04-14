@@ -60,8 +60,9 @@ const Header = () => {
         );
     }
   }, [token]);
+
   return (
-    <div>
+    <div className="main-section">
       <Navbar
         style={{ padding: "8px 40px 8px 40px" }}
         color="light"
@@ -74,17 +75,11 @@ const Header = () => {
           <Nav className="mr-auto, nav-bar" navbar>
             <NavItem style={{ paddingLeft: "40px" }}>
               <NavLink href="/recipes">
-                Recipes <FontAwesomeIcon icon={faUtensils} />
+                Recipes <FontAwesomeIcon className="search-icon" icon={faUtensils} />
               </NavLink>
             </NavItem>
             <NavItem>
               <SearchBar />
-              {/* <form style={{"display":"flex"}}>
-                <Input type="text" name="search" className="input-search" placeholder="Search" onChange={updateQuery}/>
-                <button>
-                  <FontAwesome name="search"  />
-                </button>
-              </form> */}
             </NavItem>
             {token ? (
               <div
