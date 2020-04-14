@@ -4,8 +4,9 @@
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding:0 47.5rem;
+  justify-content: space-around;
+  
+  font-size: 1.6rem;
 }
 
 .recipies-section {
@@ -14,7 +15,9 @@
   justify-content: space-between;
   margin: 0 3vw;
 }
-
+.cuisineTitle{
+  padding-right: 1rem;
+}
 
 
 .one-recipe-img:hover{
@@ -46,4 +49,15 @@
 }
 #recipe-title{
   font-size: 1.4rem;
+  padding-top: 0.5rem;
+}
+#more-button{
+  width: 10rem;
+  text-align: center;
+  
+}
+#more-button-section{
+  display: flex;
+  padding: 3rem 0;
+  justify-content: center;
 }

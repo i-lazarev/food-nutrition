@@ -21,11 +21,14 @@ const Search = () => {
   const [intolerance, setIntolerance] = useState("");
   const [type, setType] = useState("");
   const [recipeNumber, setRecipeNumber] = useState(12);
+
+  const key="d21f98ccdf934ed5ac7c1e724093d571";
+  const tareqKey="db603acba1014e209b0cda8a89aae478"
   
 
   useEffect(() => {
     fetch(
-      `https://api.spoonacular.com/recipes/search?cuisine=${cuisine}&diet=${diet}&intolerances=${intolerance}&number=${recipeNumber}&type=${type}&offset=0&query=${query}&apiKey=d21f98ccdf934ed5ac7c1e724093d571`,
+        `https://api.spoonacular.com/recipes/search?cuisine=${cuisine}&diet=${diet}&intolerances=${intolerance}&number=${recipeNumber}&type=${type}&offset=0&query=${query}&apiKey=${tareqKey}`,
       {
         method: "GET",
         headers: {
@@ -137,14 +140,9 @@ const Search = () => {
 
       <div
         className="drop-down-menu"
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between"
-        }}
       >
         <div className="cuisine-dropdown ">
-          <label className="cuisineTitle">Cuisine </label>
+          <label className="cuisineTitle ">Cuisine </label>
           <ButtonDropdown
             isOpen={dropdownOpen.cuisine}
             toggle={() => toggle("cuisine")}
@@ -246,11 +244,15 @@ const Search = () => {
 
         ))}
       </div>
+      <div id="more-button-section">
       <Button
+      id="more-button"
         onClick={() => setRecipeNumber(recipeNumber + 12)}
       >
         More
       </Button>
+      </div>
+
       <Footer />
     </div>
   );

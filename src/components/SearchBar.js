@@ -2,6 +2,7 @@ import React ,{useContext, useState}from 'react';
 import {Input} from "reactstrap";
 import FontAwesome from "react-fontawesome";
 import {ApiContext} from "./ApiContext";
+import "../styles/SearchBar.css"
   
 
 
@@ -17,7 +18,7 @@ export default function SearchBar() {
         <div>
         <form onSubmit={updateQuery} style={{"display":"flex"}}>
                 <Input type="text" name="search" value={input} className="input-search" placeholder="Search" onChange={(e)=>setInput(e.target.value)} />
-                <button>
+                <button type="submit" id="search-button">
                   <FontAwesome name="search"  />
                 </button>
                 

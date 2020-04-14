@@ -16,7 +16,10 @@ const OneRecipe = ({ match }) => {
   const [isFav, setIsFav] = useState(false);
   const [token, setToken] = useContext(TokenContext);
   const [recID, setRecID] = useState();
-
+  const [wineObj, setWineObj] = useState({});
+  console.log(wineObj)
+  
+ 
   
 
   useEffect(() => {
@@ -32,6 +35,7 @@ const OneRecipe = ({ match }) => {
       .then((res) => res.json())
       .then((res) => {
         setRecipe(res);
+        setWineObj(res.winePairing)
         setIngredients(res.extendedIngredients);
         setRecID(res.id);
         setIngredients(res.extendedIngredients);
@@ -151,14 +155,13 @@ const OneRecipe = ({ match }) => {
             <h5 className="text">
                 Servings: 
                 <input style={{width:"30px", border:"none"}} type="Number" min="1" value={servings} onChange={(e)=>setServings(e.target.value)}/>
-                {/* <button className="serving-button" onClick={(increase)}>+</button>
-                <button className="serving-button" onClick={(decrease)}>-</button> */}
+             
               </h5>
 
             <div className="ingredients-section">
               {console.log(recipe)}
               {ingredients.map((res) => (
-                <div key={res.id} className="ingredients">
+                <div key={Math.random()} className="ingredients">
                   <p>
                     {res.amount * servings} {res.unit}
                   </p>
@@ -181,6 +184,10 @@ const OneRecipe = ({ match }) => {
                 Step {res.number} : {res.step}
               </li>
             ))}
+          </div>
+          <div className="wine-pairing">
+         {wineObj !=={} ? <div><h3 style={{ textAlign: "center" }}>Wine pairing</h3>{wineObj.pairingText}</div> : ""}
+             
           </div>
         </div>
 

@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { TokenContext } from "./TokenContext";
 import "../styles/header.css";
+import image from "../images/foodaholic.png"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -44,12 +45,11 @@ const Header = () => {
   return (
     <div className="main-section">
       <Navbar
-        style={{ padding: "8px 40px 8px 40px" }}
-        color="light"
-        light
+        color="dark"
+        dark
         expand="md"
       >
-        <NavbarBrand href="/">Food for All</NavbarBrand>
+        <NavbarBrand href="/"><img id="logo" src={image} alt="logo"></img></NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto, nav-bar" navbar>
@@ -64,11 +64,6 @@ const Header = () => {
             {token ? (
               <div
                 className="nav"
-                style={{
-                  width: "250px",
-                  display: "flex",
-                  justifyContent: "space-between",
-                }}
               >
                 <NavLink onClick={handleShowInfo}>
                   <span>{show?'hide info':'show info'}</span>{" "}
@@ -93,7 +88,7 @@ const Header = () => {
                 </NavLink>
               </div>
             ) : (
-              <div style={{ display: "flex" }}>
+              <div className="log-sign">
                 <NavItem>
                   <NavLink href="/sign-up">Sign up</NavLink>
                 </NavItem>

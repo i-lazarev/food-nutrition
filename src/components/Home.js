@@ -8,7 +8,7 @@ export default function Home() {
     return (
         <div>
            <Header/>
-           <h1>Home</h1>
+           <h1 style={{height:"82vh"}}>Home</h1>
            {token}
            <Footer/>
         </div>
