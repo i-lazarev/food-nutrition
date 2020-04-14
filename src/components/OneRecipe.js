@@ -33,7 +33,7 @@ const OneRecipe = ({ match }) => {
       .then((res) => {
         setRecipe(res);
         setRecID(res.id);
-        setIngredient(res.extendedIngredients);
+        setIngredients(res.extendedIngredients);
         if(token){
         checkFav(res.id);}
       })
