@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 
-function AllFood() {
+function Categories() {
 
     const [recipes, setRecipes] = useState([])
 
@@ -20,25 +20,44 @@ function AllFood() {
             });
     }
     return (
+        <div>
+            <h5 style={{ marginLeft: '20px', marginTop: '10px' }}>category A</h5>
         <div style={Section}>
             {recipes.map(rec => (
-
                 <div style={card} key={rec.id}>
                     <img
-                        className="card-image-all-food"
+                        style={cardImg}
                         top='true'
                         width="100px"
                         src={`https://spoonacular.com/recipeImages/${rec.image}`}
                         alt={rec.title} />
-                    <h4 style={title}>{rec.title}</h4>
                 </div>
             ))}
         </div>
+            <h5 style={{ display: 'flex', justifyContent: 'center', marginTop: '10px'}}>Show more</h5>
+
+            <h5 style={{ marginLeft: '20px', marginTop: '10px' }}>category B</h5>
+            <div style={Section}>
+                {recipes.map(rec => (
+                    <div style={card} key={rec.id}>
+                        <img
+                            style={cardImg}
+                            top='true'
+                            width="100px"
+                            src={`https://spoonacular.com/recipeImages/${rec.image}`}
+                            alt={rec.title} />
+                    </div>
+                ))}
+            </div>
+            <h5 style={{ display: 'flex', justifyContent: 'center', marginTop: '10px' }}>Show more</h5>
+        </div>
+
+        
     )
 }
 
 
-export default AllFood
+export default Categories
 
 const Section = {
     display: 'webkit-box',
@@ -54,10 +73,15 @@ const Section = {
 const card = {
     width: '200px',
     minHeight: '200px',
+    lineHeight: '200px'
+}
+
+const cardImg = {
+    width: '200px',
+    height: '200px',
     lineHeight: '200px',
-    borderRadius: '50%',
-    MozBorderRadius: '50%',
-    WebkitBorderRadius: '50%'
+    fontWeight: '100',
+    boxShadow: '2px 1px 10px 2px rgb(150, 144, 147)'
 }
 
 const title = {

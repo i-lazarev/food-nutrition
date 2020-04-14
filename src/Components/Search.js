@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import {
     Collapse,
     Navbar,
@@ -18,25 +18,9 @@ const Search = () => {
     const [isOpen, setIsOpen] = useState(false);
     const toggle = () => setIsOpen(!isOpen);
 
-    const [recipes, setRecipes] = useState([])
-    const [search, setSearch] = useState([''])
+    // const [recipes, setRecipes] = useState([])
+    const [search, setSearch] = useState('')
     const [query, setQuery] = useContext(ContextAPI)
-
-    useEffect(() => {
-        getRecipes()
-    }, [query])
-
-    const getRecipes = () => {
-        fetch(`https://api.spoonacular.com/recipes/search?query=${query}&apiKey=d89d17872b3f4f8fa0da39073a9defdf`, {
-            "method": "GET",
-            'Content-Type': 'application/json'
-        })
-            .then(res => res.json())
-            .then(res => setRecipes(res.results))
-            .catch(err => {
-                console.log(err);
-            });
-    }
 
     const updateSearch = (e) => {
         setSearch(e.target.value)
@@ -45,7 +29,8 @@ const Search = () => {
 
     const getSearch = (e) => {
         e.preventDefault()
-        setQuery(search)
+        setQuery(query)
+        setSearch('')
     }
 
     return (
@@ -66,7 +51,6 @@ const Search = () => {
                                 type='text'
                                 placeholder='Search'
                                 value={search}
-                                name='search'
                                 onChange={updateSearch}
                             />
                             <Button type='submit'>

@@ -15,6 +15,7 @@ function MostSeen() {
         })
             .then(res => res.json())
             .then(res => setRecipes(res.results))
+            // .then(res => console.log(res.results))
             .catch(err => {
                 console.log(err);
             });
@@ -23,14 +24,13 @@ function MostSeen() {
         <div style={recSection}>
             {recipes.map(rec => (
                 <Card
-                    style={card}>
+                    style={card} key={rec.id}>
                     <CardImg
                         style={cardImage}
                         top
                         width="100px"
                         src={`https://spoonacular.com/recipeImages/${rec.image}`}
                         alt={rec.title}
-                        key={rec.id}
                     />
                 </Card>
 

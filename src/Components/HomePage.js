@@ -2,6 +2,7 @@ import React from 'react';
 import MostSeen from './MostSeen';
 import AllFood from './AllFood';
 import Search from './Search';
+import Categories from './Categories';
 
 
 const HomePage = (props) => {
@@ -11,6 +12,7 @@ const HomePage = (props) => {
             <Search />
             <MostSeen />
             <AllFood />
+            <Categories/>
         </div>
     );
 }
