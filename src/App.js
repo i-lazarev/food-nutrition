@@ -9,7 +9,6 @@ function App() {
     <RecipeProvider>
       <div className="App">
         <Container/>
-      
       </div>
     </RecipeProvider>
   );

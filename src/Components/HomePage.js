@@ -8,7 +8,7 @@ import Categories from './Categories';
 const HomePage = (props) => {
 
     return (
-        <div >
+        <div>
             <Search />
             <MostSeen />
             <AllFood />

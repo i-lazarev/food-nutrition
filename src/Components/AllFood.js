@@ -6,15 +6,16 @@ function AllFood() {
 
     useEffect(() => {
         getRecipes()
-    }, [])
+    }, [])  
 
     const getRecipes = () => {
-        fetch(`https://api.spoonacular.com/recipes/search?query=apple&number=5&apiKey=d89d17872b3f4f8fa0da39073a9defdf`, {
+        fetch(`https://api.spoonacular.com/recipes/search?&apiKey=d89d17872b3f4f8fa0da39073a9defdf`, {
             "method": "GET",
             'Content-Type': 'application/json'
         })
             .then(res => res.json())
             .then(res => setRecipes(res.results))
+            // .then(res => console.log(res.results))
             .catch(err => {
                 console.log(err);
             });

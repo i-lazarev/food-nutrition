@@ -4,14 +4,14 @@ export const ContextAPI = createContext();
 
 export const RecipeProvider = (props) => {
 
-    const [query, setQuery] = useState('')
+    const [query, setQuery] = useState([])
 
     useEffect(() => {
         getRecipes()
     }, [query])
 
     const getRecipes = () => {
-        fetch(`https://api.spoonacular.com/recipes/search?q=${query}&apiKey=d89d17872b3f4f8fa0da39073a9defdf`, {
+        fetch(`https://api.spoonacular.com/recipes/search?q=${query}&number=2&apiKey=d89d17872b3f4f8fa0da39073a9defdf`, {
             "method": "GET",
             'Content-Type': 'application/json'
         })
@@ -21,6 +21,7 @@ export const RecipeProvider = (props) => {
                 console.log(err);
             });
     }
+
     return (
         <ContextAPI.Provider value={[query, setQuery]}>
             {props.children}

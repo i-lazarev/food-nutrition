@@ -2,34 +2,34 @@ import React, { useState, useEffect } from 'react'
 import { Card, CardImg } from 'reactstrap'
 
 function MostSeen() {
-    const [recipes, setRecipes] = useState([])
+    const [recipe, setRecipe] = useState({})
 
     useEffect(() => {
         getRecipes()
     }, [])
 
     const getRecipes = () => {
-        fetch(`https://api.spoonacular.com/recipes/search?query=apple&number=3&apiKey=d89d17872b3f4f8fa0da39073a9defdf`, {
+        fetch(`https://api.spoonacular.com/recipes/random?number=3&apiKey=d89d17872b3f4f8fa0da39073a9defdf`, {
             "method": "GET",
             'Content-Type': 'application/json'
         })
             .then(res => res.json())
-            .then(res => setRecipes(res.results))
-            // .then(res => console.log(res.results))
+            .then(res => setRecipe(res.recipes))
+            // .then(res => console.log(res.recipes))
             .catch(err => {
                 console.log(err);
             });
     }
     return (
         <div style={recSection}>
-            {recipes.map(rec => (
+            {recipe.map(rec => (
                 <Card
                     style={card} key={rec.id}>
                     <CardImg
                         style={cardImage}
                         top
                         width="100px"
-                        src={`https://spoonacular.com/recipeImages/${rec.image}`}
+                        src={rec.image}
                         alt={rec.title}
                     />
                 </Card>

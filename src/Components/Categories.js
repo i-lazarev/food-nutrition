@@ -83,10 +83,3 @@ const cardImg = {
     fontWeight: '100',
     boxShadow: '2px 1px 10px 2px rgb(150, 144, 147)'
 }
-
-const title = {
-    marginTop: '10px',
-    textAlign: 'center',
-    fontFamily: 'Arial, Helvetica, sans-serif',
-    fontStyle: 'italic'
-}

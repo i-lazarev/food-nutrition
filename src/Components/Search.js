@@ -29,7 +29,8 @@ const Search = () => {
 
     const getSearch = (e) => {
         e.preventDefault()
-        setQuery(query)
+        setQuery(search)
+        // console.log(query);
         setSearch('')
     }
 
