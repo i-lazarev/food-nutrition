@@ -30,7 +30,7 @@ const Search = () => {
     const getSearch = (e) => {
         e.preventDefault()
         setQuery(search)
-        // console.log(query);
+        console.log(query);
         setSearch('')
     }
 

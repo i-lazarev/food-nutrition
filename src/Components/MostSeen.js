@@ -2,14 +2,15 @@ import React, { useState, useEffect } from 'react'
 import { Card, CardImg } from 'reactstrap'
 
 function MostSeen() {
-    const [recipe, setRecipe] = useState({})
+    const [recipe, setRecipe] = useState([])
+    const key = 'd89d17872b3f4f8fa0da39073a9defdf'
 
     useEffect(() => {
         getRecipes()
     }, [])
 
     const getRecipes = () => {
-        fetch(`https://api.spoonacular.com/recipes/random?number=3&apiKey=d89d17872b3f4f8fa0da39073a9defdf`, {
+        fetch(`https://api.spoonacular.com/recipes/random?number=3&apiKey=${key}`, {
             "method": "GET",
             'Content-Type': 'application/json'
         })

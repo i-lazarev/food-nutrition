@@ -3,13 +3,14 @@ import React, { useState, useEffect } from 'react'
 function Categories() {
 
     const [recipes, setRecipes] = useState([])
+    const key = 'd89d17872b3f4f8fa0da39073a9defdf'
 
     useEffect(() => {
         getRecipes()
     }, [])
 
     const getRecipes = () => {
-        fetch(`https://api.spoonacular.com/recipes/search?query=apple&number=5&apiKey=d89d17872b3f4f8fa0da39073a9defdf`, {
+        fetch(`https://api.spoonacular.com/recipes/search?query=apple&number=5&apiKey=${key}`, {
             "method": "GET",
             'Content-Type': 'application/json'
         })
