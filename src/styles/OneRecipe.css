@@ -11,8 +11,13 @@
   justify-content: space-around;
   
 }
-.recipe-image{
-
+.image-fav-icon{
+  display: flex;
+  width: 63rem;
+}
+.star{
+  font-size: 1.2rem;
+  
 }
 .recipe-nutrition{
   margin: 1rem 0;

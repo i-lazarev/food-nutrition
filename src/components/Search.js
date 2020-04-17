@@ -142,8 +142,10 @@ const Search = () => {
         className="drop-down-menu"
       >
         <div className="cuisine-dropdown ">
-          <label className="cuisineTitle ">Cuisine </label>
+          <label className="cuisineTitle ">Cuisine: </label>
           <ButtonDropdown
+          size="md"
+            
             isOpen={dropdownOpen.cuisine}
             toggle={() => toggle("cuisine")}
           >
@@ -164,7 +166,7 @@ const Search = () => {
           </ButtonDropdown>
         </div>
         <div className="diet-dropdown">
-          <label className="cuisineTitle">Diet </label>
+          <label className="cuisineTitle">Diet: </label>
           <ButtonDropdown
             isOpen={dropdownOpen.diet}
             toggle={() => toggle("diet")}
@@ -186,7 +188,7 @@ const Search = () => {
           </ButtonDropdown>
         </div>
         <div className="intolerance-dropdown">
-          <label className="cuisineTitle">Intolerance </label>
+          <label className="cuisineTitle">Intolerance: </label>
           <ButtonDropdown
             isOpen={dropdownOpen.intolerance}
             toggle={() => toggle("intolerance")}
@@ -208,7 +210,7 @@ const Search = () => {
           </ButtonDropdown>
         </div>
         <div className="type-dropdown">
-          <label className="cuisineTitle">Type</label>
+          <label className="cuisineTitle">Type: </label>
           <ButtonDropdown
             isOpen={dropdownOpen.type}
             toggle={() => toggle("type")}

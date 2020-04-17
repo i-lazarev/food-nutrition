@@ -1,11 +1,11 @@
 .input-search{
     font-size: 1.6rem;
-    border-right:1px solid white ;
+    border-right:1px solid whitesmoke ;
     border-radius: 5px 0 0 5px;
     background-color: whitesmoke;
 }
 #search-button{
     background-color: whitesmoke;
-    border: 1px solid white;
+    border: 1px solid whitesmoke;
     border-radius: 0 5px 5px 0;
 }
