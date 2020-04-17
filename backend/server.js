@@ -164,7 +164,7 @@ app.post("/edit-account", authenticateToken, (req, res) => {
 
 app.get("/check-fav/:id", authenticateToken, (req, res) => {
   User.findOne({ email: req.user.email }).then((user) =>
-    res.send(user.fav.some((x) => x.id === req.params.id))
+    res.send(user.fav.some((x) => x.id == req.params.id))
   );
 });
 
@@ -178,7 +178,7 @@ app.post("/add-fav", authenticateToken, (req, res) => {
 
 app.delete("/remove-fav/:id", authenticateToken, (req, res) => {
   User.findOne({ email: req.user.email }).then((user) => {
-    user.fav = user.fav.filter((x) => x.id !== req.params.id);
+    user.fav = user.fav.filter((x) => x.id != req.params.id);
     user.save();
     res.json("removed from fav");
   });

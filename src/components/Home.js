@@ -1,7 +1,10 @@
 import React, {useContext, useEffect} from 'react';
 import Header from './Header';
 import Footer from './Footer';
-import {TokenContext} from './TokenContext'
+import {TokenContext} from './TokenContext';
+import MostSeen from "./MostSeen";
+import AllFood from "./AllFood";
+import Categories from "./Categories";
 
 export default function Home() {
     const [token, setToken] = useContext(TokenContext);
@@ -23,11 +26,13 @@ export default function Home() {
     //   }
     // }, [token]);
     return (
-        <div>
-           <Header/>
-           <h1>Home</h1>
-           {token}
-           <Footer/>
-        </div>
-    )
+      <div>
+        <Header x={'#000'} />
+        home
+        {/* <MostSeen />
+        <AllFood />
+        <Categories /> */}
+        <Footer />
+      </div>
+    );
 }

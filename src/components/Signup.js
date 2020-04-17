@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, Fragment } from "react";
 import {useHistory} from 'react-router-dom';
+import Header from "./Header";
+import Footer from "./Footer";
 
 export default function Signup () {
   const [username, setUsername] = useState('');
@@ -32,32 +34,59 @@ export default function Signup () {
  
 
   return (
-    <div>
-      <div style={{height: '100px'}}>
-        {errMsg}
+    <Fragment>
+      <Header x={"#000"} />
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "500px",
+        }}
+      >
+        <div
+          style={{
+            justifySelf: "flex-start",
+            height: "100px",
+            paddingTop: "40px",
+            color: "#F94F72",
+          }}
+        >
+          {errMsg}
+        </div>
+        <form onSubmit={handleSubmit}>
+          <div>username</div>
+          <input
+            className="userInfo"
+            type="text"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+          <div>email</div>
+          <input
+            className="userInfo"
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <div>password</div>
+          <input
+            className="userInfo"
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <div>* min 6 characters</div>
+          <div style={{ width: "100%", textAlign: "center", padding: "30px" }}>
+            <button className="bbtn" type="submit">
+              {" "}
+              next
+            </button>
+          </div>
+        </form>
       </div>
-      <form onSubmit={handleSubmit}>
-        <div>username</div>
-        <input
-          type="text"
-          value={username}
-          onChange={e => setUsername(e.target.value)}
-        />
-        <div>email</div>
-        <input
-          type="email"
-          value={email}
-          onChange={e => setEmail(e.target.value)}
-        />
-        <div>password</div>
-        <input
-          type="password"
-          value={password}
-          onChange={e => setPassword(e.target.value)}
-        />
-       
-        <button type="submit"> next</button>
-      </form>
-    </div>
+      <Footer />
+    </Fragment>
   );
 }

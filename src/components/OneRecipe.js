@@ -116,19 +116,22 @@ const OneRecipe = ({ match }) => {
   
 
   return (
-    <div >
-      <Header />
-      <h2 style={{ textAlign: "center", margin:"1rem 0" }}>{recipe.title}</h2>
-      {token ? <NavLink
-      
-      className="star"
-      title={isFav ? "remove from favorite" : "add to favorite"}
-      onClick={handleAddToFav}
-    >
-      <FontAwesomeIcon icon={faStar} color={isFav ? "yellow" : "gray"} />
-    </NavLink> : "" }
-      
-    <div className="main-section">
+    <div>
+      <Header x="#000" />
+      <h2 style={{ textAlign: "center", margin: "1rem 0" }}>{recipe.title}</h2>
+      {token ? (
+        <NavLink
+          className="star"
+          title={isFav ? "remove from favorite" : "add to favorite"}
+          onClick={handleAddToFav}
+        >
+          <FontAwesomeIcon icon={faStar} color={isFav ? "yellow" : "gray"} />
+        </NavLink>
+      ) : (
+        ""
+      )}
+
+      <div className="main-section">
         <div className="image-nutrition">
           <div className="recipe-image">
             <img id="image" src={recipe.image} alt={recipe.title} />
@@ -142,16 +145,19 @@ const OneRecipe = ({ match }) => {
         </div>
         <div className="ingrediets-instructions">
           <div className="ingredients-list">
-         
-            <h3 className="text">
-              Ingredients 
-            </h3>
+            <h3 className="text">Ingredients</h3>
             <h5 className="text">
-                Servings: 
-                <input style={{width:"30px", border:"none"}} type="Number" min="1" value={servings} onChange={(e)=>setServings(e.target.value)}/>
-                {/* <button className="serving-button" onClick={(increase)}>+</button>
+              Servings:
+              <input
+                style={{ width: "30px", border: "none" }}
+                type="Number"
+                min="1"
+                value={servings}
+                onChange={(e) => setServings(e.target.value)}
+              />
+              {/* <button className="serving-button" onClick={(increase)}>+</button>
                 <button className="serving-button" onClick={(decrease)}>-</button> */}
-              </h5>
+            </h5>
 
             <div className="ingredients-section">
               {console.log(recipe)}
@@ -181,10 +187,9 @@ const OneRecipe = ({ match }) => {
             ))}
           </div>
         </div>
-
       </div>
       <Footer />
-      </div>
+    </div>
   );
 };
 export default OneRecipe;

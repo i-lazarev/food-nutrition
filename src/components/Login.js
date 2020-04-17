@@ -1,6 +1,8 @@
 import React, { useState, useContext } from "react";
 import { TokenContext } from "./TokenContext";
 import { useHistory } from "react-router-dom";
+import Header from "./Header";
+import Footer from "./Footer";
 
 
 export default function Login() {
@@ -25,21 +27,37 @@ export default function Login() {
   };
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <label>Email</label>
-        <input
-          type="email"
-          value={email}
-          onChange={e => setEmail(e.target.value)}
-        />
-        <label>password</label>
-        <input
-          type="password"
-          value={password}
-          onChange={e => setPassword(e.target.value)}
-        />
-        <button>Login</button>
-      </form>
+      <Header x="#000" />
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "500px",
+        }}
+      >
+        <form onSubmit={handleSubmit}>
+          <div>Email</div>
+          <input
+            className="userInfo"
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <div style={{marginTop: '30px'}}>password</div>
+          <input
+            className="userInfo"
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <div style={{textAlign: 'center', marginTop: '30px'}}>
+            <button className="bbtn">Login</button>
+          </div>
+        </form>
+      </div>
+      <Footer />
     </div>
   );
 }

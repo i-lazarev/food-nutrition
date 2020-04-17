@@ -14,15 +14,33 @@ export default function SearchBar() {
       }
 
     return (
-        <div>
-        <form onSubmit={updateQuery} style={{"display":"flex"}}>
-                <Input type="text" name="search" value={input} className="input-search" placeholder="Search" onChange={(e)=>setInput(e.target.value)} />
-                <button>
-                  <FontAwesome name="search"  />
-                </button>
-                
-              </form>
-            
-        </div>
-    )
+      <div>
+        <form onSubmit={updateQuery} style={{ display: "flex" }}>
+          <Input
+            style={{
+              borderTopLeftRadius: "5px",
+              borderBottomLeftRadius: "5px",
+              borderTopRightRadius: "0",
+              borderBottomRightRadius: "0",
+            }}
+            type="text"
+            name="search"
+            value={input}
+            className="input-search"
+            placeholder="Search"
+            onChange={(e) => setInput(e.target.value)}
+          />
+          <button
+            style={{
+              border: "none",
+              width: "40px",
+              borderTopRightRadius: "5px",
+              borderBottomRightRadius: "5px",
+            }}
+          >
+            <FontAwesome name="search" />
+          </button>
+        </form>
+      </div>
+    );
 }
