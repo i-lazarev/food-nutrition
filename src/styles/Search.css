@@ -1,64 +1,86 @@
-
-
+#body {
+  background: rgb(241, 241, 241);
+}
 .drop-down-menu {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-around;
-  
-  font-size: 1.6rem;
+}
+.drop-down-item{
+  font-size: 1.5rem;
+}
+.drop-down-toggle{
+  font-size: 1.3rem;
+  padding: 2px 9px;
 }
 
 .recipies-section {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
-  margin: 0 3vw;
+  justify-content: center;
 }
-.cuisineTitle{
+.cuisineTitle {
   padding-right: 1rem;
 }
 
-
-.one-recipe-img:hover{
-  opacity: 0.5;
-}
-.card-image{
-  margin: 30px;
-  width: 200px;
-  color: black;
-  height: 200px;
-}
-.card-image img{
-  max-height: 200px;
-  max-width: 350px;
-  box-shadow: 4px 1px 10px 4px grey;
-}
-.one-recipe {
-  text-align: center;
-  height: 200px;
-  width: 250px;
+.card-image {
+  background: white;
   margin: 10px;
-}
-.one-recipe-img{
-  box-shadow: 4px 1px 10px 4px grey;
+  color: black;
+  width: 180px;
+  height: 280px;
 }
 
-.load-more{
-  margin-bottom: 50px;
+
+#recipe-title {
+  height: 55px;
+  font-weight: bolder;
+  width: 180px;
+  font-size: 2rem;
+  padding: 0.5rem;
+  line-height:2rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;  
+  overflow: hidden;
 }
-#recipe-title{
-  font-size: 1.4rem;
-  padding-top: 0.5rem;
-}
-#more-button{
-  width: 10rem;
+#more-button {
+  font-size: 1.5rem;
+  font-weight: 600;
+  width: 15rem;
   text-align: center;
-  
+  height: 4rem;
 }
-#more-button-section{
+#more-button-section {
   display: flex;
   padding: 3rem 0;
   justify-content: center;
+}
+
+img {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+}
+a:hover{
+  color: rgb(202, 135, 10);
+  text-decoration: none;
+}
+#time-icon{
+  margin-top: 9px;
+  text-align: end;
+  
+}
+#time{
+  font-size: 1.5rem;
+  margin: 2px;
+}
+i{
+  font-size: 1.5rem;
+  color: rgb(202, 135, 10);
+}
+i:hover{
+  color: black;
 }
 

@@ -3,15 +3,19 @@ import {Input} from "reactstrap";
 import FontAwesome from "react-fontawesome";
 import {ApiContext} from "./ApiContext";
 import "../styles/SearchBar.css"
+import { useHistory } from 'react-router-dom';
   
 
 
 export default function SearchBar() {
     const [input, setInput] = useState("")
     const [query, setQuery] =  useContext(ApiContext)
+
+    const history=useHistory()
     const updateQuery =(e) =>{
         e.preventDefault()
        setQuery(input)
+      history.push("/recipes")
       }
 
     return (

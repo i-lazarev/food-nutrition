@@ -129,16 +129,15 @@ const Search = () => {
   };
 
   return (
-    <div>
+    <div id="body">
       <Header x="#000" />
       <h1 style={{ textAlign: "center" }}>
         {query === ""
-          ? " Search a recipe"
+          ? ""
           : query.replace(/^\w/, (c) => c.toUpperCase())}
       </h1>
-      <h1>{query}</h1>
 
-      <div style={{width: '100%', display:'flex', justifyContent: 'center', alignItems: 'center'}}>
+      <div className="drop-down-menu">
         <div
           style={{ margin: "20px", textAlign: "center" }}
           className="cuisine-dropdown "
@@ -150,10 +149,11 @@ const Search = () => {
             isOpen={dropdownOpen.cuisine}
             toggle={() => toggle("cuisine")}
           >
-            <DropdownToggle caret>{selection.cuisine}</DropdownToggle>
-            <DropdownMenu>
+            <DropdownToggle className="drop-down-toggle" caret>{selection.cuisine}</DropdownToggle>
+            <DropdownMenu >
               {cuisineArray.map((oneCuisine) => (
                 <DropdownItem
+                  className="drop-down-item"
                   key={oneCuisine}
                   onClick={(e) => {
                     changeSelection("cuisine", e);
@@ -175,10 +175,11 @@ const Search = () => {
             isOpen={dropdownOpen.diet}
             toggle={() => toggle("diet")}
           >
-            <DropdownToggle caret>{selection.diet}</DropdownToggle>
+            <DropdownToggle className="drop-down-toggle" caret>{selection.diet}</DropdownToggle>
             <DropdownMenu>
               {dietArray.map((oneDiet) => (
                 <DropdownItem
+                className="drop-down-item"
                   key={oneDiet}
                   onClick={(e) => {
                     changeSelection("diet", e);
@@ -200,10 +201,11 @@ const Search = () => {
             isOpen={dropdownOpen.intolerance}
             toggle={() => toggle("intolerance")}
           >
-            <DropdownToggle caret>{selection.intolerance}</DropdownToggle>
+            <DropdownToggle className="drop-down-toggle" caret>{selection.intolerance}</DropdownToggle>
             <DropdownMenu>
               {intoleranceArray.map((oneIntol) => (
                 <DropdownItem
+                className="drop-down-item"
                   key={oneIntol}
                   onClick={(e) => {
                     changeSelection("intolerance", e);
@@ -225,10 +227,11 @@ const Search = () => {
             isOpen={dropdownOpen.type}
             toggle={() => toggle("type")}
           >
-            <DropdownToggle caret>{selection.type}</DropdownToggle>
+            <DropdownToggle className="drop-down-toggle" caret>{selection.type}</DropdownToggle>
             <DropdownMenu>
               {typeArray.map((oneType) => (
                 <DropdownItem
+                className="drop-down-item"
                   key={oneType}
                   onClick={(e) => {
                     changeSelection("type", e);
@@ -243,14 +246,28 @@ const Search = () => {
         </div>
       </div>
       <div className="recipies-section">
+      {console.log(recipies)}
         {recipies.map((res) => (
           <Link key={res.id} className="card-image" to={`recipe/${res.id}`}>
+            <div id="image">
             <img
+
               src={`https://spoonacular.com/recipeImages/${res.image}`}
               alt={res.title}
               width="100%"
             />
-            <p id="recipe-title">{res.title}</p>
+            </div>
+            <h2 id="recipe-title">{res.title}</h2>
+            <div id="time-icon">
+            <i class="far fa-clock"></i>
+            <span id="time">
+            
+            
+            {res.readyInMinutes > 60 ?
+             Math.floor(res.readyInMinutes /60) +"h" : res.readyInMinutes+ "min"}
+             </span>
+             </div>
+            
           </Link>
         ))}
       </div>

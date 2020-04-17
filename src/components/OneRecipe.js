@@ -30,11 +30,11 @@ const OneRecipe = ({ match }) => {
     )
       .then((res) => res.json())
       .then((res) => {
+        console.log(res)
         setRecipe(res);
         setWineObj(res.winePairing);
         setIngredients(res.extendedIngredients);
         setRecID(res.id);
-        setIngredients(res.extendedIngredients);
         if (token) {
           checkFav(res.id);
         }
@@ -116,7 +116,7 @@ const OneRecipe = ({ match }) => {
 
   return (
     <div>
-      <Header />
+      <Header x="#000"  />
       <h2 style={{ textAlign: "center", margin: "1rem 0" }}>{recipe.title}</h2>
       {token ? (
               <NavLink style={{ textAlign: "center", margin: "1rem 0" }}
@@ -190,9 +190,9 @@ const OneRecipe = ({ match }) => {
               </li>
             ))}
           </div>
-          <div className="wine-pairing">
-            {wineObj !== {} ? (
-              <div>
+          
+            {wineObj.pairedWines  ? (
+              <div className="wine-pairing">
                 <h3 style={{ textAlign: "center" }}>Wine pairing</h3>
                 {wineObj.pairingText}
               </div>
@@ -200,7 +200,7 @@ const OneRecipe = ({ match }) => {
               ""
             )}
           </div>
-        </div>
+        
       </div>
       <Footer />
     </div>
