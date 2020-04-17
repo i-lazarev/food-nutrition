@@ -32,6 +32,7 @@ export default function Home() {
         {/* <MostSeen />
         <AllFood />
         <Categories /> */}
+        
         <Footer />
       </div>
     );
