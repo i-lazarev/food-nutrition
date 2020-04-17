@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import { Card, CardImg } from 'reactstrap'
 
 function MostSeen() {
-    const [recipe, setRecipe] = useState([])
+
+    const [recipes, setRecipes] = useState([])
     const key = 'd89d17872b3f4f8fa0da39073a9defdf'
 
     useEffect(() => {
@@ -10,32 +10,34 @@ function MostSeen() {
     }, [])
 
     const getRecipes = () => {
-        fetch(`https://api.spoonacular.com/recipes/random?number=3&apiKey=${key}`, {
+        fetch(`https://api.spoonacular.com/recipes/search?&apiKey=${key}`, {
             "method": "GET",
             'Content-Type': 'application/json'
         })
             .then(res => res.json())
-            .then(res => setRecipe(res.recipes))
-            // .then(res => console.log(res.recipes))
+            .then(res => setRecipes(res.results))
+            // .then(res => console.log(res.results))
             .catch(err => {
                 console.log(err);
             });
     }
     return (
-        <div style={recSection}>
-            {recipe.map(rec => (
-                <Card
-                    style={card} key={rec.id}>
-                    <CardImg
-                        style={cardImage}
-                        top
-                        width="100px"
-                        src={rec.image}
-                        alt={rec.title}
-                    />
-                </Card>
+        <div>
+            <h3 className='container'>TRENDING RECIPES</h3>
+            <div style={Section}>
+                {recipes.map(rec => (
 
-            ))}
+                    <div style={card} key={rec.id}>
+                        <img
+                            className="card-image-all-food"
+                            top='true'
+                            width="100px"
+                            src={`https://spoonacular.com/recipeImages/${rec.image}`}
+                            alt={rec.title} />
+                        <h4 style={title}>{rec.title}</h4>
+                    </div>
+                ))}
+            </div>
         </div>
     )
 }
@@ -43,26 +45,29 @@ function MostSeen() {
 
 export default MostSeen
 
-const recSection = {
+const Section = {
     display: 'webkit-box',
     display: 'ms-lexbox',
     display: 'flex',
     msFlexWrap: 'wrap',
     flexWrap: 'wrap',
     msFlexPack: 'distribute',
-    justifyContent: 'space-around'
+    justifyContent: 'space-around',
+    marginTop: '15px'
 }
 
 const card = {
-    width: '250px',
-    minHeight: '250px',
-    margin: '20px',
-    borderRadius: '20px',
-    WebkitBoxShadow: '4px 1px 10px 4px rgb(223, 60, 60)',
-    boxShadow: '2px 1px 10px 2px rgb(150, 144, 147)'
+    width: '200px',
+    minHeight: '200px',
+    lineHeight: '200px',
+    borderRadius: '50%',
+    MozBorderRadius: '50%',
+    WebkitBorderRadius: '50%'
 }
 
-const cardImage = {
-    maxHeight: '100',
-    borderRadius: '1px'
+const title = {
+    marginTop: '10px',
+    textAlign: 'center',
+    fontFamily: 'Arial, Helvetica, sans-serif',
+    fontStyle: 'italic'
 }

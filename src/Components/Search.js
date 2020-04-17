@@ -29,7 +29,7 @@ const Search = () => {
 
     const getSearch = (e) => {
         e.preventDefault()
-        setQuery(search)
+        setQuery(search )
         console.log(query);
         setSearch('')
     }
@@ -55,8 +55,6 @@ const Search = () => {
                                 onChange={updateSearch}
                             />
                             <Button type='submit'>
-                                {/* <img src="https://img.icons8.com/android/24/000000/search.png" alt=''
-                                /> */}
                                 search
                             </Button>
 

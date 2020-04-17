@@ -1,17 +1,16 @@
 import React from 'react';
+import SlideShow from './SlideShow';
 import MostSeen from './MostSeen';
-import AllFood from './AllFood';
 import Search from './Search';
 import Categories from './Categories';
-
 
 const HomePage = (props) => {
 
     return (
         <div>
             <Search />
+            <SlideShow />
             <MostSeen />
-            <AllFood />
             <Categories/>
         </div>
     );

@@ -4,7 +4,7 @@ export const ContextAPI = createContext();
 
 export const RecipeProvider = (props) => {
 
-    const [query, setQuery] = useState([''])
+    const [query, setQuery] = useState([])
     const key = 'd89d17872b3f4f8fa0da39073a9defdf'
 
     useEffect(() => {
