@@ -4,7 +4,8 @@
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.12.1",
-    "@fortawesome/fontawesome-svg-core": "^1.2.27",
+    "@fortawesome/fontawesome-svg-core": "^1.2.28",
+    "@fortawesome/free-brands-svg-icons": "^5.13.0",
     "@fortawesome/free-solid-svg-icons": "^5.13.0",
     "@fortawesome/react-fontawesome": "^0.1.9",
     "@material/card": "^5.1.0",
