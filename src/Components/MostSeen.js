@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react'
+import { NavLink } from 'reactstrap'
+
 
 function MostSeen() {
 
@@ -34,7 +36,7 @@ function MostSeen() {
                             width="100px"
                             src={`https://spoonacular.com/recipeImages/${rec.image}`}
                             alt={rec.title} />
-                        <h4 style={title}>{rec.title}</h4>
+                        <a href=''>{rec.title}</a>
                     </div>
                 ))}
             </div>
