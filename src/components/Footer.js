@@ -30,13 +30,17 @@ export default function Footer() {
             display: "flex",
             flexWrap: "wrap",
             justifyContent: "space-between",
+            alignItems: "center",
             width: "1000px",
           }}
         >
           <div style={{ marginBottom: "10px" }}>
             <div>
               <span>powered by </span>
-              <NavLink style={{display: 'inline-block'}} href="https://spoonacular.com/">
+              <NavLink
+                style={{ display: "inline-block" }}
+                href="https://spoonacular.com/"
+              >
                 <span style={{ color: "#379344" }}>spoonacular API</span>
               </NavLink>
             </div>
