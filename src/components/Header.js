@@ -2,7 +2,7 @@ import React, { useState, useContext, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { TokenContext } from "./TokenContext";
 import "../styles/header.css";
-import image from "../images/foodaholic.png"
+
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -25,7 +25,7 @@ import {
 import SearchBar from "./SearchBar";
 import Profile from "./Profile";
 
-const Header = () => {
+const Header = (props) => {
   const [isOpen, setIsOpen] = useState(false);
   // const [query, setQuery] = useContext(ApiContext);
 
@@ -51,31 +51,35 @@ const Header = () => {
         },
       })
         .then((res) => res.json())
-        .then((data) => 
-         {
-          if (data == "expired") {
+        .then((data) => {
+          if (data === "expired") {
             setToken(null);
             localStorage.removeItem("token");
           }
-        }
-        );
+        });
     }
-  }, [token]);
+  }, [setToken, token]);
 
   return (
-    <div className="main-section">
+    <div style={{ fontSize: "18px" }}>
       <Navbar
-        color="dark"
+        style={{ padding: "8px 40px 8px 50px", backgroundColor: props.x }}
         dark
         expand="md"
       >
-        <NavbarBrand href="/"><img id="logo" src={image} alt="logo"></img></NavbarBrand>
+        <NavbarBrand href="/">
+          <span className="logoA">yummy </span>
+          <span className="logoB">DB</span>
+        </NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto, nav-bar" navbar>
             <NavItem style={{ paddingLeft: "40px" }}>
               <NavLink href="/recipes">
-                Recipes <FontAwesomeIcon className="search-icon" icon={faUtensils} />
+                <div className="navLinkBtn">
+                  Recipes{" "}
+                  <FontAwesomeIcon className="search-icon" icon={faUtensils} />
+                </div>
               </NavLink>
             </NavItem>
             <NavItem>
@@ -85,35 +89,63 @@ const Header = () => {
               <div
                 className="nav"
               >
-                <NavLink onClick={handleShowInfo}>
-                  <span>{show ? "hide info" : "show info"}</span>{" "}
-                  {show ? (
-                    <FontAwesomeIcon icon={faAngleDown} />
-                  ) : (
-                    <FontAwesomeIcon icon={faAngleUp} />
-                  )}
+                <NavLink>
+                  <div className="navLinkBtn" onClick={handleShowInfo}>
+                    <span>{show ? "hide info" : "show info"}</span>{" "}
+                    {show ? (
+                      <FontAwesomeIcon
+                        style={{ paddingTop: "4px" }}
+                        icon={faAngleUp}
+                      />
+                    ) : (
+                      <FontAwesomeIcon
+                        style={{ paddingTop: "4px" }}
+                        icon={faAngleDown}
+                      />
+                    )}
+                  </div>
                 </NavLink>
                 <NavItem>
                   <NavLink title="your favorite recipes" href="/favorite">
-                    <FontAwesomeIcon icon={faStar} />
+                    <div className="navLinkBtn">
+                      <FontAwesomeIcon icon={faStar} />
+                    </div>
                   </NavLink>
                 </NavItem>
                 <NavItem>
                   <NavLink title="update your info" href="/edit-account-info">
-                    <FontAwesomeIcon icon={faUserEdit} />
+                    <div className="navLinkBtn">
+                      <FontAwesomeIcon icon={faUserEdit} />
+                    </div>
                   </NavLink>
                 </NavItem>
-                <NavLink title="sign out" onClick={handleSignOut}>
-                  <FontAwesomeIcon icon={faSignOutAlt} />
+                <NavLink>
+                  <div
+                    className="navLinkBtn"
+                    title="sign out"
+                    onClick={handleSignOut}
+                  >
+                    <FontAwesomeIcon icon={faSignOutAlt} />
+                  </div>
                 </NavLink>
               </div>
             ) : (
-              <div className="log-sign">
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  width: "150px",
+                }}
+              >
                 <NavItem>
-                  <NavLink href="/sign-up">Sign up</NavLink>
+                  <NavLink href="/sign-up">
+                    <div className="navLinkBtn">Sign up</div>
+                  </NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink href="/login">Log in</NavLink>
+                  <NavLink href="/login">
+                    <div className="navLinkBtn">Log in</div>
+                  </NavLink>
                 </NavItem>
               </div>
             )}

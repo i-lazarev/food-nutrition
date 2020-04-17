@@ -159,6 +159,8 @@ const OneRecipe = ({ match }) => {
                 value={servings}
                 onChange={(e) => setServings(e.target.value)}
               />
+              {/* <button className="serving-button" onClick={(increase)}>+</button>
+                <button className="serving-button" onClick={(decrease)}>-</button> */}
             </h5>
 
             <div className="ingredients-section">

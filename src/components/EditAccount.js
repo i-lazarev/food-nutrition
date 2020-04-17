@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useHistory } from "react-router-dom";
 import { TokenContext } from "./TokenContext";
+import Header from './Header';
+import Footer from './Footer';
 
 export default function EditAccount(props) {
   const [height, setHeight] = useState("");
@@ -153,6 +155,7 @@ export default function EditAccount(props) {
 
   return (
     <div>
+      <Header x="#000" />
       <form onSubmit={handleSubmit}>
         <div
           style={{
@@ -163,9 +166,10 @@ export default function EditAccount(props) {
           }}
         >
           <div style={{ width: "350px", margin: "40px 65px 0 65px" }}>
-            <h2>Body Type and Measurements</h2>
+            <h1>Body Type and Measurements</h1>
             <div style={{ padding: "5px" }}>Height:</div>
             <input
+              className="userInfo"
               type="number"
               onChange={(e) => setHeight(e.target.value)}
               value={height}
@@ -174,6 +178,7 @@ export default function EditAccount(props) {
             />
             <div style={{ padding: "10px 5px 5px 5px" }}>Weight:</div>
             <input
+              className="userInfo"
               type="number"
               onChange={(e) => setWeight(e.target.value)}
               value={weight}
@@ -182,177 +187,272 @@ export default function EditAccount(props) {
             />
             <div style={{ padding: "10px 5px 5px 5px" }}>Age:</div>
             <input
+              className="userInfo"
               type="number"
               onChange={(e) => setAge(e.target.value)}
               value={age}
               placeholder="Age (year)"
               style={{ padding: "3px" }}
             />
-            <div style={{ padding: "10px 5px 5px 5px" }}>
-              <label style={{ padding: "5px" }}>
+            <div
+              style={{
+                width: "200px",
+                display: "flex",
+                justifyContent: "space-between",
+                padding: "10px 5px 5px 5px",
+              }}
+            >
+              <div>
                 <input
+                  id="male"
                   type="radio"
                   name="gender"
+                  checked={male}
                   onChange={(e) => {
                     setMale(e.target.checked);
                     setFemale(!e.target.checked);
                   }}
-                  checked={male}
                 />
-                male
-              </label>
-
-              <label style={{ padding: "5px" }}>
+                <label htmlFor="male">
+                  <span>
+                    <span></span>
+                  </span>
+                  male
+                </label>
+              </div>
+              <div>
                 <input
+                  id="female"
                   type="radio"
                   name="gender"
+                  checked={female}
                   onChange={(e) => {
                     setFemale(e.target.checked);
                     setMale(!e.target.checked);
                   }}
-                  checked={female}
                 />
-                female
-              </label>
+                <label htmlFor="female">
+                  <span>
+                    <span></span>
+                  </span>
+                  female
+                </label>
+              </div>
             </div>
-            <h3>Body Type:</h3>
-            <label>
-              <input
-                type="radio"
-                name="bodyType"
-                onChange={(e) => {
-                  setEcto(e.target.checked);
-                  setEndo(!e.target.checked);
-                  setMeso(!e.target.checked);
-                  setNEAT(900);
-                }}
-                checked={ecto}
-              />
+            <h1>Body Type:</h1>
+
+            <input
+              id="ecto"
+              type="radio"
+              name="bodyType"
+              checked={ecto}
+              onChange={(e) => {
+                setEcto(e.target.checked);
+                setEndo(!e.target.checked);
+                setMeso(!e.target.checked);
+                setNEAT(900);
+              }}
+            />
+            <label htmlFor="ecto">
+              <span>
+                <span></span>
+              </span>
               Ectomorph
             </label>
-            <p style={{ fontSize: "14px", margin: "4px 0 10px 25px" }}>
+            <p
+              style={{
+                fontSize: "14px",
+                textAlign: "start",
+                margin: "0 0 15px 20px",
+              }}
+            >
               {" "}
               * struggles to gain weight
             </p>
-            <label>
-              <input
-                type="radio"
-                name="bodyType"
-                onChange={(e) => {
-                  setEcto(!e.target.checked);
-                  setEndo(!e.target.checked);
-                  setMeso(e.target.checked);
-                  setNEAT(500);
-                }}
-                checked={meso}
-              />
+
+            <input
+              id="meso"
+              type="radio"
+              name="bodyType"
+              checked={meso}
+              onChange={(e) => {
+                setEcto(!e.target.checked);
+                setEndo(!e.target.checked);
+                setMeso(e.target.checked);
+                setNEAT(500);
+              }}
+            />
+            <label htmlFor="meso">
+              <span>
+                <span></span>
+              </span>
               Mesomorph
             </label>
-            <p style={{ fontSize: "14px", margin: "4px 0 10px 25px" }}>
+            <p
+              style={{
+                fontSize: "14px",
+                textAlign: "start",
+                margin: "0 0 15px 20px",
+              }}
+            >
               {" "}
               * easily gains and loses weight
             </p>
-            <label>
-              <input
-                type="radio"
-                name="bodyType"
-                onChange={(e) => {
-                  setEcto(!e.target.checked);
-                  setEndo(e.target.checked);
-                  setMeso(!e.target.checked);
-                  setNEAT(400);
-                }}
-                checked={endo}
-              />
+
+            <input
+              id="endo"
+              type="radio"
+              name="bodyType"
+              checked={endo}
+              onChange={(e) => {
+                setEcto(!e.target.checked);
+                setEndo(e.target.checked);
+                setMeso(!e.target.checked);
+                setNEAT(400);
+              }}
+            />
+            <label htmlFor="endo">
+              <span>
+                <span></span>
+              </span>
               Endomorph
             </label>
-            <p style={{ fontSize: "14px", margin: "4px 0 10px 25px" }}>
+            <p
+              style={{
+                fontSize: "14px",
+                margin: "0 0 15px 20px",
+                textAlign: "start",
+              }}
+            >
               {" "}
               * easily gains weight, struggles to lose weight
             </p>
           </div>
           <div style={{ width: "350px", margin: "40px 65px" }}>
-            <h2>Workout & Sport</h2>
+            <h1>Workout & Sport</h1>
             <div>
-              <p style={{ margin: "5px 0" }}>Days of Workout per Week:</p>
+              <p style={{ margin: "5px 0", textAlign: "start" }}>
+                Days of Workout per Week:
+              </p>
               <input
+                min="0"
+                className="userInfo"
                 type="number"
                 onChange={(e) => setDaysOfWorkouts(e.target.value)}
                 value={daysOfWorkout}
-                style={{ width: "50px", textAlign: "center" }}
-              />{" "}
+                style={{
+                  width: "80px",
+                  textAlign: "center",
+                  marginRight: "10px",
+                }}
+              />
+              {"  "}
               day(s)
             </div>
             <div>
-              <p style={{ margin: "15px 0 5px 0" }}>Duration of Workout:</p>
+              <p style={{ margin: "15px 0 5px 0", textAlign: "start" }}>
+                Duration of Workout:
+              </p>
               <input
+                min="0"
+                className="userInfo"
                 type="number"
                 onChange={(e) => setDurationOfWorkout(e.target.value)}
                 value={durationOfWorkout}
-                style={{ width: "50px", textAlign: "center" }}
-              />{" "}
+                style={{
+                  width: "80px",
+                  textAlign: "center",
+                  marginRight: "10px",
+                }}
+              />
+              {"  "}
               minutes
             </div>
-            <h3>Set a Goal:</h3>
+            <h1 style={{ marginTop: "15px" }}>Set a Goal:</h1>
             <div style={{ height: "30px" }}>
               <input
+                id="gain"
                 type="radio"
                 name="goal"
+                checked={gain}
                 onChange={(e) => {
                   setGain(e.target.checked);
                   setLose(!e.target.checked);
                   setMaintain(!e.target.checked);
                   setGoal(500);
                 }}
-                checked={gain}
               />
-              gain muscles/ bulk
+              <label htmlFor="gain">
+                <span>
+                  <span></span>
+                </span>
+                gain muscles/ bulk
+              </label>
             </div>
             <div style={{ height: "30px" }}>
               <input
+                id="lose"
                 type="radio"
                 name="goal"
+                checked={lose}
                 onChange={(e) => {
                   setGain(!e.target.checked);
                   setLose(e.target.checked);
                   setMaintain(!e.target.checked);
                   setGoal(-500);
                 }}
-                checked={lose}
               />
-              lose weight/ cut
+              <label htmlFor="lose">
+                <span>
+                  <span></span>
+                </span>
+                lose weight/ cut
+              </label>
             </div>
             <div style={{ height: "30px" }}>
               <input
+                id="maintain"
                 type="radio"
                 name="goal"
+                checked={maintain}
                 onChange={(e) => {
                   setGain(!e.target.checked);
                   setLose(!e.target.checked);
                   setMaintain(e.target.checked);
                 }}
-                checked={maintain}
               />
-              maintain your current weight
+              <label htmlFor="maintain">
+                <span>
+                  <span></span>
+                </span>
+                maintain your current weight
+              </label>
             </div>
-            <h3>Choose a Diet:</h3>
+            <h1 style={{ marginTop: "15px" }}>Choose a Diet:</h1>
             <div style={{ height: "30px" }}>
               <input
+                id="low"
                 type="radio"
                 name="diet"
+                checked={lowCarbs}
                 onChange={(e) => {
                   setLowCarbs(e.target.checked);
                   setHighCarbs(!e.target.checked);
                   setModerateCarbs(!e.target.checked);
                   setIndex("2");
                 }}
-                checked={lowCarbs}
               />
-              low-carbs{" "}
+              <label htmlFor="low">
+                <span>
+                  <span></span>
+                </span>
+                low-carbs
+              </label>
+
               {lose ? (
                 <span
                   style={{
-                    backgroundColor: "green",
+                    backgroundColor: "#7dbf37",
                     color: "#fff",
                     padding: "2px 5px",
                     marginLeft: "10px",
@@ -367,21 +467,28 @@ export default function EditAccount(props) {
             </div>
             <div style={{ height: "30px" }}>
               <input
+                id="moderate"
                 type="radio"
                 name="diet"
+                checked={moderateCarbs}
                 onChange={(e) => {
                   setLowCarbs(!e.target.checked);
                   setHighCarbs(!e.target.checked);
                   setModerateCarbs(e.target.checked);
                   setIndex("1");
                 }}
-                checked={moderateCarbs}
               />
-              moderate-carbs{" "}
+              <label htmlFor="moderate">
+                <span>
+                  <span></span>
+                </span>
+                moderate-carbs
+              </label>
+
               {maintain ? (
                 <span
                   style={{
-                    backgroundColor: "green",
+                    backgroundColor: "#7dbf37",
                     color: "#fff",
                     padding: "2px 5px",
                     marginLeft: "10px",
@@ -396,21 +503,28 @@ export default function EditAccount(props) {
             </div>
             <div style={{ height: "30px" }}>
               <input
+                id="high"
                 type="radio"
                 name="diet"
+                checked={highCarbs}
                 onChange={(e) => {
                   setLowCarbs(!e.target.checked);
                   setHighCarbs(e.target.checked);
                   setModerateCarbs(!e.target.checked);
                   setIndex("0");
                 }}
-                checked={highCarbs}
               />
-              high-carbs{" "}
+              <label htmlFor="high">
+                <span>
+                  <span></span>
+                </span>
+                high-carbs
+              </label>
+
               {gain ? (
                 <span
                   style={{
-                    backgroundColor: "green",
+                    backgroundColor: "#7dbf37",
                     color: "#fff",
                     padding: "2px 5px",
                     marginLeft: "10px",
@@ -425,22 +539,13 @@ export default function EditAccount(props) {
             </div>
           </div>
         </div>
+
         <div style={{ textAlign: "center" }}>
-          <button
-            style={{
-              backgroundColor: "green",
-              color: "#fff",
-              padding: "8px",
-              borderRadius: "10px",
-              border: "none",
-              width: "100px",
-              outline: "none",
-            }}
-          >
-            update
-          </button>
+          <button className="bbtn">Update</button>
         </div>
       </form>
+
+      <Footer />
     </div>
   );
 }

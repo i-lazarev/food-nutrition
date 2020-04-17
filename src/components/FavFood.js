@@ -35,33 +35,21 @@ export default function FavFood() {
 
     return (
       <div>
-      <Header/>
+        <Header x="#000" />
         <h1>fav recipes</h1>
         <div className="recipies-section">
           {favArray.map((res) => (
-            <Animated key={res.id} animationIn="fadeIn">
-              <Card className="card">
-                <CardImg
-                  className="card-image"
-                  top
-                  width="100px"
-                  src={res.image}
-                  alt={res.title}
-                />
-                <CardBody>
-                  <CardTitle>{res.title}</CardTitle>
-                  <Link
-                    to={`recipe/${res.id}`}
-                    className="btn-flip"
-                    data-back="Click me"
-                    data-front="Details"
-                  />
-                </CardBody>
-              </Card>
-            </Animated>
+            <Link key={res.id} className="card-image" to={`recipe/${res.id}`}>
+              <img
+                src={res.image}
+                alt={res.title}
+                width="100%"
+              />
+              <p id="recipe-title">{res.title}</p>
+            </Link>
           ))}
         </div>
-        <Footer/>
+        <Footer />
       </div>
     );
 }
