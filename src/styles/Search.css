@@ -1,0 +1,85 @@
+#body {
+  background: rgb(241, 241, 241);
+}
+.drop-down-menu {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.drop-down-item{
+  font-size: 1.5rem;
+}
+.drop-down-toggle{
+  font-size: 1.3rem;
+  padding: 2px 9px;
+}
+
+.recipies-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.cuisineTitle {
+  padding-right: 1rem;
+}
+
+.card-image {
+  background: white;
+  margin: 10px;
+  color: black;
+  width: 180px;
+  height: 280px;
+}
+
+
+#recipe-title {
+  height: 58px;
+  font-weight: bolder;
+  width: 180px;
+  font-size: 2rem;
+  padding: 1rem;
+  line-height:2rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;  
+  overflow: hidden;
+}
+#more-button {
+  font-size: 1.5rem;
+  font-weight: 600;
+  width: 15rem;
+  text-align: center;
+  height: 4rem;
+}
+#more-button-section {
+  display: flex;
+  padding: 3rem 0;
+  justify-content: center;
+}
+
+img {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+}
+a:hover{
+  color: rgb(202, 135, 10);
+  text-decoration: none;
+}
+#time-icon{
+  margin-top: 9px;
+  text-align: end;
+  
+}
+#time{
+  font-size: 1.5rem;
+  margin: 2px;
+}
+i{
+  font-size: 1.5rem;
+  color: rgb(202, 135, 10);
+}
+i:hover{
+  color: black;
+}

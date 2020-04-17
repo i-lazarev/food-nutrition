@@ -1,17 +1,16 @@
-import React from 'react';
-import './App.css';
-import Container from './Components/Container';
-import { RecipeProvider } from './Components/ContextAPI'
+import React from "react";
+import "./App.css";
+import Container from "./components/Container";
+import { ApiProvider } from "./components/ApiContext";
 
-function App() {
-
+const App = () => {
   return (
-    <RecipeProvider>
-      <div className="App">
-        <Container/>
-      </div>
-    </RecipeProvider>
+    <ApiProvider>
+      
+        <Container />
+     
+    </ApiProvider>
   );
-}
+};
 
 export default App;

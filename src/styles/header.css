@@ -1,0 +1,39 @@
+.nav-bar {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  display: flex;
+  align-items:center;
+  justify-content: space-between;
+}
+
+.input-search{
+    width: 300px;
+    height: 3rem;
+}
+.input-search:focus{
+    border-color: #cccccc;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+.nav{
+  width: 250px;
+  display: flex;
+  justify-content: space-between;
+}
+.main-section{
+  
+  
+  font-size: 1.6rem;
+
+}
+.log-sign{
+  width: 15rem;
+  display: flex;
+  justify-content: space-between;
+}
+#logo{
+  padding: 0;
+  margin: 0;
+  height: 5rem;
+}

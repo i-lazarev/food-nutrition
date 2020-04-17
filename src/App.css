@@ -1,25 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Baloo+Bhai+2:wght@400;600&family=Kaushan+Script&display=swap');
+ApiProvider{
+    margin:0 0rem
+}
+.App{
+    margin:0 10%;
+}
+
+.nav > * :hover {
+    cursor: pointer;
+}
+
+.star :hover {
+    cursor: pointer;
+}
+
 * {
-  box-sizing: border-box;
-  margin: 0%;
-  padding: 0%;
+    font-size: 18px;
+    font-family: 'Baloo Bhai 2';
 }
 
-.container {
-  display: flex;
-  justify-content: center;
-  justify-items: center;
-  margin-top: 1rem;
-
+.logoA {
+    font-family: 'Kaushan Script';
+    font-weight: bold;
+    font-size: 27px;
+}
+.logoB {
+    font-family: 'Anton';
+    color: #f8b652;
+}
+.userInfo {
+    padding: 0 10px;
+    border: none;
+    border-bottom: 2px solid #F94F72;
+    margin-bottom: 8px;
+    caret-color: #F94F72;
+}
+.userInfo:focus,
+.bbtn:focus {
+   outline: none;
 }
 
-/* AllFood Page */
-.card-image-all-food {
-  width: 200px;
-  height: 200px;
-  line-height: 200px;
-  border-radius: 50%;
-  -moz-border-radius: 50%;
-  -webkit-border-radius: 50%;
-  font-weight: 100;
-  box-shadow: 2px 1px 10px 2px rgb(150, 144, 147);
+.bbtn {
+    border: 1px solid rgb(122, 170, 74);
+    background: rgb(121, 187, 54);
+    background-image: -moz-linear-gradient(rgb(169, 240, 98), rgb(121, 187, 54));
+    background-image: -ms-linear-gradient(rgb(169, 240, 98), rgb(121, 187, 54));
+    background-image: -o-linear-gradient(rgb(169, 240, 98), rgb(121, 187, 54));
+    background-image: -webkit-linear-gradient(rgb(169, 240, 98), rgb(121, 187, 54));
+    background-image: linear-gradient(rgb(169, 240, 98), rgb(121, 187, 54));
+    color: #fff;
+    padding: 5px;
+    border-radius: 10px;
+    width: 100px;
+    outline: none;
+}
+
+.bbtn:hover {
+    background: #F94F72;
+    color: #000;
+    border: 1px solid #000;
+}
+
+.navLinkBtn {
+    color: #fff;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.navLinkBtn:hover {
+    color: #f8b652;
+}
+input[type="radio"]{
+    display: none;
+}
+input[type="radio"]+label {
+    display : inline-block;
+    margin-left : -2em;
+    line-height : 1.5em;
+    
+}
+input[type=radio]:not(old)+label>span {
+    display: inline-block;
+    width: 0.875em;
+    height: 0.875em;
+    margin: 0.25em 0.5em 0.25em 0.25em;
+    border: 0.0625em solid rgb(192, 192, 192);
+    border-radius: 0.25em;
+    background: rgb(224, 224, 224);
+    background-image: -moz-linear-gradient(rgb(240, 240, 240), rgb(224, 224, 224));
+    background-image: -ms-linear-gradient(rgb(240, 240, 240), rgb(224, 224, 224));
+    background-image: -o-linear-gradient(rgb(240, 240, 240), rgb(224, 224, 224));
+    background-image: -webkit-linear-gradient(rgb(240, 240, 240), rgb(224, 224, 224));
+    background-image: linear-gradient(rgb(240, 240, 240), rgb(224, 224, 224));
+    vertical-align: bottom;
+}
+input[type=radio]:not(old):checked+label>span {
+    background-image: -moz-linear-gradient(rgb(224, 224, 224), rgb(240, 240, 240));
+    background-image: -ms-linear-gradient(rgb(224, 224, 224), rgb(240, 240, 240));
+    background-image: -o-linear-gradient(rgb(224, 224, 224), rgb(240, 240, 240));
+    background-image: -webkit-linear-gradient(rgb(224, 224, 224), rgb(240, 240, 240));
+    background-image: linear-gradient(rgb(224, 224, 224), rgb(240, 240, 240));
+}
+input[type=radio]:not(old):checked+label>span>span {
+    display: block;
+    width: 0.5em;
+    height: 0.5em;
+    margin: 0.125em;
+    border: 0.0625em solid rgb(115, 153, 77);
+    border-radius: 0.125em;
+    background: rgb(153, 204, 102);
+    background-image: -moz-linear-gradient(rgb(179, 217, 140), rgb(153, 204, 102));
+    background-image: -ms-linear-gradient(rgb(179, 217, 140), rgb(153, 204, 102));
+    background-image: -o-linear-gradient(rgb(179, 217, 140), rgb(153, 204, 102));
+    background-image: -webkit-linear-gradient(rgb(179, 217, 140), rgb(153, 204, 102));
+    background-image: linear-gradient(rgb(179, 217, 140), rgb(153, 204, 102));
 }
