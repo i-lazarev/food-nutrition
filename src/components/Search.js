@@ -33,7 +33,8 @@ const Search = () => {
       }
     )
       .then((res) => res.json())
-      .then((res) => setRecipies(res.results))
+      .then((res) => 
+      setRecipies(res.results))
       .catch((err) => {
         console.log(err);
       });
@@ -257,7 +258,7 @@ const Search = () => {
               width="100%"
             />
             </div>
-            <h2 id="recipe-title">{res.title}</h2>
+            <h2 id="recipe-title">{res.title.replace(/^\w/, (c) => c.toUpperCase())}</h2>
             <div id="time-icon">
             <i class="far fa-clock"></i>
             <span id="time">

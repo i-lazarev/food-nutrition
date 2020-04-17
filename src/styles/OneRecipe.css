@@ -12,12 +12,18 @@
   justify-content: space-around;
   
 }
+.recipe-title{
+  text-align: center;
+  margin: 1rem 0;
+  font-weight: bold;
+  font-size: 3rem;
+}
 .image-fav-icon{
   display: flex;
   width: 63rem;
 }
 .star{
-  font-size: 1.2rem;
+  font-size: 2rem;
   
 }
 .recipe-nutrition{
@@ -36,13 +42,6 @@
   align-items: center;
 }
 
-.ingredients-list {
-  padding-left: 5%;
-  box-shadow: 4px 1px 10px 4px grey;
-  padding: 10px;
-  margin: 10px;
-  border-radius: 3px;
-}
 .ingredients-section {
   display: flex;
   flex-wrap: wrap;
@@ -60,16 +59,9 @@
   height: 120px;
 }
 
-.instructions {
+
+.section{
   padding-left: 5%;
-  box-shadow: 4px 1px 10px 4px grey;
-  padding: 10px;
-  margin: 10px;
-  border-radius: 3px;
-}
-.wine-pairing{
-  padding-left: 5%;
-  box-shadow: 4px 1px 10px 4px grey;
   padding: 10px;
   margin: 10px;
   border-radius: 3px;
@@ -78,11 +70,11 @@ li {
   list-style: none;
 }
 .nutrition-list {
-
   display: grid;
   grid-template-columns: 3fr 1fr;
 }
 p{
+  font-size: 1.6rem;
   text-align: center;
 }
 .serving-button{
@@ -96,4 +88,23 @@ p{
 }
 .text{
   text-align: center;
+}
+#image{
+  height: auto;
+  width: 100%;
+}
+.title{
+  text-align: center;
+  font-size: 2.2rem;
+  font-weight: bold;
+}
+.text-servings{
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+hr{
+  height: 2px;
+   background-color: darkgrey;
+        border: none;
 }

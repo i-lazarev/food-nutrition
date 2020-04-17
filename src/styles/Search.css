@@ -34,11 +34,11 @@
 
 
 #recipe-title {
-  height: 55px;
+  height: 58px;
   font-weight: bolder;
   width: 180px;
   font-size: 2rem;
-  padding: 0.5rem;
+  padding: 1rem;
   line-height:2rem;
   display: -webkit-box;
   -webkit-line-clamp: 3;
@@ -83,4 +83,3 @@ i{
 i:hover{
   color: black;
 }
-
