@@ -1,67 +1,92 @@
-import React, { useState, useEffect } from "react";
-import { Card, CardImg } from "reactstrap";
+import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
+import OneRecipe from './OneRecipe'
 
 function MostSeen() {
-  const [recipes, setRecipes] = useState([]);
+
+  const [recipes, setRecipes] = useState([])
+  const [type, setType] = useState("");
+  const key = 'd89d17872b3f4f8fa0da39073a9defdf'
 
   useEffect(() => {
-    getRecipes();
-  }, []);
+    getRecipes()
+  }, [recipes, type])
 
   const getRecipes = () => {
-    fetch(
-      `https://api.spoonacular.com/recipes/search?query=apple&number=3&apiKey=d89d17872b3f4f8fa0da39073a9defdf`,
-      {
-        method: "GET",
-        "Content-Type": "application/json",
-      }
-    )
-      .then((res) => res.json())
-      .then((res) => setRecipes(res.results))
-      // .then(res => console.log(res.results))
-      .catch((err) => {
+    fetch(`https://api.spoonacular.com/recipes/search?&type=${type}&apiKey=${key}`, {
+      "method": "GET",
+      'Content-Type': 'application/json'
+    })
+      .then(res => res.json())
+      .then(res => setRecipes(res.results)) 
+      // .then(res => console.log(res.recipes))
+      .then(res => console.log(res))
+      .catch(err => {
         console.log(err);
       });
-  };
+  }
+
+  const typeArray = [
+    "Main Course",
+    "Side Dish",
+    "Dessert",
+    "Appetizer",
+    "Salad",
+    "Bread",
+    "Breakfast",
+    "Soup",
+    "Beverage",
+    "Sauce",
+    "Drink",
+  ];
   return (
-    <div style={recSection}>
-      {recipes.map((rec) => (
-        <Card style={card} key={rec.id}>
-          <CardImg
-            style={cardImage}
-            top
-            width="100px"
-            src={`https://spoonacular.com/recipeImages/${rec.image}`}
-            alt={rec.title}
-          />
-        </Card>
-      ))}
+    <div>
+      <h2 className='container'>TRENDING RECIPES</h2>
+      <div style={Section}>
+        {recipes.map(rec => (
+
+          <Link to={`recipes/${rec.id}`}>
+          <div style={card} key={rec.id}>
+            <img
+              className="card-image-all-food"
+              width="100px"
+              src={`https://spoonacular.com/recipeImages/${rec.image}`}
+              alt={rec.title} />
+             {rec.title} 
+          </div>
+          </Link>
+        ))}
+      </div>
     </div>
-  );
+  )
 }
 
-export default MostSeen;
 
-const recSection = {
-  display: "webkit-box",
-  display: "ms-lexbox",
-  display: "flex",
-  msFlexWrap: "wrap",
-  flexWrap: "wrap",
-  msFlexPack: "distribute",
-  justifyContent: "space-around",
-};
+export default MostSeen
+
+const Section = {
+  display: 'webkit-box',
+  display: 'ms-lexbox',
+  display: 'flex',
+  msFlexWrap: 'wrap',
+  flexWrap: 'wrap',
+  msFlexPack: 'distribute',
+  justifyContent: 'space-around',
+  marginTop: '15px'
+}
 
 const card = {
-  width: "250px",
-  minHeight: "250px",
-  margin: "20px",
-  borderRadius: "20px",
-  WebkitBoxShadow: "4px 1px 10px 4px rgb(223, 60, 60)",
-  boxShadow: "2px 1px 10px 2px rgb(150, 144, 147)",
-};
+  width: '200px',
+  minHeight: '200px',
+  // lineHeight: '50px',
+  borderRadius: '50%',
+  MozBorderRadius: '50%',
+  WebkitBorderRadius: '50%'
+}
 
-const cardImage = {
-  maxHeight: "100",
-  borderRadius: "1px",
-};
+const title = {
+  marginTop: '10px',
+  textAlign: 'center',
+  fontFamily: 'Arial, Helvetica, sans-serif',
+  fontStyle: 'italic'
+}

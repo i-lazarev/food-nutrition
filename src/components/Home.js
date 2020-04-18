@@ -3,8 +3,11 @@ import Header from './Header';
 import Footer from './Footer';
 import {TokenContext} from './TokenContext';
 import MostSeen from "./MostSeen";
-import AllFood from "./AllFood";
+import AllFood from "./MostSeen";
 import Categories from "./Categories";
+import SlideShow from './SlideShow';
+
+
 
 export default function Home() {
     const [token, setToken] = useContext(TokenContext);
@@ -28,11 +31,13 @@ export default function Home() {
     return (
       <div>
         <Header x={'#000'} />
-        home
+        
         {/* <MostSeen />
         <AllFood />
         <Categories /> */}
-        
+        <SlideShow/>
+        <MostSeen/>
+        <Categories /> 
         <Footer />
       </div>
     );

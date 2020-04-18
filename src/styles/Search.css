@@ -1,16 +1,19 @@
 #body {
   background: rgb(241, 241, 241);
 }
+
 .drop-down-menu {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-around;
 }
-.drop-down-item{
+
+.drop-down-item {
   font-size: 1.5rem;
 }
-.drop-down-toggle{
+
+.drop-down-toggle {
   font-size: 1.3rem;
   padding: 2px 9px;
 }
@@ -20,6 +23,7 @@
   flex-wrap: wrap;
   justify-content: center;
 }
+
 .cuisineTitle {
   padding-right: 1rem;
 }
@@ -39,12 +43,13 @@
   width: 180px;
   font-size: 2rem;
   padding: 1rem;
-  line-height:2rem;
+  line-height: 2rem;
   display: -webkit-box;
   -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;  
+  -webkit-box-orient: vertical;
   overflow: hidden;
 }
+
 #more-button {
   font-size: 1.5rem;
   font-weight: 600;
@@ -52,34 +57,46 @@
   text-align: center;
   height: 4rem;
 }
+
 #more-button-section {
   display: flex;
   padding: 3rem 0;
   justify-content: center;
 }
 
-img {
+/* img {
   width: 180px;
   height: 180px;
   object-fit: cover;
+} */
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
-a:hover{
+
+a:hover {
   color: rgb(202, 135, 10);
   text-decoration: none;
 }
-#time-icon{
+
+#time-icon {
   margin-top: 9px;
   text-align: end;
-  
+
 }
-#time{
+
+#time {
   font-size: 1.5rem;
   margin: 2px;
 }
-i{
+
+i {
   font-size: 1.5rem;
   color: rgb(202, 135, 10);
 }
-i:hover{
+
+i:hover {
   color: black;
 }
