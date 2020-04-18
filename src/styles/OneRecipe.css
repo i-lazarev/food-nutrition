@@ -109,3 +109,12 @@ hr{
    background-color: darkgrey;
         border: none;
 }
+input{
+  text-align: center;
+  width: 50px;
+  background: lightgray;
+  margin-left: 5px;
+  font-weight: bold;
+  border-radius: 5px;
+  border:1px solid gray;
+}

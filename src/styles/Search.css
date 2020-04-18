@@ -22,6 +22,14 @@
 }
 .cuisineTitle {
   padding-right: 1rem;
+  font-weight: bold;
+}
+
+.filterHover:hover{
+  
+    color: rgb(202, 135, 10);
+    text-decoration: none;
+  
 }
 
 .card-image {
@@ -34,7 +42,7 @@
 
 
 #recipe-title {
-  height: 7.8rem;
+  height: 7.7rem;
   font-weight: bolder;
   width: 180px;
   font-size: 2rem;

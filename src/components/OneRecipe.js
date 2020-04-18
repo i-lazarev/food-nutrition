@@ -157,7 +157,6 @@ const OneRecipe = ({ match }) => {
             <h5 className="text-servings">
               Servings:
               <input
-                style={{ width: "30px", border: "none",marginLeft:"5px",fontWeight:"bold" }}
                 type="Number"
                 min="1"
                 value={servings}

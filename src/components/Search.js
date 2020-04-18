@@ -141,7 +141,7 @@ const Search = () => {
       <div className="drop-down-menu">
         <div
           style={{ margin: "20px", textAlign: "center" }}
-          className="cuisine-dropdown "
+          className="cuisine-dropdown filterHover"
         >
           <div className="cuisineTitle">Cuisine </div>
           <ButtonDropdown
@@ -169,7 +169,7 @@ const Search = () => {
         </div>
         <div
           style={{ margin: "20px", textAlign: "center" }}
-          className="diet-dropdown"
+          className="diet-dropdown filterHover"
         >
           <div className="cuisineTitle">Diet </div>
           <ButtonDropdown
@@ -195,9 +195,9 @@ const Search = () => {
         </div>
         <div
           style={{ margin: "20px", textAlign: "center" }}
-          className="intolerance-dropdown"
+          className="intolerance-dropdown filterHover"
         >
-          <div className="cuisineTitle">Intolerance </div>
+          <div className="cuisineTitle ">Intolerance </div>
           <ButtonDropdown
             isOpen={dropdownOpen.intolerance}
             toggle={() => toggle("intolerance")}
@@ -221,7 +221,7 @@ const Search = () => {
         </div>
         <div
           style={{ margin: "20px", textAlign: "center" }}
-          className="type-dropdown"
+          className="type-dropdown filterHover"
         >
           <div className="cuisineTitle">Type</div>
           <ButtonDropdown
