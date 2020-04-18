@@ -42,7 +42,7 @@ function MostSeen() {
       <div style={Section}>
         {recipes.map(rec => (
 
-          <Link to={`recipes/${rec.id}`} style={title} >
+          <Link to={`recipe/${rec.id}`} style={title} >
             <div style={card} key={rec.id} className='animationCard hvr-wobble-skew'>
               <img
                 className="card-image-all-food"
