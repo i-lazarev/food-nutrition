@@ -62,7 +62,7 @@ const OneRecipe = ({ match }) => {
         console.log(err);
       });
     fetch(
-      `https://api.spoonacular.com/recipes/${match.params.id}/analyzedInstructions?&apiKey=d21f98ccdf934ed5ac7c1e724093d571`,
+      `https://api.spoonacular.com/recipes/${match.params.id}/analyzedInstructions?&apiKey=${tareqKey}`,
       {
         method: "GET",
         headers: {
@@ -139,7 +139,7 @@ const OneRecipe = ({ match }) => {
                   icon={faStar}
                   color={isFav ? "yellow" : "gray"}
                 />
-              <span>{isFav ? "Remove from favorite" : "Add to favorite"}</span></NavLink>
+              <span id="fav-text">{isFav ? "Remove from favorite" : "Add to favorite"}</span></NavLink>
             ) : (
               ""
             )}
