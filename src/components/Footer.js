@@ -64,8 +64,8 @@ export default function Footer() {
               <FontAwesomeIcon icon={faPinterest} color="#f72541" />
               <FontAwesomeIcon icon={faYoutube} color="#e5162f" />
             </div>
-            <Link style={{ marginRight: "20px" }}>About Us</Link>{" "}
-            <Link>Privacy Policy</Link>
+            <Link to='#' style={{ marginRight: "20px" }}>About Us</Link>{" "}
+            <Link to='#'>Privacy Policy</Link>
           </div>
         </div>
       </div>

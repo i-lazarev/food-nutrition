@@ -60,7 +60,7 @@ const Header = (props) => {
   }, [token]);
 
   return (
-    <div style={{ fontSize: "18px" }}>
+    <div style={{ fontSize: "18px", position: "relative", zIndex: "3" }}>
       <Navbar
         style={{ padding: "8px 40px 8px 50px", backgroundColor: props.x }}
         dark
@@ -156,7 +156,15 @@ const Header = (props) => {
           </Nav>
         </Collapse>
       </Navbar>
-      {show ? <Profile /> : ""}
+      {/* <div
+        style={{
+          backgroundColor: "#b526f2",
+          width: "100%",
+          height: "10px",
+          zIndex: "-2",
+        }}
+      ></div> */}
+      <Profile pos={show ? "open" : ""} />
     </div>
   );
 };

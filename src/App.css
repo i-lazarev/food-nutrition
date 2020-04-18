@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Anton&family=Baloo+Bhai+2:wght@400;600&family=Kaushan+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Sulphur+Point&family=Baloo+Bhai+2:wght@400;600&family=Kaushan+Script&display=swap');
 ApiProvider{
     margin:0 10rem
 }
@@ -114,4 +114,21 @@ input[type=radio]:not(old):checked+label>span>span {
     background-image: -o-linear-gradient(rgb(179, 217, 140), rgb(153, 204, 102));
     background-image: -webkit-linear-gradient(rgb(179, 217, 140), rgb(153, 204, 102));
     background-image: linear-gradient(rgb(179, 217, 140), rgb(153, 204, 102));
+}
+
+
+.open{
+    transform: translateY(90%);
+}
+
+
+@media only screen and (max-width: 600px) {
+   
+    .profileBox{
+        justify-content: center;
+        width: 100% !important;
+    }
+     .greeting {
+         display: none;
+     }
 }
