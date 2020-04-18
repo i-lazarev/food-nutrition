@@ -1,5 +1,6 @@
 #body {
   background: rgb(241, 241, 241);
+
 }
 
 .drop-down-menu {
@@ -22,10 +23,19 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  min-height: 70vh;
 }
 
 .cuisineTitle {
   padding-right: 1rem;
+  font-weight: bold;
+}
+
+.filterHover:hover{
+  
+    color: rgb(202, 135, 10);
+    text-decoration: none;
+  
 }
 
 .card-image {
@@ -33,17 +43,26 @@
   margin: 10px;
   color: black;
   width: 180px;
-  height: 280px;
+  height: 290px;
+}
+#fav-recipes{
+  text-align: center;
+  font-weight: bold;
+  margin: 10px;
 }
 
 
 #recipe-title {
-  height: 58px;
+  height: 7.7rem;
   font-weight: bolder;
   width: 180px;
   font-size: 2rem;
   padding: 1rem;
+/* <<<<<<< HEAD
   line-height: 2rem;
+======= */
+  line-height:2.2rem;
+/* >>>>>>> ion-branch */
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
@@ -80,9 +99,14 @@ a:hover {
   color: rgb(202, 135, 10);
   text-decoration: none;
 }
+/* <<<<<<< HEAD */
 
-#time-icon {
+/* #time-icon {
   margin-top: 9px;
+======= */
+#time-icon{
+
+/* >>>>>>> ion-branch */
   text-align: end;
 
 }
@@ -90,6 +114,7 @@ a:hover {
 #time {
   font-size: 1.5rem;
   margin: 2px;
+  margin-right: 5px;
 }
 
 i {

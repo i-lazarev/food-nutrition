@@ -24,10 +24,10 @@ ApiProvider {
     padding: 0%;
 }
 
-imgSlideShow{
-     width: 180px;
-     height: 180px;
-     object-fit: cover;
+imgSlideShow {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
 }
 
 .logoA {
@@ -151,4 +151,189 @@ input[type=radio]:not(old):checked+label>span>span {
     justify-content: center;
     justify-items: center;
     margin-top: 1rem;
+}
+
+@keyframes stretch {
+    20% {
+        background-color: transparent;
+    }
+
+    50% {
+        background-color: transparent;
+    }
+
+    20% {
+        background-color: transparent;
+    }
+
+    100% {
+        background-color: rgb(243, 94, 94);
+    }
+}
+
+.element {
+    animation-name: stretch;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-out;
+    animation-delay: 0s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+    animation-fill-mode: none;
+    animation-play-state: running;
+}
+
+.animationCard {
+    animation: pulse 2s ease infinite alternate,
+        nudge 5s linear infinite alternate;
+}
+
+/* skew */
+
+@-webkit-keyframes hvr-wobble-skew {
+    16.65% {
+        -webkit-transform: skew(-12deg);
+        transform: skew(-12deg);
+    }
+
+    33.3% {
+        -webkit-transform: skew(10deg);
+        transform: skew(10deg);
+    }
+
+    49.95% {
+        -webkit-transform: skew(-6deg);
+        transform: skew(-6deg);
+    }
+
+    66.6% {
+        -webkit-transform: skew(4deg);
+        transform: skew(4deg);
+    }
+
+    83.25% {
+        -webkit-transform: skew(-2deg);
+        transform: skew(-2deg);
+    }
+
+    100% {
+        -webkit-transform: skew(0);
+        transform: skew(0);
+    }
+}
+
+@keyframes hvr-wobble-skew {
+    16.65% {
+        -webkit-transform: skew(-12deg);
+        transform: skew(-12deg);
+    }
+
+    33.3% {
+        -webkit-transform: skew(10deg);
+        transform: skew(10deg);
+    }
+
+    49.95% {
+        -webkit-transform: skew(-6deg);
+        transform: skew(-6deg);
+    }
+
+    66.6% {
+        -webkit-transform: skew(4deg);
+        transform: skew(4deg);
+    }
+
+    83.25% {
+        -webkit-transform: skew(-2deg);
+        transform: skew(-2deg);
+    }
+
+    100% {
+        -webkit-transform: skew(0);
+        transform: skew(0);
+    }
+}
+
+.hvr-wobble-skew {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+}
+
+.hvr-wobble-skew:hover,
+.hvr-wobble-skew:focus,
+.hvr-wobble-skew:active {
+    -webkit-animation-name: hvr-wobble-skew;
+    animation-name: hvr-wobble-skew;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-timing-function: ease-in-out;
+    animation-timing-function: ease-in-out;
+    -webkit-animation-iteration-count: 1;
+    animation-iteration-count: 1;
+}
+
+@-webkit-keyframes hvr-bob {
+  0% {
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
+  }
+  50% {
+    -webkit-transform: translateY(-4px);
+    transform: translateY(-4px);
+  }
+  100% {
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
+  }
+}
+@keyframes hvr-bob {
+  0% {
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
+  }
+  50% {
+    -webkit-transform: translateY(-4px);
+    transform: translateY(-4px);
+  }
+  100% {
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
+  }
+}
+@-webkit-keyframes hvr-bob-float {
+  100% {
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
+  }
+}
+@keyframes hvr-bob-float {
+  100% {
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
+  }
+}
+.hvr-bob {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+}
+.hvr-bob:hover, .hvr-bob:focus, .hvr-bob:active {
+  -webkit-animation-name: hvr-bob-float, hvr-bob;
+  animation-name: hvr-bob-float, hvr-bob;
+  -webkit-animation-duration: .3s, 1.5s;
+  animation-duration: .3s, 1.5s;
+  -webkit-animation-delay: 0s, .3s;
+  animation-delay: 0s, .3s;
+  -webkit-animation-timing-function: ease-out, ease-in-out;
+  animation-timing-function: ease-out, ease-in-out;
+  -webkit-animation-iteration-count: 1, infinite;
+  animation-iteration-count: 1, infinite;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-direction: normal, alternate;
+  animation-direction: normal, alternate;
 }
