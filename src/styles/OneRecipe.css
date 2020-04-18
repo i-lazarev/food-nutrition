@@ -112,7 +112,7 @@ hr{
 input{
   text-align: center;
   width: 50px;
-  background: lightgray;
+  background: rgb(231, 227, 227);
   margin-left: 5px;
   font-weight: bold;
   border-radius: 5px;
