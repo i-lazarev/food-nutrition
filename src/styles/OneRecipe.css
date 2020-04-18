@@ -99,6 +99,7 @@ p{
   font-weight: bold;
 }
 .text-servings{
+  padding-left: 15px;
   text-align: center;
   font-size: 1.8rem;
   font-weight: bold;
