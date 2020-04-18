@@ -38,7 +38,7 @@ function MostSeen() {
   ];
   return (
     <div>
-      <p className='container hvr-bob'>TRENDING RECIPES</p>
+      <p className='container'>TRENDING RECIPES</p>
       <div style={Section}>
         {recipes.map(rec => (
 
