@@ -86,7 +86,7 @@ const OneRecipe = ({ match }) => {
         .then((res) => res.json())
         .then((data) => setIsFav(data));
     };
-  }, [match.params.id, token]);
+  }, [match.params.id, servings, token]);
 
   const handleAddToFav = () => {
     if (isFav) {
@@ -131,7 +131,6 @@ const OneRecipe = ({ match }) => {
           {token ? (
               <NavLink
                 className="star"
-                
                 title={isFav ? "remove from favorite" : "add to favorite"}
                 onClick={handleAddToFav}
               >
@@ -147,8 +146,8 @@ const OneRecipe = ({ match }) => {
             
             </div>
             <div className="recipe-nutrition">
-              <span>Calories:{ingDetails.calories}</span>
-              <span>Carbs:{ingDetails.carbs}</span>
+              <span>Calories: {ingDetails.calories}kcal</span>
+              <span>Carbs: {ingDetails.carbs}</span>
               <span>Fat: {ingDetails.fat}</span>
               <span>Protein: {ingDetails.protein}</span>
             </div>
@@ -174,7 +173,7 @@ const OneRecipe = ({ match }) => {
               {console.log(recipe)}
               {ingredients.map((res) => (
                 <div key={Math.random()} className="ingredients">
-                  <p>
+                  <p className="ingredients-details">
                     {res.amount * servings} {res.unit}
                   </p>
                   <div className="imagine-ingredients-section">
@@ -184,7 +183,7 @@ const OneRecipe = ({ match }) => {
                       className="image-ingredient"
                     />
                   </div>
-                  <p>{res.name}</p>
+                  <p className="ingredients-details">{res.name}</p>
                 </div>
               ))}
             </div>
@@ -193,7 +192,9 @@ const OneRecipe = ({ match }) => {
             <h3 className="title">Instructions</h3>
             {instructions.map((res) => (
               <li key={Math.random()}>
-                <span id="instruction-number">{res.number}</span><span id="instruction">{res.step}</span>
+              <span class="badge badge-warning">{res.number}</span>
+                {/* <span id="instruction-number">{res.number}</span> */}
+                <span id="instruction">{res.step}</span>
               </li>
             ))}
           </div>

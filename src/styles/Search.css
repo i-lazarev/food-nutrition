@@ -1,5 +1,6 @@
 #body {
   background: rgb(241, 241, 241);
+
 }
 .drop-down-menu {
   width: 100%;
@@ -19,6 +20,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  min-height: 70vh;
 }
 .cuisineTitle {
   padding-right: 1rem;
@@ -38,6 +40,11 @@
   color: black;
   width: 180px;
   height: 290px;
+}
+#fav-recipes{
+  text-align: center;
+  font-weight: bold;
+  margin: 10px;
 }
 
 
