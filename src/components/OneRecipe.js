@@ -17,11 +17,14 @@ const OneRecipe = ({ match }) => {
   const [token, setToken] = useContext(TokenContext);
   const [recID, setRecID] = useState();
   const [wineObj, setWineObj] = useState({});
-  const [title, setTitle] = useState("")
+  const [title, setTitle] = useState("");
+
+  const tareqKey="db603acba1014e209b0cda8a89aae478"
+  const ionKey = "d21f98ccdf934ed5ac7c1e724093d571"
 
   useEffect(() => {
     fetch(
-      `https://api.spoonacular.com/recipes/${match.params.id}/information?amount=1&apiKey=d21f98ccdf934ed5ac7c1e724093d571`,
+      `https://api.spoonacular.com/recipes/${match.params.id}/information?amount=1&apiKey=${tareqKey}`,
       {
         method: "GET",
         headers: {
@@ -45,7 +48,7 @@ const OneRecipe = ({ match }) => {
         console.log(err);
       });
     fetch(
-      `https://api.spoonacular.com/recipes/${match.params.id}/nutritionWidget.json?&apiKey=d21f98ccdf934ed5ac7c1e724093d571`,
+      `https://api.spoonacular.com/recipes/${match.params.id}/nutritionWidget.json?&apiKey=${tareqKey}`,
       {
         method: "GET",
         headers: {
@@ -120,8 +123,13 @@ const OneRecipe = ({ match }) => {
     <div>
       <Header x="#000"  />
       <h2 className="recipe-title">{title.replace(/^\w/, (c) => c.toUpperCase())}</h2>
-      {token ? (
-              <NavLink style={{ textAlign: "center", margin: "1rem 0" }}
+      
+      <div className="main-section">
+        <div className="image-nutrition">
+          <div className="recipe-image">
+          <div className="image-fav-icon">
+          {token ? (
+              <NavLink
                 className="star"
                 
                 title={isFav ? "remove from favorite" : "add to favorite"}
@@ -135,10 +143,6 @@ const OneRecipe = ({ match }) => {
             ) : (
               ""
             )}
-      <div className="main-section">
-        <div className="image-nutrition">
-          <div className="recipe-image">
-          <div className="image-fav-icon">
             <img id="image" src={recipe.image} alt={recipe.title} />
             
             </div>
@@ -156,7 +160,9 @@ const OneRecipe = ({ match }) => {
             <h3 className="title">Ingredients</h3>
             <h5 className="text-servings">
               Servings:
-              <input
+              <input 
+                id="input-servings"
+                autoFocus
                 type="Number"
                 min="1"
                 value={servings}

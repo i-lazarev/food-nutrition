@@ -13,18 +13,23 @@
   
 }
 .recipe-title{
-  text-align: center;
+  padding-left: 5%;
   margin: 1rem 0;
   font-weight: bold;
   font-size: 3rem;
 }
 .image-fav-icon{
-  display: flex;
   width: 63rem;
 }
 .star{
+  
+ 
   font-size: 2rem;
   
+}
+.star:hover{
+  font-weight: bold;
+  color: rgb(202, 135, 10);
 }
 .recipe-nutrition{
   margin: 1rem 0;
@@ -103,18 +108,20 @@ p{
   text-align: center;
   font-size: 1.8rem;
   font-weight: bold;
+  margin:9px;
 }
 hr{
   height: 2px;
    background-color: darkgrey;
         border: none;
 }
-input{
+#input-servings{
+  
   text-align: center;
   width: 50px;
-  background: rgb(231, 227, 227);
+  
   margin-left: 5px;
   font-weight: bold;
-  border-radius: 5px;
+ 
   border:1px solid gray;
 }
