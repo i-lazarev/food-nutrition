@@ -34,12 +34,12 @@
 
 
 #recipe-title {
-  height: 60px;
+  height: 7.8rem;
   font-weight: bolder;
   width: 180px;
   font-size: 2rem;
   padding: 1rem;
-  line-height:2rem;
+  line-height:2.2rem;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;  
@@ -68,7 +68,7 @@ a:hover{
   text-decoration: none;
 }
 #time-icon{
-  margin-top: 9px;
+
   text-align: end;
   
 }
