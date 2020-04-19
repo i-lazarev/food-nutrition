@@ -335,6 +335,7 @@ export default function EditAccount(props) {
                 Days of Workout per Week:
               </p>
               <input
+              autoFocus
                 min="0"
                 className="userInfo"
                 type="number"
