@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-
+import '../styles/mostSeen.css'
 function MostSeen() {
 
   const [recipes, setRecipes] = useState([])
@@ -43,7 +43,7 @@ function MostSeen() {
         {recipes.map(rec => (
 
           <Link to={`recipe/${rec.id}`} style={title} >
-            <div style={card} key={rec.id} className='animationCard hvr-wobble-skew'>
+            <div style={card} key={rec.id} className='animationCard hvr-wobble-to-bottom-right'>
               <img
                 className="card-image-all-food"
                 width="100px"
