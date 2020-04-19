@@ -12,16 +12,19 @@ const OneRecipe = ({ match }) => {
   const [ingredients, setIngredients] = useState([]);
   const [ingDetails, setIngDetails] = useState([]);
   const [instructions, setInstructions] = useState([]);
-  const [servings, setServings] = useState(1)
+  const [servings, setServings] = useState(1);
   const [isFav, setIsFav] = useState(false);
   const [token, setToken] = useContext(TokenContext);
   const [recID, setRecID] = useState();
+  const [wineObj, setWineObj] = useState({});
+  const [title, setTitle] = useState("");
 
-  
+  const tareqKey="db603acba1014e209b0cda8a89aae478"
+  const ionKey = "d21f98ccdf934ed5ac7c1e724093d571"
 
   useEffect(() => {
     fetch(
-      `https://api.spoonacular.com/recipes/${match.params.id}/information?amount=1&apiKey=d21f98ccdf934ed5ac7c1e724093d571`,
+      `https://api.spoonacular.com/recipes/${match.params.id}/information?amount=1&apiKey=${tareqKey}`,
       {
         method: "GET",
         headers: {
@@ -31,17 +34,21 @@ const OneRecipe = ({ match }) => {
     )
       .then((res) => res.json())
       .then((res) => {
+        
         setRecipe(res);
-        setRecID(res.id);
+        setTitle(res.title);
+        setWineObj(res.winePairing);
         setIngredients(res.extendedIngredients);
-        if(token){
-        checkFav(res.id);}
+        setRecID(res.id);
+        if (token) {
+          checkFav(res.id);
+        }
       })
       .catch((err) => {
         console.log(err);
       });
     fetch(
-      `https://api.spoonacular.com/recipes/${match.params.id}/nutritionWidget.json?&apiKey=d21f98ccdf934ed5ac7c1e724093d571`,
+      `https://api.spoonacular.com/recipes/${match.params.id}/nutritionWidget.json?&apiKey=${tareqKey}`,
       {
         method: "GET",
         headers: {
@@ -55,7 +62,7 @@ const OneRecipe = ({ match }) => {
         console.log(err);
       });
     fetch(
-      `https://api.spoonacular.com/recipes/${match.params.id}/analyzedInstructions?&apiKey=d21f98ccdf934ed5ac7c1e724093d571`,
+      `https://api.spoonacular.com/recipes/${match.params.id}/analyzedInstructions?&apiKey=${tareqKey}`,
       {
         method: "GET",
         headers: {
@@ -69,18 +76,17 @@ const OneRecipe = ({ match }) => {
         console.log(err);
       });
 
-      const checkFav = (id) => {
-        fetch(`http://localhost:5000/check-fav/${id}`, {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-        })
-          .then((res) => res.json())
-          .then((data) => setIsFav(data));
-      };
-
-  }, [match.params.id, token]);
+    const checkFav = (id) => {
+      fetch(`http://localhost:5000/check-fav/${id}`, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      })
+        .then((res) => res.json())
+        .then((data) => setIsFav(data));
+    };
+  }, [match.params.id, servings, token]);
 
   const handleAddToFav = () => {
     if (isFav) {
@@ -113,57 +119,61 @@ const OneRecipe = ({ match }) => {
     }
   };
 
-  
-
   return (
     <div>
-      <Header x="#000" />
-      <h2 style={{ textAlign: "center", margin: "1rem 0" }}>{recipe.title}</h2>
-      {token ? (
-        <NavLink
-          className="star"
-          title={isFav ? "remove from favorite" : "add to favorite"}
-          onClick={handleAddToFav}
-        >
-          <FontAwesomeIcon icon={faStar} color={isFav ? "yellow" : "gray"} />
-        </NavLink>
-      ) : (
-        ""
-      )}
-
+      <Header x="#000"  />
+      <h2 className="recipe-title">{title.replace(/^\w/, (c) => c.toUpperCase())}</h2>
+      
       <div className="main-section">
         <div className="image-nutrition">
           <div className="recipe-image">
+          <div className="image-fav-icon">
+          {token ? (
+              <NavLink
+                className="star"
+                title={isFav ? "remove from favorite" : "add to favorite"}
+                onClick={handleAddToFav}
+              >
+                <FontAwesomeIcon
+                  icon={faStar}
+                  color={isFav ? "yellow" : "gray"}
+                />
+              <span id="fav-text">{isFav ? "Remove from favorite" : "Add to favorite"}</span></NavLink>
+            ) : (
+              ""
+            )}
             <img id="image" src={recipe.image} alt={recipe.title} />
+            
+            </div>
             <div className="recipe-nutrition">
-              <span>Calories:{ingDetails.calories}</span>
-              <span>Carbs:{ingDetails.carbs}</span>
+              <span>Calories: {ingDetails.calories}kcal</span>
+              <span>Carbs: {ingDetails.carbs}</span>
               <span>Fat: {ingDetails.fat}</span>
               <span>Protein: {ingDetails.protein}</span>
             </div>
           </div>
         </div>
+        <hr/>
         <div className="ingrediets-instructions">
-          <div className="ingredients-list">
-            <h3 className="text">Ingredients</h3>
-            <h5 className="text">
+          <div className="section">
+            <h3 className="title">Ingredients</h3>
+            <h5 className="text-servings">
               Servings:
-              <input
-                style={{ width: "30px", border: "none" }}
+              <input 
+                id="input-servings"
+                autoFocus
                 type="Number"
                 min="1"
                 value={servings}
                 onChange={(e) => setServings(e.target.value)}
               />
-              {/* <button className="serving-button" onClick={(increase)}>+</button>
-                <button className="serving-button" onClick={(decrease)}>-</button> */}
             </h5>
 
             <div className="ingredients-section">
               {console.log(recipe)}
               {ingredients.map((res) => (
-                <div key={res.id} className="ingredients">
-                  <p>
+                <div key={Math.random()} className="ingredients">
+                  <p className="ingredients-details">
                     {res.amount * servings} {res.unit}
                   </p>
                   <div className="imagine-ingredients-section">
@@ -173,20 +183,32 @@ const OneRecipe = ({ match }) => {
                       className="image-ingredient"
                     />
                   </div>
-                  <p>{res.name}</p>
+                  <p className="ingredients-details">{res.name}</p>
                 </div>
               ))}
             </div>
-          </div>
-          <div className="instructions">
-            <h3 style={{ textAlign: "center" }}>Instructions</h3>
+          </div><hr/>
+          <div className="section">
+            <h3 className="title">Instructions</h3>
             {instructions.map((res) => (
               <li key={Math.random()}>
-                Step {res.number} : {res.step}
+              <span class="badge badge-warning">{res.number}</span>
+                {/* <span id="instruction-number">{res.number}</span> */}
+                <span id="instruction">{res.step}</span>
               </li>
             ))}
           </div>
-        </div>
+            {wineObj.pairedWines  ? (
+              
+              <div className="section"><hr/>
+                <h3 className="title">Wine pairing</h3>
+                {wineObj.pairingText}
+              </div>
+            ) : (
+              ""
+            )}
+          </div>
+        
       </div>
       <Footer />
     </div>

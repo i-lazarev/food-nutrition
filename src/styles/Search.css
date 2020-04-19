@@ -1,49 +1,101 @@
+#body {
+  background: rgb(241, 241, 241);
 
-
+}
 .drop-down-menu {
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding:0 47.5rem;
+  justify-content: space-around;
+}
+.drop-down-item{
+  font-size: 1.5rem;
+}
+.drop-down-toggle{
+  font-size: 1.3rem;
+  padding: 2px 9px;
 }
 
 .recipies-section {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
-  margin: 0 3vw;
+  justify-content: center;
+  min-height: 70vh;
+}
+.cuisineTitle {
+  padding-right: 1rem;
+  font-weight: bold;
 }
 
-
-
-.one-recipe-img:hover{
-  opacity: 0.5;
+.filterHover:hover{
+  
+    color: rgb(202, 135, 10);
+    text-decoration: none;
+  
 }
-.card-image{
-  margin: 30px;
-  width: 200px;
+
+.card-image {
+  background: white;
+  margin: 10px;
   color: black;
-  height: 200px;
+  width: 180px;
+  height: 290px;
 }
-.card-image img{
-  max-height: 200px;
-  max-width: 350px;
-  box-shadow: 4px 1px 10px 4px grey;
-}
-.one-recipe {
+#fav-recipes{
   text-align: center;
-  height: 200px;
-  width: 250px;
+  font-weight: bold;
   margin: 10px;
 }
-.one-recipe-img{
-  box-shadow: 4px 1px 10px 4px grey;
+
+
+#recipe-title {
+  height: 7.7rem;
+  font-weight: bolder;
+  width: 180px;
+  font-size: 2rem;
+  padding: 1rem;
+  line-height:2.2rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;  
+  overflow: hidden;
+}
+#more-button {
+  font-size: 1.5rem;
+  font-weight: 600;
+  width: 15rem;
+  text-align: center;
+  height: 4rem;
+}
+#more-button-section {
+  display: flex;
+  padding: 3rem 0;
+  justify-content: center;
 }
 
-.load-more{
-  margin-bottom: 50px;
+img {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
 }
-#recipe-title{
-  font-size: 1.4rem;
+a:hover{
+  color: rgb(202, 135, 10);
+  text-decoration: none;
+}
+#time-icon{
+
+  text-align: end;
+  
+}
+#time{
+  font-size: 1.5rem;
+  margin: 2px;
+  margin-right: 5px;
+}
+i{
+  font-size: 1.5rem;
+  color: rgb(202, 135, 10);
+}
+i:hover{
+  color: black;
 }

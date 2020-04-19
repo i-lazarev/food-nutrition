@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { TokenContext } from "./TokenContext";
 import "../styles/header.css";
 
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faUtensils,
@@ -51,13 +52,13 @@ const Header = (props) => {
       })
         .then((res) => res.json())
         .then((data) => {
-          if (data == "expired") {
+          if (data === "expired") {
             setToken(null);
             localStorage.removeItem("token");
           }
         });
     }
-  }, [token]);
+  }, [setToken, token]);
 
   return (
     <div style={{ fontSize: "18px", position: "relative", zIndex: "3" }}>
@@ -87,11 +88,6 @@ const Header = (props) => {
             {token ? (
               <div
                 className="nav"
-                style={{
-                  width: "250px",
-                  display: "flex",
-                  justifyContent: "space-between",
-                }}
               >
                 <NavLink>
                   <div className="navLinkBtn" onClick={handleShowInfo}>
