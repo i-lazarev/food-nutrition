@@ -35,7 +35,7 @@ export default function FavFood() {
               {res.title.replace(/^\w/, (c) => c.toUpperCase())}
             </h2>
             <div id="time-icon">
-              <i class="far fa-clock"></i>
+              <i className="far fa-clock"></i>
               <span id="time">
                 {res.readyInMinutes > 60
                   ? Math.floor(res.readyInMinutes / 60) + "h"

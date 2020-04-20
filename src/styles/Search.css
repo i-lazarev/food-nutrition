@@ -1,9 +1,8 @@
 #body {
   background: rgb(241, 241, 241);
-
 }
 .drop-down-menu {
-  width: 100%;
+  width: 90%;
   display: flex;
   align-items: center;
   justify-content: space-around;

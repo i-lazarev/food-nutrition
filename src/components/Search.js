@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext, Fragment } from "react";
 import { Link } from "react-router-dom";
 import "../styles/Search.css";
 
@@ -133,159 +133,172 @@ const Search = () => {
   };
 
   return (
-    <div id="body">
+    <Fragment>
       <Header x="#000" />
-      <h1 style={{ textAlign: "center" }}>
-        {query === ""
-          ? ""
-          : query.replace(/^\w/, (c) => c.toUpperCase())}
-      </h1>
-
-      <div className="drop-down-menu">
-        <div
-          style={{ margin: "20px", textAlign: "center" }}
-          className="cuisine-dropdown filterHover"
-        >
-          <div className="cuisineTitle">Cuisine </div>
-          <ButtonDropdown
-          size="md"
-            
-            isOpen={dropdownOpen.cuisine}
-            toggle={() => toggle("cuisine")}
-          >
-            <DropdownToggle className="drop-down-toggle" caret>{selection.cuisine}</DropdownToggle>
-            <DropdownMenu >
-              {cuisineArray.map((oneCuisine) => (
-                <DropdownItem
-                  className="drop-down-item"
-                  key={oneCuisine}
-                  onClick={(e) => {
-                    changeSelection("cuisine", e);
-                    setCuisine(oneCuisine);
-                  }}
-                >
-                  {oneCuisine}
-                </DropdownItem>
-              ))}
-            </DropdownMenu>
-          </ButtonDropdown>
-        </div>
-        <div
-          style={{ margin: "20px", textAlign: "center" }}
-          className="diet-dropdown filterHover"
-        >
-          <div className="cuisineTitle">Diet </div>
-          <ButtonDropdown
-            isOpen={dropdownOpen.diet}
-            toggle={() => toggle("diet")}
-          >
-            <DropdownToggle className="drop-down-toggle" caret>{selection.diet}</DropdownToggle>
-            <DropdownMenu>
-              {dietArray.map((oneDiet) => (
-                <DropdownItem
-                className="drop-down-item"
-                  key={oneDiet}
-                  onClick={(e) => {
-                    changeSelection("diet", e);
-                    setDiet(oneDiet);
-                  }}
-                >
-                  {oneDiet}
-                </DropdownItem>
-              ))}
-            </DropdownMenu>
-          </ButtonDropdown>
-        </div>
-        <div
-          style={{ margin: "20px", textAlign: "center" }}
-          className="intolerance-dropdown filterHover"
-        >
-          <div className="cuisineTitle ">Intolerance </div>
-          <ButtonDropdown
-            isOpen={dropdownOpen.intolerance}
-            toggle={() => toggle("intolerance")}
-          >
-            <DropdownToggle className="drop-down-toggle" caret>{selection.intolerance}</DropdownToggle>
-            <DropdownMenu>
-              {intoleranceArray.map((oneIntol) => (
-                <DropdownItem
-                className="drop-down-item"
-                  key={oneIntol}
-                  onClick={(e) => {
-                    changeSelection("intolerance", e);
-                    setIntolerance(oneIntol);
-                  }}
-                >
-                  {oneIntol}
-                </DropdownItem>
-              ))}
-            </DropdownMenu>
-          </ButtonDropdown>
-        </div>
-        <div
-          style={{ margin: "20px", textAlign: "center" }}
-          className="type-dropdown filterHover"
-        >
-          <div className="cuisineTitle">Type</div>
-          <ButtonDropdown
-            isOpen={dropdownOpen.type}
-            toggle={() => toggle("type")}
-          >
-            <DropdownToggle className="drop-down-toggle" caret>{selection.type}</DropdownToggle>
-            <DropdownMenu>
-              {typeArray.map((oneType) => (
-                <DropdownItem
-                className="drop-down-item"
-                  key={oneType}
-                  onClick={(e) => {
-                    changeSelection("type", e);
-                    setType(oneType);
-                  }}
-                >
-                  {oneType}
-                </DropdownItem>
-              ))}
-            </DropdownMenu>
-          </ButtonDropdown>
-        </div>
-      </div>
-      <div className="recipies-section">
-      {console.log(recipies)}
-        {recipies.map((res) => (
-          <Link key={res.id} className="card-image" to={`recipe/${res.id}`}>
-            <div id="image">
-            <img
-
-              src={`https://spoonacular.com/recipeImages/${res.image}`}
-              alt={res.title}
-              width="100%"
-            />
-            </div>
-            <h2 id="recipe-title">{res.title.replace(/^\w/, (c) => c.toUpperCase())}</h2>
-            <div id="time-icon">
-            <i class="far fa-clock"></i>
-            <span id="time">
-            
-            
-            {res.readyInMinutes > 60 ?
-             Math.floor(res.readyInMinutes /60) +"h" : res.readyInMinutes+ "min"}
-             </span>
-             </div>
-            
-          </Link>
-        ))}
-      </div>
-      <div id="more-button-section">
-      <Button
-      id="more-button"
-        onClick={() => setRecipeNumber(recipeNumber + 12)}
+      <div
+        style={{
+          textAlign: "center",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+        }}
+        id="body"
       >
-        More
-      </Button>
-      </div>
+        <h1 style={{ textAlign: "center" }}>
+          {query === "" ? "" : query.replace(/^\w/, (c) => c.toUpperCase())}
+        </h1>
 
+        <div className="drop-down-menu">
+          <div
+            style={{ margin: "20px", textAlign: "center" }}
+            className="cuisine-dropdown filterHover"
+          >
+            <div className="cuisineTitle">Cuisine </div>
+            <ButtonDropdown
+              size="md"
+              isOpen={dropdownOpen.cuisine}
+              toggle={() => toggle("cuisine")}
+            >
+              <DropdownToggle className="drop-down-toggle" caret>
+                {selection.cuisine}
+              </DropdownToggle>
+              <DropdownMenu>
+                {cuisineArray.map((oneCuisine) => (
+                  <DropdownItem
+                    className="drop-down-item"
+                    key={oneCuisine}
+                    onClick={(e) => {
+                      changeSelection("cuisine", e);
+                      setCuisine(oneCuisine);
+                    }}
+                  >
+                    {oneCuisine}
+                  </DropdownItem>
+                ))}
+              </DropdownMenu>
+            </ButtonDropdown>
+          </div>
+          <div
+            style={{ margin: "20px", textAlign: "center" }}
+            className="diet-dropdown filterHover"
+          >
+            <div className="cuisineTitle">Diet </div>
+            <ButtonDropdown
+              isOpen={dropdownOpen.diet}
+              toggle={() => toggle("diet")}
+            >
+              <DropdownToggle className="drop-down-toggle" caret>
+                {selection.diet}
+              </DropdownToggle>
+              <DropdownMenu>
+                {dietArray.map((oneDiet) => (
+                  <DropdownItem
+                    className="drop-down-item"
+                    key={oneDiet}
+                    onClick={(e) => {
+                      changeSelection("diet", e);
+                      setDiet(oneDiet);
+                    }}
+                  >
+                    {oneDiet}
+                  </DropdownItem>
+                ))}
+              </DropdownMenu>
+            </ButtonDropdown>
+          </div>
+          <div
+            style={{ margin: "20px", textAlign: "center" }}
+            className="intolerance-dropdown filterHover"
+          >
+            <div className="cuisineTitle ">Intolerance </div>
+            <ButtonDropdown
+              isOpen={dropdownOpen.intolerance}
+              toggle={() => toggle("intolerance")}
+            >
+              <DropdownToggle className="drop-down-toggle" caret>
+                {selection.intolerance}
+              </DropdownToggle>
+              <DropdownMenu>
+                {intoleranceArray.map((oneIntol) => (
+                  <DropdownItem
+                    className="drop-down-item"
+                    key={oneIntol}
+                    onClick={(e) => {
+                      changeSelection("intolerance", e);
+                      setIntolerance(oneIntol);
+                    }}
+                  >
+                    {oneIntol}
+                  </DropdownItem>
+                ))}
+              </DropdownMenu>
+            </ButtonDropdown>
+          </div>
+          <div
+            style={{ margin: "20px", textAlign: "center" }}
+            className="type-dropdown filterHover"
+          >
+            <div className="cuisineTitle">Type</div>
+            <ButtonDropdown
+              isOpen={dropdownOpen.type}
+              toggle={() => toggle("type")}
+            >
+              <DropdownToggle className="drop-down-toggle" caret>
+                {selection.type}
+              </DropdownToggle>
+              <DropdownMenu>
+                {typeArray.map((oneType) => (
+                  <DropdownItem
+                    className="drop-down-item"
+                    key={oneType}
+                    onClick={(e) => {
+                      changeSelection("type", e);
+                      setType(oneType);
+                    }}
+                  >
+                    {oneType}
+                  </DropdownItem>
+                ))}
+              </DropdownMenu>
+            </ButtonDropdown>
+          </div>
+        </div>
+        <div className="recipies-section">
+          {console.log(recipies)}
+          {recipies.map((res) => (
+            <Link key={res.id} className="card-image" to={`recipe/${res.id}`}>
+              <div id="image">
+                <img
+                  src={`https://spoonacular.com/recipeImages/${res.image}`}
+                  alt={res.title}
+                  width="100%"
+                />
+              </div>
+              <h2 id="recipe-title">
+                {res.title.replace(/^\w/, (c) => c.toUpperCase())}
+              </h2>
+              <div id="time-icon">
+                <i className="far fa-clock"></i>
+                <span id="time">
+                  {res.readyInMinutes > 60
+                    ? Math.floor(res.readyInMinutes / 60) + "h"
+                    : res.readyInMinutes + "min"}
+                </span>
+              </div>
+            </Link>
+          ))}
+        </div>
+        <div id="more-button-section">
+          <Button
+            id="more-button"
+            onClick={() => setRecipeNumber(recipeNumber + 12)}
+          >
+            More
+          </Button>
+        </div>
+      </div>
       <Footer />
-    </div>
+    </Fragment>
   );
 };
 
