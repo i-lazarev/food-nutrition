@@ -127,4 +127,24 @@
     -webkit-border-radius: 50%;
     font-weight: 100;
     box-shadow: 2px 1px 10px 2px rgb(150, 144, 147);
-}   
+}
+
+
+@keyframes left {
+    form {
+        top: 0px;
+    }
+
+    to {
+        top: 2px;
+    }
+}
+
+.comeFromLeft {
+    animation: left 3s;
+    /* animation-duration: 3s; */
+    /* animation-direction: alternate; */
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    position: relative;
+}

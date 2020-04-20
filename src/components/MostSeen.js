@@ -4,14 +4,15 @@ import '../styles/mostSeen.css'
 function MostSeen() {
 
   const [recipes, setRecipes] = useState([])
+  const [type, setType] = useState("");
   const key = 'd89d17872b3f4f8fa0da39073a9defdf'
 
   useEffect(() => {
     getRecipes()
-  }, [recipes])
+  }, [])
 
   const getRecipes = () => {
-    fetch(`https://api.spoonacular.com/recipes/search?query=Salad&apiKey=${key}`, {
+    fetch(`https://api.spoonacular.com/recipes/search?query=Salad&type=${type}apiKey=${key} `, {
       "method": "GET",
       'Content-Type': 'application/json'
     })
@@ -36,12 +37,12 @@ function MostSeen() {
     "Sauce",
     "Drink",
   ];
+
   return (
     <div>
-      <p className='container'>TRENDING RECIPES</p>
+      <p className='container comeFromLeft'>TRENDING RECIPES</p>
       <div style={Section}>
         {recipes.map(rec => (
-
           <Link to={`recipe/${rec.id}`} style={title} >
             <div style={card} key={rec.id} className='animationCard hvr-wobble-to-bottom-right'>
               <img
@@ -49,16 +50,15 @@ function MostSeen() {
                 width="100px"
                 src={`https://spoonacular.com/recipeImages/${rec.image}`}
                 alt={rec.title} />
-              {rec.title.slice(0,15)}
+              {rec.title.slice(0,15)} 
             </div>
           </Link>
         ))}
       </div>
+      
     </div>
   )
 }
-
-
 export default MostSeen
 
 const Section = {
@@ -70,7 +70,6 @@ const Section = {
   msFlexPack: 'distribute',
   justifyContent: 'space-around',
   marginTop: '15px',
-  // backgroundImage: 'url(https://picsum.photos/1000/1000?food)',
   background: '#fff',
   backgroundSize: 'cover'
 }
