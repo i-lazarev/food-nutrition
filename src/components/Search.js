@@ -253,6 +253,7 @@ const Search = () => {
       {console.log(recipies)}
         {recipies.map((res) => (
           <Link key={res.id} className="card-image" to={`recipe/${res.id}`}>
+          
             <div id="image">
             <img
 
