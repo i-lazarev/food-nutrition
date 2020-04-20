@@ -2,6 +2,7 @@ import React, { useState, useContext, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { TokenContext } from "./TokenContext";
 import "../styles/header.css";
+import {ApiContext} from './ApiContext';
 
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -24,17 +25,19 @@ import {
 } from "reactstrap";
 import SearchBar from "./SearchBar";
 import Profile from "./Profile";
+import { useHistory } from "react-router-dom";
 
 const Header = (props) => {
   const [isOpen, setIsOpen] = useState(false);
-  // const [query, setQuery] = useContext(ApiContext);
-
+  const [query, setQuery] = useContext(ApiContext);
   const [token, setToken] = useContext(TokenContext);
   const [show, setShow] = useState(false);
+  const history=useHistory();
 
   const handleSignOut = () => {
     setToken(null);
     localStorage.removeItem("token");
+    history.push('/');
   };
   const handleShowInfo = () => {
     setShow(!show);
@@ -152,14 +155,7 @@ const Header = (props) => {
           </Nav>
         </Collapse>
       </Navbar>
-      {/* <div
-        style={{
-          backgroundColor: "#b526f2",
-          width: "100%",
-          height: "10px",
-          zIndex: "-2",
-        }}
-      ></div> */}
+      
       <Profile pos={show ? "open" : ""} />
     </div>
   );

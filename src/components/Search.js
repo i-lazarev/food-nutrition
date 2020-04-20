@@ -13,7 +13,7 @@ import { ApiContext } from "./ApiContext";
 import Header from "./Header";
 import Footer from "./Footer";
 
-const Search = () => {
+const Search = (props) => {
   const [recipies, setRecipies] = useState([]);
   const [query, setQuery] = useContext(ApiContext);
   const [cuisine, setCuisine] = useState("");
@@ -26,6 +26,9 @@ const Search = () => {
   const ionKey = "d21f98ccdf934ed5ac7c1e724093d571"
 
   useEffect(() => {
+    if(props.location.type){
+      setType(props.location.type);
+    }
     fetch(
         `https://api.spoonacular.com/recipes/search?cuisine=${cuisine}&diet=${diet}&intolerances=${intolerance}&number=${recipeNumber}&type=${type}&offset=0&query=${query}&apiKey=${tareqKey}`,
       {
