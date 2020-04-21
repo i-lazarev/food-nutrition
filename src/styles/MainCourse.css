@@ -1,0 +1,150 @@
+@keyframes stretch {
+    20% {
+        background-color: transparent;
+    }
+
+    50% {
+        background-color: transparent;
+    }
+
+    20% {
+        background-color: transparent;
+    }
+
+    100% {
+        background-color: rgb(243, 94, 94);
+    }
+}
+
+.element {
+    animation-name: stretch;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-out;
+    animation-delay: 0s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+    animation-fill-mode: none;
+    animation-play-state: running;
+}
+
+/* .animationCard {
+    animation: pulse 2s ease infinite alternate,
+        nudge 5s linear infinite alternate;
+} */
+
+/* skew */
+@-webkit-keyframes hvr-wobble-to-bottom-right {
+    16.65% {
+        -webkit-transform: translate(8px, 8px);
+        transform: translate(8px, 8px);
+    }
+
+    33.3% {
+        -webkit-transform: translate(-6px, -6px);
+        transform: translate(-6px, -6px);
+    }
+
+    49.95% {
+        -webkit-transform: translate(4px, 4px);
+        transform: translate(4px, 4px);
+    }
+
+    66.6% {
+        -webkit-transform: translate(-2px, -2px);
+        transform: translate(-2px, -2px);
+    }
+
+    83.25% {
+        -webkit-transform: translate(1px, 1px);
+        transform: translate(1px, 1px);
+    }
+
+    100% {
+        -webkit-transform: translate(0, 0);
+        transform: translate(0, 0);
+    }
+}
+
+@keyframes hvr-wobble-to-bottom-right {
+    16.65% {
+        -webkit-transform: translate(8px, 8px);
+        transform: translate(8px, 8px);
+    }
+
+    33.3% {
+        -webkit-transform: translate(-6px, -6px);
+        transform: translate(-6px, -6px);
+    }
+
+    49.95% {
+        -webkit-transform: translate(4px, 4px);
+        transform: translate(4px, 4px);
+    }
+
+    66.6% {
+        -webkit-transform: translate(-2px, -2px);
+        transform: translate(-2px, -2px);
+    }
+
+    83.25% {
+        -webkit-transform: translate(1px, 1px);
+        transform: translate(1px, 1px);
+    }
+
+    100% {
+        -webkit-transform: translate(0, 0);
+        transform: translate(0, 0);
+    }
+}
+
+.hvr-wobble-to-bottom-right {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+}
+
+.hvr-wobble-to-bottom-right:hover,
+.hvr-wobble-to-bottom-right:focus,
+.hvr-wobble-to-bottom-right:active {
+    -webkit-animation-name: hvr-wobble-to-bottom-right;
+    animation-name: hvr-wobble-to-bottom-right;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-timing-function: ease-in-out;
+    animation-timing-function: ease-in-out;
+    -webkit-animation-iteration-count: 1;
+    animation-iteration-count: 1;
+}
+
+.card-image-all-food {
+    width: 200px;
+    height: 200px;
+    line-height: 200px;
+    border-radius: 50%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    font-weight: 100;
+    box-shadow: 2px 1px 10px 2px rgb(150, 144, 147);
+}
+
+
+@keyframes left {
+    form {
+        top: 0px;
+    }
+
+    to {
+        top: 2px;
+    }
+}
+
+.comeFromLeft {
+    animation: left 3s;
+    /* animation-duration: 3s; */
+    /* animation-direction: alternate; */
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    position: relative;
+}

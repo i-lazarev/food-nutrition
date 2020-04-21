@@ -156,7 +156,7 @@ export default function EditAccount(props) {
   return (
     <div>
       <Header x="#000" />
-      <form onSubmit={handleSubmit}>
+      <form style={{paddingBottom: '30px'}} onSubmit={handleSubmit}>
         <div
           style={{
             display: "flex",
@@ -335,6 +335,7 @@ export default function EditAccount(props) {
                 Days of Workout per Week:
               </p>
               <input
+              autoFocus
                 min="0"
                 className="userInfo"
                 type="number"

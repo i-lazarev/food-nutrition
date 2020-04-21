@@ -99,7 +99,7 @@ app.post("/create-account", (req, res) => {
 app.post("/login", (req, res) => {
   User.findOne({ email: req.body.email }).then((user) => {
     if (!user) {
-      return res.send("u don't have an account, sign up now!");
+      return res.send({err: "incorrect email or password"});
     }
     let match = bcrypt.compareSync(req.body.password, user.password);
     if (match) {
@@ -109,7 +109,7 @@ app.post("/login", (req, res) => {
       return res.send({ token: token });
       //return res.send(user)
     } else {
-      res.send("authentication problem");
+      res.send({err: "incorrect email or password"});
     }
   });
 });

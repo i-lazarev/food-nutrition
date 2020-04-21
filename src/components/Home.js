@@ -2,42 +2,23 @@ import React, {useContext, useEffect} from 'react';
 import Header from './Header';
 import Footer from './Footer';
 import {TokenContext} from './TokenContext';
-import MostSeen from "./MostSeen";
-import AllFood from "./MostSeen";
+import MainCourse from "./MainCourse";
+import SlideShow from './SlideShow'
 import Categories from "./Categories";
-import SlideShow from './SlideShow';
+// import SlideShow from './SlideShow';
 
 
 
 export default function Home() {
     const [token, setToken] = useContext(TokenContext);
-    // useEffect(() => {
-    //   if (token) {
-    //     fetch("http//:localhost:5000/check-token", {
-    //       headers: {
-    //         "Content-Type": "application/json",
-    //         Authorization: `Barer ${token}`,
-    //       },
-    //     })
-    //       .then((res) => res.json())
-    //       .then((data) => {
-    //         if (data == "expired") {
-    //           setToken(null);
-    //           localStorage.removeItem("token");
-    //         }
-    //       });
-    //   }
-    // }, [token]);
     return (
-      <div>
-        <Header x={'#000'} />
-        
-        {/* <MostSeen />
-        <AllFood />
-        <Categories /> */}
-        <SlideShow/>
-        <MostSeen/>
-        <Categories /> 
+      <div style={{ backgroundColor: "#ededed" }}>
+        <Header x={"#000"} />
+
+        <SlideShow />
+        <MainCourse />
+
+        <Categories />
         <Footer />
       </div>
     );

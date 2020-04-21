@@ -1,10 +1,9 @@
 #body {
-  background: rgb(241, 241, 241);
-
+  background: #ededed;
 }
 
 .drop-down-menu {
-  width: 100%;
+  width: 90%;
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -31,11 +30,10 @@
   font-weight: bold;
 }
 
-.filterHover:hover{
-  
-    color: rgb(202, 135, 10);
-    text-decoration: none;
-  
+.filterHover:hover {
+
+  color: rgb(202, 135, 10);
+  text-decoration: none;
 }
 
 .card-image {
@@ -45,7 +43,8 @@
   width: 180px;
   height: 290px;
 }
-#fav-recipes{
+
+#fav-recipes {
   text-align: center;
   font-weight: bold;
   margin: 10px;
@@ -58,11 +57,11 @@
   width: 180px;
   font-size: 2rem;
   padding: 1rem;
-/* <<<<<<< HEAD
+  /* <<<<<<< HEAD
   line-height: 2rem;
 ======= */
-  line-height:2.2rem;
-/* >>>>>>> ion-branch */
+  line-height: 2.2rem;
+  /* >>>>>>> ion-branch */
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
@@ -99,14 +98,15 @@ a:hover {
   color: rgb(202, 135, 10);
   text-decoration: none;
 }
+
 /* <<<<<<< HEAD */
 
 /* #time-icon {
   margin-top: 9px;
 ======= */
-#time-icon{
+#time-icon {
 
-/* >>>>>>> ion-branch */
+  /* >>>>>>> ion-branch */
   text-align: end;
 
 }

@@ -8,6 +8,7 @@ import Footer from "./Footer";
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [errMsg, setErrMsg]=useState('')
   const [token, setToken] = useContext(TokenContext);
   const history = useHistory();
 
@@ -20,9 +21,10 @@ export default function Login() {
     })
       .then(res => res.json())
       .then(data => {
-        console.log(data.token);
+        if(data.err){setErrMsg(data.err)}
+        else{
         setToken(data.token);
-        history.push("/");
+        history.push("/");}
       });
   };
   return (
@@ -37,6 +39,7 @@ export default function Login() {
           height: "500px",
         }}
       >
+        <div style={{ height: "60px", color: "#F94F72" }}> {errMsg} </div>
         <form onSubmit={handleSubmit}>
           <div>Email</div>
           <input
@@ -45,14 +48,14 @@ export default function Login() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
-          <div style={{marginTop: '30px'}}>password</div>
+          <div style={{ marginTop: "30px" }}>password</div>
           <input
             className="userInfo"
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <div style={{textAlign: 'center', marginTop: '30px'}}>
+          <div style={{ textAlign: "center", marginTop: "30px" }}>
             <button className="bbtn">Login</button>
           </div>
         </form>

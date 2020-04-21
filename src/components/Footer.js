@@ -21,8 +21,7 @@ export default function Footer() {
           padding: "30px",
           minHeight: "150px",
           backgroundColor: "#000",
-          color: "#fff",
-          marginTop: "30px",
+          color: "#fff"
         }}
       >
         <div
@@ -64,8 +63,8 @@ export default function Footer() {
               <FontAwesomeIcon icon={faPinterest} color="#f72541" />
               <FontAwesomeIcon icon={faYoutube} color="#e5162f" />
             </div>
-            <Link style={{ marginRight: "20px" }}>About Us</Link>{" "}
-            <Link>Privacy Policy</Link>
+            <Link to='#' style={{ marginRight: "20px" }}>About Us</Link>{" "}
+            <Link to='#'>Privacy Policy</Link>
           </div>
         </div>
       </div>

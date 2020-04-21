@@ -24,7 +24,7 @@ export default function FavFood() {
   return (
     <div id="body">
       <Header x="#000" />
-      <h1 id="fav-recipes">Favorite recipes</h1>
+      <h1 style={{paddingTop: '30px'}} id="fav-recipes">Favorite recipes</h1>
       <div className="recipies-section">
         {favArray.map((res) => (
           <Link key={res.id} className="card-image" to={`recipe/${res.id}`}>
@@ -35,7 +35,7 @@ export default function FavFood() {
               {res.title.replace(/^\w/, (c) => c.toUpperCase())}
             </h2>
             <div id="time-icon">
-              <i class="far fa-clock"></i>
+              <i className="far fa-clock"></i>
               <span id="time">
                 {res.readyInMinutes > 60
                   ? Math.floor(res.readyInMinutes / 60) + "h"
@@ -50,25 +50,3 @@ export default function FavFood() {
   );
 }
 
-// {recipies.map((res) => (
-//   <Link key={res.id} className="card-image" to={`recipe/${res.id}`}>
-//     <div id="image">
-//     <img
-
-//       src={`https://spoonacular.com/recipeImages/${res.image}`}
-//       alt={res.title}
-//       width="100%"
-//     />
-//     </div>
-//     <h2 id="recipe-title">{res.title.replace(/^\w/, (c) => c.toUpperCase())}</h2>
-//     <div id="time-icon">
-//     <i class="far fa-clock"></i>
-//     <span id="time">
-
-//     {res.readyInMinutes > 60 ?
-//      Math.floor(res.readyInMinutes /60) +"h" : res.readyInMinutes+ "min"}
-//      </span>
-//      </div>
-
-//   </Link>
-// ))}
