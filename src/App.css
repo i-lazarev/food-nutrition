@@ -2,6 +2,7 @@
 ApiProvider{
     margin:0 0rem
 }
+
 .App{
     margin:0 10%;
 }
@@ -131,4 +132,30 @@ input[type=radio]:not(old):checked+label>span>span {
      .greeting {
          display: none;
      }
+}
+
+.CourseTitle::after {
+    content: '';
+    display: block;
+    background-color: #ededed;
+    right: -60px;
+    top: 0;
+    transform: skewX(-45deg);
+    width: 140px;
+    height: 102%;
+    position: absolute;
+}
+
+.mainShowMore{
+    background-color: #F94F72;
+    color: #fff;
+    padding: 10px;
+    width: fit-content;
+    align-self: flex-end;
+    margin: 15px;
+}
+
+.mainShowMore:hover {
+    background-color: rgb(97, 8, 26);
+    cursor: pointer;
 }

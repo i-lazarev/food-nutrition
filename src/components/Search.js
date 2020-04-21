@@ -19,18 +19,18 @@ const Search = (props) => {
   const [cuisine, setCuisine] = useState("");
   const [diet, setDiet] = useState("");
   const [intolerance, setIntolerance] = useState("");
-  const [type, setType] = useState("");
+  const [type, setType] = useState(
+    props.location.state ? props.location.state.type : ""
+  );
   const [recipeNumber, setRecipeNumber] = useState(12);
 
   const tareqKey="db603acba1014e209b0cda8a89aae478"
   const ionKey = "d21f98ccdf934ed5ac7c1e724093d571"
 
   useEffect(() => {
-    if(props.location.type){
-      setType(props.location.type);
-    }
+   
     fetch(
-        `https://api.spoonacular.com/recipes/search?cuisine=${cuisine}&diet=${diet}&intolerances=${intolerance}&number=${recipeNumber}&type=${type}&offset=0&query=${query}&apiKey=${tareqKey}`,
+      `https://api.spoonacular.com/recipes/search?cuisine=${cuisine}&diet=${diet}&intolerances=${intolerance}&number=${recipeNumber}&type=${type}&offset=0&query=${query}&apiKey=${ionKey}`,
       {
         method: "GET",
         headers: {
@@ -39,11 +39,11 @@ const Search = (props) => {
       }
     )
       .then((res) => res.json())
-      .then((res) => 
-      setRecipies(res.results))
+      .then((res) => setRecipies(res.results))
       .catch((err) => {
         console.log(err);
       });
+    
   }, [cuisine, diet, intolerance, type, query, recipeNumber]);
 
   const cuisineArray = [
@@ -120,7 +120,7 @@ const Search = (props) => {
     cuisine: "Any",
     diet: "Any",
     intolerance: "Any",
-    type: "Any",
+    type: props.location.state?props.location.state.type:"Any",
   });
 
   const toggle = (item) => {

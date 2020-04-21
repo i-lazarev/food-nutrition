@@ -21,8 +21,7 @@ export default function Footer() {
           padding: "30px",
           minHeight: "150px",
           backgroundColor: "#000",
-          color: "#fff",
-          marginTop: "30px",
+          color: "#fff"
         }}
       >
         <div
