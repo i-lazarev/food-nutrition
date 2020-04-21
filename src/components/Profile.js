@@ -1,9 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
 import { TokenContext } from "./TokenContext";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import {
-
-// } from "@fortawesome/free-solid-svg-icons";
 
 export default function Profile(props) {
   const [info, setInfo] = useState({

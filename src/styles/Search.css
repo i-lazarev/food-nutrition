@@ -7,10 +7,10 @@
   align-items: center;
   justify-content: space-around;
 }
-.drop-down-item{
+.drop-down-item {
   font-size: 1.5rem;
 }
-.drop-down-toggle{
+.drop-down-toggle {
   font-size: 1.3rem;
   padding: 2px 9px;
 }
@@ -26,11 +26,9 @@
   font-weight: bold;
 }
 
-.filterHover:hover{
-  
-    color: rgb(202, 135, 10);
-    text-decoration: none;
-  
+.filterHover:hover {
+  color: rgb(202, 135, 10);
+  text-decoration: none;
 }
 
 .card-image {
@@ -40,12 +38,11 @@
   width: 180px;
   height: 290px;
 }
-#fav-recipes{
+#fav-recipes {
   text-align: center;
   font-weight: bold;
   margin: 10px;
 }
-
 
 #recipe-title {
   height: 7.7rem;
@@ -53,10 +50,10 @@
   width: 180px;
   font-size: 2rem;
   padding: 1rem;
-  line-height:2.2rem;
+  line-height: 2.2rem;
   display: -webkit-box;
   -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;  
+  -webkit-box-orient: vertical;
   overflow: hidden;
 }
 #more-button {
@@ -77,24 +74,22 @@ img {
   height: 180px;
   object-fit: cover;
 }
-a:hover{
+a:hover {
   color: rgb(202, 135, 10);
   text-decoration: none;
 }
-#time-icon{
-
+#time-icon {
   text-align: end;
-  
 }
-#time{
+#time {
   font-size: 1.5rem;
   margin: 2px;
   margin-right: 5px;
 }
-i{
+i {
   font-size: 1.5rem;
   color: rgb(202, 135, 10);
 }
-i:hover{
+i:hover {
   color: black;
 }

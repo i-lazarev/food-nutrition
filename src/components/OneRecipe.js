@@ -19,12 +19,10 @@ const OneRecipe = ({ match }) => {
   const [wineObj, setWineObj] = useState({});
   const [title, setTitle] = useState("");
 
-  const tareqKey="db603acba1014e209b0cda8a89aae478"
-  const ionKey = "d21f98ccdf934ed5ac7c1e724093d571"
 
   useEffect(() => {
     fetch(
-      `https://api.spoonacular.com/recipes/${match.params.id}/information?amount=1&apiKey=${tareqKey}`,
+      `https://api.spoonacular.com/recipes/${match.params.id}/information?amount=1&apiKey=${process.env.REACT_APP_API_IN_USE}`,
       {
         method: "GET",
         headers: {
@@ -34,7 +32,6 @@ const OneRecipe = ({ match }) => {
     )
       .then((res) => res.json())
       .then((res) => {
-        
         setRecipe(res);
         setTitle(res.title);
         setWineObj(res.winePairing);
@@ -48,7 +45,7 @@ const OneRecipe = ({ match }) => {
         console.log(err);
       });
     fetch(
-      `https://api.spoonacular.com/recipes/${match.params.id}/nutritionWidget.json?&apiKey=${tareqKey}`,
+      `https://api.spoonacular.com/recipes/${match.params.id}/nutritionWidget.json?&apiKey=${process.env.REACT_APP_API_IN_USE}`,
       {
         method: "GET",
         headers: {
@@ -62,7 +59,7 @@ const OneRecipe = ({ match }) => {
         console.log(err);
       });
     fetch(
-      `https://api.spoonacular.com/recipes/${match.params.id}/analyzedInstructions?&apiKey=${tareqKey}`,
+      `https://api.spoonacular.com/recipes/${match.params.id}/analyzedInstructions?&apiKey=${process.env.REACT_APP_API_IN_USE}`,
       {
         method: "GET",
         headers: {
@@ -193,7 +190,6 @@ const OneRecipe = ({ match }) => {
             {instructions.map((res) => (
               <li key={Math.random()}>
               <span className="badge badge-warning">{res.number}</span>
-                {/* <span id="instruction-number">{res.number}</span> */}
                 <span id="instruction">{res.step}</span>
               </li>
             ))}

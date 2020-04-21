@@ -5,7 +5,6 @@ import "../styles/MainCourse.css";
 
 function MainCourse() {
   const [recipes, setRecipes] = useState([]);
-  const key = "d89d17872b3f4f8fa0da39073a9defdf";
   const history=useHistory();
 
   useEffect(() => {
@@ -14,7 +13,7 @@ function MainCourse() {
 
   const getRecipes = () => {
     fetch(
-      `https://api.spoonacular.com/recipes/search?&type=Main Course&offset=2&number=5&apiKey=${key} `,
+      `https://api.spoonacular.com/recipes/search?&type=Main Course&offset=2&number=5&apiKey=${process.env.REACT_APP_API_IN_USE} `,
       {
         method: "GET",
         "Content-Type": "application/json",
@@ -22,7 +21,6 @@ function MainCourse() {
     )
       .then((res) => res.json())
       .then((res) => setRecipes(res.results))
-      // .then(res => console.log(res.recipes))
       .catch((err) => {
         console.log(err);
       });
@@ -103,7 +101,6 @@ const Section = {
 const card = {
   width: "200px",
   minHeight: "200px",
-  // lineHeight: '50px',
   borderRadius: "50%",
   MozBorderRadius: "50%",
   WebkitBorderRadius: "50%",
