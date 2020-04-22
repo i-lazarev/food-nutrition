@@ -35,7 +35,7 @@ export default function Signup () {
 
   return (
     <Fragment>
-      <Header x={"#000"} />
+      <Header />
       <div
         style={{
           display: "flex",

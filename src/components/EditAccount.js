@@ -155,7 +155,7 @@ export default function EditAccount(props) {
 
   return (
     <div>
-      <Header x="#000" />
+      <Header />
       <form style={{paddingBottom: '30px'}} onSubmit={handleSubmit}>
         <div
           style={{

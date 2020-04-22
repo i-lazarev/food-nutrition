@@ -27,7 +27,7 @@ import SearchBar from "./SearchBar";
 import Profile from "./Profile";
 import { useHistory } from "react-router-dom";
 
-const Header = (props) => {
+const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [query, setQuery] = useContext(ApiContext);
   const [token, setToken] = useContext(TokenContext);
@@ -66,7 +66,7 @@ const Header = (props) => {
   return (
     <div style={{ fontSize: "18px", position: "relative", zIndex: "3" }}>
       <Navbar
-        style={{ padding: "8px 40px 8px 50px", backgroundColor: props.x }}
+        style={{ padding: "8px 40px 8px 50px", backgroundColor: '#000' }}
         dark
         expand="md"
       >

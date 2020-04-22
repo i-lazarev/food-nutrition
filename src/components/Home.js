@@ -10,7 +10,7 @@ export default function Home() {
     const [token, setToken] = useContext(TokenContext);
     return (
       <div style={{ backgroundColor: "#ededed" }}>
-        <Header x={"#000"} />
+        <Header />
 
         <SlideShow />
         <MainCourse />

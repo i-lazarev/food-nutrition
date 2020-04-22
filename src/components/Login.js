@@ -29,7 +29,7 @@ export default function Login() {
   };
   return (
     <div>
-      <Header x="#000" />
+      <Header />
       <div
         style={{
           display: "flex",

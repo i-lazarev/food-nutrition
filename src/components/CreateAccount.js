@@ -121,7 +121,7 @@ export default function Info(props) {
 
   return (
     <div>
-      <Header x="#000" />
+      <Header />
       <form onSubmit={handleSubmit}>
         <div
           style={{

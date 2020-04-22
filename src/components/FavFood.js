@@ -23,7 +23,7 @@ export default function FavFood() {
 
   return (
     <div id="body">
-      <Header x="#000" />
+      <Header />
       <h1 style={{paddingTop: '30px'}} id="fav-recipes">Favorite recipes</h1>
       <div className="recipies-section">
         {favArray.map((res) => (

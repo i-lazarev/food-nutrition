@@ -135,7 +135,7 @@ const Search = (props) => {
 
   return (
     <Fragment>
-      <Header x="#000" />
+      <Header />
       <div
         style={{
           textAlign: "center",

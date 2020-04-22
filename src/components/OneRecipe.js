@@ -118,7 +118,7 @@ const OneRecipe = ({ match }) => {
 
   return (
     <div>
-      <Header x="#000"  />
+      <Header  />
       <h2 className="recipe-title">{title.replace(/^\w/, (c) => c.toUpperCase())}</h2>
       
       <div className="main-section">
