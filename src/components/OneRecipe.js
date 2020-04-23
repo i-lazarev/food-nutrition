@@ -167,9 +167,12 @@ const OneRecipe = ({ match }) => {
             </h5>
 
             <div className="ingredients-section">
-              {console.log(recipe)}
+              {console.log(ingredients)}
+              
               {ingredients.map((res) => (
+                
                 <div key={Math.random()} className="ingredients">
+                
                   <p className="ingredients-details">
                     {res.amount * servings} {res.unit}
                   </p>
@@ -190,6 +193,7 @@ const OneRecipe = ({ match }) => {
             {instructions.map((res) => (
               <li key={Math.random()}>
               <span className="badge badge-warning">{res.number}</span>
+                {/* <span id="instruction-number">{res.number}</span> */}
                 <span id="instruction">{res.step}</span>
               </li>
             ))}
