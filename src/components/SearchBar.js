@@ -17,21 +17,17 @@ export default function SearchBar() {
        setQuery(input)
       history.push("/recipes")
       }
+      console.log(query)
 
     return (
       <div>
-        <form onSubmit={updateQuery} style={{ display: "flex" }}>
+        <form id="search-form"
+         onSubmit={updateQuery}>
           <Input
-            style={{
-              borderTopLeftRadius: "5px",
-              borderBottomLeftRadius: "5px",
-              borderTopRightRadius: "0",
-              borderBottomRightRadius: "0",
-            }}
             type="text"
             name="search"
             value={input}
-            className="input-search"
+            id="input-search"
             placeholder="Search"
             onChange={(e) => setInput(e.target.value)}
           />
@@ -43,7 +39,7 @@ export default function SearchBar() {
               borderBottomRightRadius: "5px",
             }}
           >
-            <img src={SearchIcon} style={{height: '20px',width: '20px'}} />
+            <img src={SearchIcon} id="search-image" alt="search-icon"/>
           </button>
         </form>
       </div>

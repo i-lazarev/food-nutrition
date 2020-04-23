@@ -11,6 +11,7 @@ export default function Login() {
   const [errMsg, setErrMsg]=useState('')
   const [token, setToken] = useContext(TokenContext);
   const history = useHistory();
+  console.log(token)
 
   const handleSubmit = e => {
     e.preventDefault();

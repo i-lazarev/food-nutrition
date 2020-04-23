@@ -23,6 +23,7 @@ const Search = (props) => {
     props.location.state ? props.location.state.type : ""
   );
   const [recipeNumber, setRecipeNumber] = useState(12);
+  console.log(setQuery)
 
 
   useEffect(() => {
@@ -137,22 +138,15 @@ const Search = (props) => {
     <Fragment>
       <Header />
       <div
-        style={{
-          textAlign: "center",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-        }}
         id="body"
       >
-        <h1 style={{ textAlign: "center", paddingTop: '30px' }}>
+        <h1 style={{ textAlign: "center", paddingTop: '30px', fontWeight:"900" }}>
           {query === "" ? "" : query.replace(/^\w/, (c) => c.toUpperCase())}
         </h1>
 
         <div className="drop-down-menu">
           <div
-            style={{ margin: "20px", textAlign: "center" }}
-            className="cuisine-dropdown filterHover"
+            className="filterHover"
           >
             <div className="cuisineTitle">Cuisine </div>
             <ButtonDropdown
@@ -180,8 +174,7 @@ const Search = (props) => {
             </ButtonDropdown>
           </div>
           <div
-            style={{ margin: "20px", textAlign: "center" }}
-            className="diet-dropdown filterHover"
+            className="filterHover"
           >
             <div className="cuisineTitle">Diet </div>
             <ButtonDropdown
@@ -208,8 +201,7 @@ const Search = (props) => {
             </ButtonDropdown>
           </div>
           <div
-            style={{ margin: "20px", textAlign: "center" }}
-            className="intolerance-dropdown filterHover"
+            className="filterHover"
           >
             <div className="cuisineTitle ">Intolerance </div>
             <ButtonDropdown
@@ -236,8 +228,7 @@ const Search = (props) => {
             </ButtonDropdown>
           </div>
           <div
-            style={{ margin: "20px", textAlign: "center" }}
-            className="type-dropdown filterHover"
+            className="filterHover"
           >
             <div className="cuisineTitle">Type</div>
             <ButtonDropdown

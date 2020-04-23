@@ -3,8 +3,7 @@ import {
   Carousel,
   CarouselItem,
   CarouselControl,
-  CarouselIndicators,
-  CarouselCaption,
+  CarouselIndicators
 } from "reactstrap";
 import bowls from "../assets/bowls.jpg";
 import chicken from "../assets/chicken.jpg";
@@ -96,6 +95,7 @@ const SlideShow = () => {
               height: "auto",
             }}
             src={item.src2}
+            alt=""
           />
         </div>
       </CarouselItem>
