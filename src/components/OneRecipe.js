@@ -193,6 +193,7 @@ const OneRecipe = ({ match }) => {
             {instructions.map((res) => (
               <li key={Math.random()}>
               <span className="badge badge-warning">{res.number}</span>
+                {/* <span id="instruction-number">{res.number}</span> */}
                 <span id="instruction">{res.step}</span>
               </li>
             ))}

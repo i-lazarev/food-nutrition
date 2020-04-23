@@ -298,6 +298,42 @@ const Search = (props) => {
           </Button>
         </div>
       </div>
+      <div className="recipies-section">
+      {console.log(recipies)}
+        {recipies.map((res) => (
+          <Link key={res.id} className="card-image" to={`recipe/${res.id}`}>
+          
+            <div id="image">
+            <img
+
+              src={`https://spoonacular.com/recipeImages/${res.image}`}
+              alt={res.title}
+              width="100%"
+            />
+            </div>
+            <h2 id="recipe-title">{res.title.replace(/^\w/, (c) => c.toUpperCase())}</h2>
+            <div id="time-icon">
+            <i class="far fa-clock"></i>
+            <span id="time">
+            
+            
+            {res.readyInMinutes > 60 ?
+             Math.floor(res.readyInMinutes /60) +"h" : res.readyInMinutes+ "min"}
+             </span>
+             </div>
+            
+          </Link>
+        ))}
+      </div>
+      <div id="more-button-section">
+      <Button
+      id="more-button"
+        onClick={() => setRecipeNumber(recipeNumber + 12)}
+      >
+        More
+      </Button>
+      </div>
+
       <Footer />
     </Fragment>
   );
