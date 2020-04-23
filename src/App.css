@@ -123,15 +123,9 @@ input[type=radio]:not(old):checked+label>span>span {
 }
 
 
-@media only screen and (max-width: 600px) {
-   
-    .profileBox{
-        justify-content: center;
-        width: 100% !important;
-    }
-     .greeting {
-         display: none;
-     }
+
+.CourseTitle {
+    width: 550px;
 }
 
 .CourseTitle::after {
@@ -158,4 +152,31 @@ input[type=radio]:not(old):checked+label>span>span {
 .mainShowMore:hover {
     background-color: rgb(97, 8, 26);
     cursor: pointer;
+}
+
+@media only screen and (max-width: 600px) {
+
+    .profileBox {
+        justify-content: center;
+        width: 100% !important;
+    }
+
+    .greeting {
+        display: none;
+    }
+
+}
+
+@media only screen and (max-width: 670px) {
+
+    .CourseTitle::after {
+        display: none;
+    }
+
+    .CourseTitle>div {
+        display: none;
+    }
+   .CourseTitle {
+       width: 100%
+   }
 }

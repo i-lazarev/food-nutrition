@@ -57,26 +57,24 @@ export default function EditAccount(props) {
       },
     })
       .then((res) => res.json())
-      .then((data) =>
-        {
-          setHeight(data.height);
-          setWeight(data.weight);
-          setAge(data.age);
-          setMale(data.male);
-          setFemale(data.female);
-          setDaysOfWorkouts(data.daysOfWorkout);
-          setDurationOfWorkout(data.durationOfWorkout);
-          setEcto(data.ecto);
-          setMeso(data.meso);
-          setEndo(data.endo);
-          setLose(data.lose);
-          setGain(data.gain);
-          setMaintain(data.maintain);
-          setLowCarbs(data.lowCarbs);
-          setModerateCarbs(data.moderateCarbs);
-          setHighCarbs(data.highCarbs);
-        }
-      );
+      .then((data) => {
+        setHeight(data.height);
+        setWeight(data.weight);
+        setAge(data.age);
+        setMale(data.male);
+        setFemale(data.female);
+        setDaysOfWorkouts(data.daysOfWorkout);
+        setDurationOfWorkout(data.durationOfWorkout);
+        setEcto(data.ecto);
+        setMeso(data.meso);
+        setEndo(data.endo);
+        setLose(data.lose);
+        setGain(data.gain);
+        setMaintain(data.maintain);
+        setLowCarbs(data.lowCarbs);
+        setModerateCarbs(data.moderateCarbs);
+        setHighCarbs(data.highCarbs);
+      });
   }, [token]);
 
   const handleSubmit = (e) => {

@@ -60,7 +60,6 @@ function Categories() {
           fontWeight: "900",
           padding: "20px",
           color: "#fff",
-          width: "50%",
           position: "relative",
           marginBottom: "15px",
         }}
@@ -117,7 +116,6 @@ function Categories() {
           fontWeight: "900",
           padding: "20px",
           color: "#fff",
-          width: "50%",
           position: "relative",
           marginBottom: "15px",
         }}

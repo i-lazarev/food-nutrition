@@ -9,9 +9,8 @@ import Categories from "./Categories";
 export default function Home() {
     const [token, setToken] = useContext(TokenContext);
     return (
-      <div style={{ backgroundColor: "#ededed" }}>
+      <div style={{ backgroundColor: "#ededed", position: 'relative' }}>
         <Header />
-
         <SlideShow />
         <MainCourse />
 

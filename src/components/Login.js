@@ -17,14 +17,16 @@ export default function Login() {
     fetch("http://localhost:5000/login", {
       method: "POST",
       body: JSON.stringify({ email: email, password: password }),
-      headers: { "Content-Type": "application/json" }
+      headers: { "Content-Type": "application/json" },
     })
-      .then(res => res.json())
-      .then(data => {
-        if(data.err){setErrMsg(data.err)}
-        else{
-        setToken(data.token);
-        history.push("/");}
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.err) {
+          setErrMsg(data.err);
+        } else {
+          setToken(data.token);
+          history.push("/");
+        }
       });
   };
   return (

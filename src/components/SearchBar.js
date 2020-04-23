@@ -4,6 +4,7 @@ import FontAwesome from "react-fontawesome";
 import {ApiContext} from "./ApiContext";
 import "../styles/SearchBar.css"
 import { useHistory } from 'react-router-dom';
+import SearchIcon from '../assets/search-icon.png';
   
 
 
@@ -43,7 +44,8 @@ export default function SearchBar() {
               borderBottomRightRadius: "5px",
             }}
           >
-            <FontAwesome name="search" />
+            {/* <FontAwesome name="search" /> */}
+            <img src={SearchIcon} style={{height: '20px',width: '20px'}} />
           </button>
         </form>
       </div>

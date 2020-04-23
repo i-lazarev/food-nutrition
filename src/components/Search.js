@@ -145,7 +145,7 @@ const Search = (props) => {
         }}
         id="body"
       >
-        <h1 style={{ textAlign: "center" }}>
+        <h1 style={{ textAlign: "center", paddingTop: '30px' }}>
           {query === "" ? "" : query.replace(/^\w/, (c) => c.toUpperCase())}
         </h1>
 

@@ -47,7 +47,7 @@ const Header = () => {
 
   useEffect(() => {
     if (token) {
-      fetch("http://localhost:5000/check-token", {
+      fetch("/check-token", {
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
