@@ -6,7 +6,6 @@ function Categories() {
   const [recipes, setRecipes] = useState([]);
   const [recipesB, setRecipesB]=useState([]);
   const history=useHistory();
-  const key = "d21f98ccdf934ed5ac7c1e724093d571";
 
   useEffect(() => {
     getRecipes();
@@ -14,7 +13,7 @@ function Categories() {
 
   const getRecipes = () => {
     fetch(
-      `https://api.spoonacular.com/recipes/search?&type=Side Dish&offset=7&number=12&apiKey=${key} `,
+      `https://api.spoonacular.com/recipes/search?&type=Side Dish&offset=7&number=12&apiKey=${process.env.REACT_APP_API_IN_USE} `,
       {
         method: "GET",
         "Content-Type": "application/json",
@@ -27,7 +26,7 @@ function Categories() {
       });
       
         fetch(
-          `https://api.spoonacular.com/recipes/search?&type=Dessert&offset=0&number=12&apiKey=${key} `,
+          `https://api.spoonacular.com/recipes/search?&type=Dessert&offset=0&number=12&apiKey=${process.env.REACT_APP_API_IN_USE} `,
           {
             method: "GET",
             "Content-Type": "application/json",
@@ -35,7 +34,7 @@ function Categories() {
         )
           .then((res) => res.json())
           .then((res) => setRecipesB(res.results))
-         
+
           .catch((err) => {
             console.log(err);
           });
@@ -61,7 +60,6 @@ function Categories() {
           fontWeight: "900",
           padding: "20px",
           color: "#fff",
-          width: "50%",
           position: "relative",
           marginBottom: "15px",
         }}
@@ -118,7 +116,6 @@ function Categories() {
           fontWeight: "900",
           padding: "20px",
           color: "#fff",
-          width: "50%",
           position: "relative",
           marginBottom: "15px",
         }}

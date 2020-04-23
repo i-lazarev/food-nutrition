@@ -11,7 +11,7 @@ export default function FavFood() {
   const [favArray, setFavArray] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/get-fav/`, {
+    fetch(`${process.env.REACT_APP_API_URL || ""}/get-fav/`, {
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
@@ -23,7 +23,7 @@ export default function FavFood() {
 
   return (
     <div id="body">
-      <Header x="#000" />
+      <Header/>
       <h1 style={{paddingTop: '30px'}} id="fav-recipes">Favorite recipes</h1>
       <div className="recipies-section">
         {favArray.map((res) => (

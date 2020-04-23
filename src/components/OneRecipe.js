@@ -19,12 +19,10 @@ const OneRecipe = ({ match }) => {
   const [wineObj, setWineObj] = useState({});
   const [title, setTitle] = useState("");
 
-  const tareqKey="db603acba1014e209b0cda8a89aae478"
-  const ionKey = "d21f98ccdf934ed5ac7c1e724093d571"
 
   useEffect(() => {
     fetch(
-      `https://api.spoonacular.com/recipes/${match.params.id}/information?amount=1&apiKey=${tareqKey}`,
+      `https://api.spoonacular.com/recipes/${match.params.id}/information?amount=1&apiKey=${process.env.REACT_APP_API_IN_USE}`,
       {
         method: "GET",
         headers: {
@@ -34,7 +32,6 @@ const OneRecipe = ({ match }) => {
     )
       .then((res) => res.json())
       .then((res) => {
-        
         setRecipe(res);
         setTitle(res.title);
         setWineObj(res.winePairing);
@@ -48,7 +45,7 @@ const OneRecipe = ({ match }) => {
         console.log(err);
       });
     fetch(
-      `https://api.spoonacular.com/recipes/${match.params.id}/nutritionWidget.json?&apiKey=${tareqKey}`,
+      `https://api.spoonacular.com/recipes/${match.params.id}/nutritionWidget.json?&apiKey=${process.env.REACT_APP_API_IN_USE}`,
       {
         method: "GET",
         headers: {
@@ -62,7 +59,7 @@ const OneRecipe = ({ match }) => {
         console.log(err);
       });
     fetch(
-      `https://api.spoonacular.com/recipes/${match.params.id}/analyzedInstructions?&apiKey=${tareqKey}`,
+      `https://api.spoonacular.com/recipes/${match.params.id}/analyzedInstructions?&apiKey=${process.env.REACT_APP_API_IN_USE}`,
       {
         method: "GET",
         headers: {
@@ -77,7 +74,7 @@ const OneRecipe = ({ match }) => {
       });
 
     const checkFav = (id) => {
-      fetch(`http://localhost:5000/check-fav/${id}`, {
+      fetch(`${process.env.REACT_APP_API_URL || ""}/check-fav/${id}`, {
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
@@ -90,7 +87,7 @@ const OneRecipe = ({ match }) => {
 
   const handleAddToFav = () => {
     if (isFav) {
-      fetch(`http://localhost:5000/remove-fav/${recID}`, {
+      fetch(`${process.env.REACT_APP_API_URL || ""}/remove-fav/${recID}`, {
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
@@ -103,7 +100,7 @@ const OneRecipe = ({ match }) => {
           console.log(data);
         });
     } else {
-      fetch("http://localhost:5000/add-fav", {
+      fetch(`${process.env.REACT_APP_API_URL || ""}/add-fav`, {
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
@@ -121,7 +118,7 @@ const OneRecipe = ({ match }) => {
 
   return (
     <div>
-      <Header x="#000"  />
+      <Header />
       <h2 className="recipe-title">{title.replace(/^\w/, (c) => c.toUpperCase())}</h2>
       
       <div className="main-section">
@@ -196,7 +193,6 @@ const OneRecipe = ({ match }) => {
             {instructions.map((res) => (
               <li key={Math.random()}>
               <span className="badge badge-warning">{res.number}</span>
-                {/* <span id="instruction-number">{res.number}</span> */}
                 <span id="instruction">{res.step}</span>
               </li>
             ))}

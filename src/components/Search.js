@@ -24,13 +24,11 @@ const Search = (props) => {
   );
   const [recipeNumber, setRecipeNumber] = useState(12);
 
-  const tareqKey="db603acba1014e209b0cda8a89aae478"
-  const ionKey = "d21f98ccdf934ed5ac7c1e724093d571"
 
   useEffect(() => {
    
     fetch(
-      `https://api.spoonacular.com/recipes/search?cuisine=${cuisine}&diet=${diet}&intolerances=${intolerance}&number=${recipeNumber}&type=${type}&offset=0&query=${query}&apiKey=${ionKey}`,
+      `https://api.spoonacular.com/recipes/search?cuisine=${cuisine}&diet=${diet}&intolerances=${intolerance}&number=${recipeNumber}&type=${type}&offset=0&query=${query}&apiKey=${process.env.REACT_APP_API_IN_USE}`,
       {
         method: "GET",
         headers: {
@@ -137,7 +135,7 @@ const Search = (props) => {
 
   return (
     <Fragment>
-      <Header x="#000" />
+      <Header />
       <div
         style={{
           textAlign: "center",
@@ -147,7 +145,7 @@ const Search = (props) => {
         }}
         id="body"
       >
-        <h1 style={{ textAlign: "center" }}>
+        <h1 style={{ textAlign: "center", paddingTop: '30px' }}>
           {query === "" ? "" : query.replace(/^\w/, (c) => c.toUpperCase())}
         </h1>
 

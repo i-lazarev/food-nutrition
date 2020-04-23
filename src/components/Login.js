@@ -14,22 +14,24 @@ export default function Login() {
 
   const handleSubmit = e => {
     e.preventDefault();
-    fetch("http://localhost:5000/login", {
+    fetch(`${process.env.REACT_APP_API_URL || ''}/login`, {
       method: "POST",
       body: JSON.stringify({ email: email, password: password }),
-      headers: { "Content-Type": "application/json" }
+      headers: { "Content-Type": "application/json" },
     })
-      .then(res => res.json())
-      .then(data => {
-        if(data.err){setErrMsg(data.err)}
-        else{
-        setToken(data.token);
-        history.push("/");}
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.err) {
+          setErrMsg(data.err);
+        } else {
+          setToken(data.token);
+          history.push("/");
+        }
       });
   };
   return (
     <div>
-      <Header x="#000" />
+      <Header />
       <div
         style={{
           display: "flex",

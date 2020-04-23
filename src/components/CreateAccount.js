@@ -82,7 +82,7 @@ export default function Info(props) {
 
     if (TDEE>0) {
       console.log(TDEE, goalCal, protein, carbs, fat, sugar);
-      fetch("http://localhost:5000/create-account", {
+      fetch(`${process.env.REACT_APP_API_URL || ""}/create-account`, {
         method: "POST",
         body: JSON.stringify({
           email: props.location.state.email,
@@ -121,7 +121,7 @@ export default function Info(props) {
 
   return (
     <div>
-      <Header x="#000" />
+      <Header />
       <form onSubmit={handleSubmit}>
         <div
           style={{

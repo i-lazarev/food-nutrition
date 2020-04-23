@@ -8,11 +8,9 @@
   align-items: center;
   justify-content: space-around;
 }
-
 .drop-down-item {
   font-size: 1.5rem;
 }
-
 .drop-down-toggle {
   font-size: 1.3rem;
   padding: 2px 9px;
@@ -42,13 +40,11 @@
   width: 180px;
   height: 290px;
 }
-
 #fav-recipes {
   text-align: center;
   font-weight: bold;
   margin: 10px;
 }
-
 
 #recipe-title {
   height: 7.7rem;
@@ -88,27 +84,22 @@ img {
   height: 100%;
   object-fit: cover;
 }
-
 a:hover {
   color: rgb(202, 135, 10);
   text-decoration: none;
 }
-
 #time-icon {
   text-align: end;
 }
-
 #time {
   font-size: 1.5rem;
   margin: 2px;
   margin-right: 5px;
 }
-
 i {
   font-size: 1.5rem;
   color: rgb(202, 135, 10);
 }
-
 i:hover {
   color: black;
 }

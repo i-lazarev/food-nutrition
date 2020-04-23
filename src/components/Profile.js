@@ -1,9 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
 import { TokenContext } from "./TokenContext";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import {
-
-// } from "@fortawesome/free-solid-svg-icons";
 
 export default function Profile(props) {
   const [info, setInfo] = useState({
@@ -17,24 +13,26 @@ export default function Profile(props) {
   });
   const [token, setToken] = useContext(TokenContext);
   useEffect(() => {
-    fetch("http://localhost:5000/profile", {
+    fetch(`${process.env.REACT_APP_API_URL || ""}/profile`, {
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
       },
     })
       .then((res) => res.json())
-      .then((data) =>
-        setInfo({
-          name: data.username,
-          TDEE: data.tdee,
-          goal: data.goalCal,
-          protein: data.protein,
-          carbs: data.carbs,
-          fat: data.fat,
-          sugar: data.sugar,
-        })
-      );
+      .then((data) => {
+        data.err
+          ? console.log(data.err)
+          : setInfo({
+              name: data.username,
+              TDEE: data.tdee,
+              goal: data.goalCal,
+              protein: data.protein,
+              carbs: data.carbs,
+              fat: data.fat,
+              sugar: data.sugar,
+            });
+      });
   }, [token]);
 
   return (
@@ -51,15 +49,18 @@ export default function Profile(props) {
         left: "0",
       }}
     >
-    
-      <div className='profileBox'
+      <div
+        className="profileBox"
         style={{
           display: "flex",
           justifyContent: "space-between",
           width: "90%",
         }}
       >
-        <div className='greeting' style={{ padding: "20px 10px 20px 40px", width: "330px" }}>
+        <div
+          className="greeting"
+          style={{ padding: "20px 10px 20px 40px", width: "330px" }}
+        >
           Hey {info.name},
           <br /> Here's your daily need of calories and nutrition. <br /> have a
           healthy and wonderful day {":)"}

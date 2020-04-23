@@ -9,22 +9,28 @@ import {
 import bowls from "../assets/bowls.jpg";
 import chicken from "../assets/chicken.jpg";
 import sliced from "../assets/vegetable.jpg";
+import text1 from "../assets/bowls-text.jpg";
+import text2 from "../assets/chicken-text.jpg";
+import text3 from "../assets/vegetable-text.jpg";
 import "../App.css";
 
 const items = [
   {
     id: 1,
     src: bowls,
+    src2: text1,
     caption: "MORE THAN 300K RECIPES,",
   },
   {
     id: 2,
     src: chicken,
+    src2: text2,
     caption: "24 INTERNATIONAL CUISINES,",
   },
   {
     id: 3,
     src: sliced,
+    src2: text3,
     caption: "A VARIETY OF DIETS & A LOT MORE!!!",
   },
 ];
@@ -69,10 +75,29 @@ const SlideShow = () => {
             height: "100%",
             width: "100%",
             background: "transparent",
-            backgroundSize: "contain",
+            backgroundSize: "cover",
+            backgroundPosition: "left center",
           }}
         />
-       
+        <div className='textBox'
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            width: '550px',
+            position: "absolute",
+            top: "230px",
+            left: "0",
+            zIndex: "3",
+          }}
+        >
+          <img
+            style={{
+              width: "320px",
+              height: "auto",
+            }}
+            src={item.src2}
+          />
+        </div>
       </CarouselItem>
     );
   });

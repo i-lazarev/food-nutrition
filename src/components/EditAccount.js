@@ -50,33 +50,31 @@ export default function EditAccount(props) {
 
   useEffect(() => {
     console.log(token);
-    fetch("http://localhost:5000/profile", {
+    fetch(`${process.env.REACT_APP_API_URL || ""}/profile`, {
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
       },
     })
       .then((res) => res.json())
-      .then((data) =>
-        {
-          setHeight(data.height);
-          setWeight(data.weight);
-          setAge(data.age);
-          setMale(data.male);
-          setFemale(data.female);
-          setDaysOfWorkouts(data.daysOfWorkout);
-          setDurationOfWorkout(data.durationOfWorkout);
-          setEcto(data.ecto);
-          setMeso(data.meso);
-          setEndo(data.endo);
-          setLose(data.lose);
-          setGain(data.gain);
-          setMaintain(data.maintain);
-          setLowCarbs(data.lowCarbs);
-          setModerateCarbs(data.moderateCarbs);
-          setHighCarbs(data.highCarbs);
-        }
-      );
+      .then((data) => {
+        setHeight(data.height);
+        setWeight(data.weight);
+        setAge(data.age);
+        setMale(data.male);
+        setFemale(data.female);
+        setDaysOfWorkouts(data.daysOfWorkout);
+        setDurationOfWorkout(data.durationOfWorkout);
+        setEcto(data.ecto);
+        setMeso(data.meso);
+        setEndo(data.endo);
+        setLose(data.lose);
+        setGain(data.gain);
+        setMaintain(data.maintain);
+        setLowCarbs(data.lowCarbs);
+        setModerateCarbs(data.moderateCarbs);
+        setHighCarbs(data.highCarbs);
+      });
   }, [token]);
 
   const handleSubmit = (e) => {
@@ -114,7 +112,7 @@ export default function EditAccount(props) {
 
     if (TDEE) {
       console.log(TDEE, goalCal, protein, carbs, fat, sugar);
-      fetch("http://localhost:5000/edit-account", {
+      fetch(`${process.env.REACT_APP_API_URL || ""}/edit-account`, {
         method: "POST",
         body: JSON.stringify({
           tdee: TDEE,
@@ -155,7 +153,7 @@ export default function EditAccount(props) {
 
   return (
     <div>
-      <Header x="#000" />
+      <Header />
       <form style={{paddingBottom: '30px'}} onSubmit={handleSubmit}>
         <div
           style={{

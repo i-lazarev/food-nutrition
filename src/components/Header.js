@@ -25,9 +25,9 @@ import {
 } from "reactstrap";
 import SearchBar from "./SearchBar";
 import Profile from "./Profile";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 
-const Header = (props) => {
+const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [query, setQuery] = useContext(ApiContext);
   const [token, setToken] = useContext(TokenContext);
@@ -47,7 +47,7 @@ const Header = (props) => {
 
   useEffect(() => {
     if (token) {
-      fetch("http://localhost:5000/check-token", {
+      fetch("/check-token", {
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
@@ -66,7 +66,7 @@ const Header = (props) => {
   return (
     <div style={{ fontSize: "18px", position: "relative", zIndex: "3" }}>
       <Navbar
-        style={{ padding: "8px 40px 8px 50px", backgroundColor: props.x }}
+        style={{ padding: "8px 40px 8px 50px", backgroundColor: '#000' }}
         dark
         expand="md"
       >
@@ -78,12 +78,12 @@ const Header = (props) => {
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto, nav-bar" navbar>
             <NavItem style={{ paddingLeft: "40px" }}>
-              <NavLink href="/recipes">
+              <Link to="/recipes">
                 <div className="navLinkBtn">
                   Recipes{" "}
                   <FontAwesomeIcon className="search-icon" icon={faUtensils} />
                 </div>
-              </NavLink>
+              </Link>
             </NavItem>
             <NavItem>
               <SearchBar />
@@ -109,18 +109,18 @@ const Header = (props) => {
                   </div>
                 </NavLink>
                 <NavItem>
-                  <NavLink title="your favorite recipes" href="/favorite">
+                  <Link title="your favorite recipes" to="/favorite">
                     <div className="navLinkBtn">
                       <FontAwesomeIcon icon={faStar} />
                     </div>
-                  </NavLink>
+                  </Link>
                 </NavItem>
                 <NavItem>
-                  <NavLink title="update your info" href="/edit-account-info">
+                  <Link title="update your info" to="/edit-account-info">
                     <div className="navLinkBtn">
                       <FontAwesomeIcon icon={faUserEdit} />
                     </div>
-                  </NavLink>
+                  </Link>
                 </NavItem>
                 <NavLink>
                   <div
@@ -141,14 +141,14 @@ const Header = (props) => {
                 }}
               >
                 <NavItem>
-                  <NavLink href="/sign-up">
+                  <Link to="/sign-up">
                     <div className="navLinkBtn">Sign up</div>
-                  </NavLink>
+                  </Link>
                 </NavItem>
                 <NavItem>
-                  <NavLink href="/login">
+                  <Link to="/login">
                     <div className="navLinkBtn">Log in</div>
-                  </NavLink>
+                  </Link>
                 </NavItem>
               </div>
             )}
