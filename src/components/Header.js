@@ -47,7 +47,7 @@ const Header = () => {
 
   useEffect(() => {
     if (token) {
-      fetch("/check-token", {
+      fetch(`${process.env.REACT_APP_API_URL || ''}/check-token`, {
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
@@ -122,7 +122,7 @@ const Header = () => {
                     </div>
                   </Link>
                 </NavItem>
-                <NavLink>
+                <Link>
                   <div
                     className="navLinkBtn"
                     title="sign out"
@@ -130,7 +130,7 @@ const Header = () => {
                   >
                     <FontAwesomeIcon icon={faSignOutAlt} />
                   </div>
-                </NavLink>
+                </Link>
               </div>
             ) : (
               <div

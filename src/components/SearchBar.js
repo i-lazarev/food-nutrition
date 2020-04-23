@@ -1,6 +1,5 @@
 import React ,{useContext, useState}from 'react';
 import {Input} from "reactstrap";
-import FontAwesome from "react-fontawesome";
 import {ApiContext} from "./ApiContext";
 import "../styles/SearchBar.css"
 import { useHistory } from 'react-router-dom';
@@ -44,7 +43,6 @@ export default function SearchBar() {
               borderBottomRightRadius: "5px",
             }}
           >
-            {/* <FontAwesome name="search" /> */}
             <img src={SearchIcon} style={{height: '20px',width: '20px'}} />
           </button>
         </form>
