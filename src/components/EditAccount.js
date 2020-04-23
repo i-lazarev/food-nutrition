@@ -26,6 +26,7 @@ export default function EditAccount(props) {
   const [index, setIndex] = useState("");
   const history = useHistory();
   const [token, setToken] = useContext(TokenContext);
+  console.log(setToken)
 
   const ratios = [
     {

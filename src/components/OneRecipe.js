@@ -18,6 +18,7 @@ const OneRecipe = ({ match }) => {
   const [recID, setRecID] = useState();
   const [wineObj, setWineObj] = useState({});
   const [title, setTitle] = useState("");
+  console.log(setToken)
 
 
   useEffect(() => {
