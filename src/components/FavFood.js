@@ -49,8 +49,8 @@ export default function FavFood() {
             </Link>
           ))}
         </div>
-        <Footer />
       </div>
+      <Footer />
     </Fragment>
   );
 }
