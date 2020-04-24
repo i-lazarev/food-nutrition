@@ -32,12 +32,7 @@ export default function SearchBar() {
             onChange={(e) => setInput(e.target.value)}
           />
           <button
-            style={{
-              border: "none",
-              width: "40px",
-              borderTopRightRadius: "5px",
-              borderBottomRightRadius: "5px",
-            }}
+          id="search-btn"
           >
             <img src={SearchIcon} id="search-image" alt="search-icon"/>
           </button>

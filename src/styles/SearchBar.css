@@ -6,10 +6,13 @@
     min-width: 200px;
     max-width: 400px;
 }
-#search-button{
+#search-btn{
     background-color: whitesmoke;
     border: 1px solid whitesmoke;
     border-radius: 0 5px 5px 0;
+    border:none;
+    width: 40px;
+    
 }
 #search-form{
     display: flex;
