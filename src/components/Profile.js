@@ -12,6 +12,7 @@ export default function Profile(props) {
     sugar: "",
   });
   const [token, setToken] = useContext(TokenContext);
+  console.log(setToken)
   useEffect(() => {
     fetch(`${process.env.REACT_APP_API_URL || ""}/profile`, {
       headers: {

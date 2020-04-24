@@ -1,24 +1,21 @@
-import React, {useContext, useEffect} from 'react';
-import Header from './Header';
-import Footer from './Footer';
-import {TokenContext} from './TokenContext';
+import React from "react";
+import Header from "./Header";
+import Footer from "./Footer";
 import MainCourse from "./MainCourse";
-import SlideShow from './SlideShow'
+import SlideShow from "./SlideShow";
 import Categories from "./Categories";
 // import SlideShow from './SlideShow';
 
 
 
 export default function Home() {
-    const [token, setToken] = useContext(TokenContext);
-    return (
-      <div style={{ backgroundColor: "#ededed", position: 'relative' }}>
-        <Header />
-        <SlideShow />
-        <MainCourse />
-
-        <Categories />
-        <Footer />
-      </div>
-    );
+  return (
+    <div style={{ backgroundColor: "#ededed", position: "relative" }}>
+      <Header />
+      <SlideShow />
+      <MainCourse />
+      <Categories />
+      <Footer />
+    </div>
+  );
 }

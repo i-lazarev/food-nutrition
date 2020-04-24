@@ -2,8 +2,6 @@ import React, { useState, useContext, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { TokenContext } from "./TokenContext";
 import "../styles/header.css";
-import {ApiContext} from './ApiContext';
-
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -25,19 +23,19 @@ import {
 } from "reactstrap";
 import SearchBar from "./SearchBar";
 import Profile from "./Profile";
-import { useHistory, Link } from "react-router-dom";
+// import { useHistory, Link } from "react-router-dom";
+import {  Link } from "react-router-dom";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [query, setQuery] = useContext(ApiContext);
   const [token, setToken] = useContext(TokenContext);
   const [show, setShow] = useState(false);
-  const history=useHistory();
+  // const history=useHistory();
 
   const handleSignOut = () => {
     setToken(null);
     localStorage.removeItem("token");
-    history.push('/');
+    
   };
   const handleShowInfo = () => {
     setShow(!show);
@@ -47,7 +45,7 @@ const Header = () => {
 
   useEffect(() => {
     if (token) {
-      fetch("/check-token", {
+      fetch(`${process.env.REACT_APP_API_URL || ''}/check-token`, {
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
@@ -79,7 +77,7 @@ const Header = () => {
           <Nav className="mr-auto, nav-bar" navbar>
             <NavItem style={{ paddingLeft: "40px" }}>
               <Link to="/recipes">
-                <div className="navLinkBtn">
+                <div className="navLinkBtn recipes-btn">
                   Recipes{" "}
                   <FontAwesomeIcon className="search-icon" icon={faUtensils} />
                 </div>
@@ -122,7 +120,7 @@ const Header = () => {
                     </div>
                   </Link>
                 </NavItem>
-                <NavLink>
+                <Link to="/">
                   <div
                     className="navLinkBtn"
                     title="sign out"
@@ -130,7 +128,7 @@ const Header = () => {
                   >
                     <FontAwesomeIcon icon={faSignOutAlt} />
                   </div>
-                </NavLink>
+                </Link>
               </div>
             ) : (
               <div

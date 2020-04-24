@@ -60,10 +60,10 @@ function MainCourse() {
       </div>
       <div style={Section}>
         {recipes.map((rec) => (
-          <Link key={rec.id} to={`recipe/${rec.id}`} style={title}>
+          <Link key={Math.random()} to={`recipe/${rec.id}`} style={title}>
             <div
               style={card}
-              key={rec.id}
+             
               className="animationCard hvr-wobble-to-bottom-right"
             >
               <img
@@ -86,8 +86,7 @@ function MainCourse() {
 export default MainCourse;
 
 const Section = {
-  display: "webkit-box",
-  display: "ms-lexbox",
+ 
   display: "flex",
   msFlexWrap: "wrap",
   flexWrap: "wrap",

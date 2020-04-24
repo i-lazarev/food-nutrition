@@ -1,10 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   HashRouter as Router,
   Route,
-  Switch,
-  Link,
-  NavLink
+  Switch
 } from "react-router-dom";
 import Signup from "./Signup";
 import Info from "./CreateAccount";
@@ -15,6 +13,7 @@ import OneRecipe from "./OneRecipe";
 import { TokenContext, TokenProvider } from "./TokenContext";
 import FavFood from "./FavFood";
 import EditAccount from "./EditAccount";
+console.log(TokenContext)
 
 export default function Container() {
   return (
