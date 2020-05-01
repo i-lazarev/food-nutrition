@@ -19,14 +19,21 @@ Please watch our [video](https://drive.google.com/file/d/14cwGgfRi-NV80jQxtaMlwt
 <hr>
 Gallery :
 
-![image1](https://drive.google.com/uc?export=view&id=1uNTPiT7IRQaWFfeX9J77EGFrxpc9VWnP)
+![image 1](https://drive.google.com/uc?export=view&id=1uNTPiT7IRQaWFfeX9J77EGFrxpc9VWnP)
 
-![image2](https://drive.google.com/uc?export=view&id=1pDl1ypa2_AM8kNB6B7LAC87QmQveLXP0)
+![image 2](https://drive.google.com/uc?export=view&id=1pDl1ypa2_AM8kNB6B7LAC87QmQveLXP0)
 
-![image3](https://drive.google.com/uc?export=view&id=1VH1aOf0b65itKcMlN_9bLDdIsQIBxDf3)
+![image 3](https://drive.google.com/uc?export=view&id=1VH1aOf0b65itKcMlN_9bLDdIsQIBxDf3)
+
+![image 4](https://drive.google.com/uc?export=view&id=10ykepTLh7J0O81xG1esL4edwf_qwTrlE)
+
+![image 5](https://drive.google.com/uc?export=view&id=1JBlHZC4-as6doL9-T9llaWgIoGSKhJG8)
+
+![image 6](https://drive.google.com/uc?export=view&id=1_OIyRfbgM0sAZdB2OOWAFrJNLX7-UsOb)
+
+![image 7](https://drive.google.com/uc?export=view&id=1kZ4ZgcQ0OVhkeV1nBxcIrgfHKpJnO1rt)
 
 <hr>
-
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
