@@ -18,20 +18,19 @@ Please watch our [video](https://drive.google.com/file/d/14cwGgfRi-NV80jQxtaMlwt
 
 <hr>
 Gallery :
+![image 1](screenshots/image1.png)
 
-![image 2](https://drive.google.com/uc?export=view&id=1hpwUjNMDWfmYYJ_9VCTeJMzyVM3ApxZg)
+![image 2](screenshots/image2.png)
 
-![image 3](https://drive.google.com/uc?export=view&id=14-lpRTUMVeHdLHq2DskH8Ln9HxqgHcVm)
+![image 3](screenshots/image3.png)
 
-![image 4](https://drive.google.com/uc?export=view&id=1S8yC9CTi5M6fPpBmRwpbSZDPC_sjvwrN)
+![image 4](screenshots/image4.png)
 
-![image 5](https://drive.google.com/uc?export=view&id=1s0VrApCLDqhdmaHtICLEhnWOnXUmmUFb)
+![image 5](screenshots/image5.png)
 
-![image 6](https://drive.google.com/uc?export=view&id=1i00CSAXiLdtPrQejks82DED18Szyiln8)
+![image 6](screenshots/image6.png)
 
-![image 1](https://drive.google.com/uc?export=view&id=1fnBMHTKchMrJ0YrBmEajWJJoUxm-jD73)
-
-![image 7](https://drive.google.com/uc?export=view&id=1hYqRRM4sR_noXz_OeD2Y8l7JksCTdH5O)
+![image 7](screenshots/image7.png)
 
 <hr>
 
