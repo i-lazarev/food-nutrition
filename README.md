@@ -17,7 +17,15 @@ Please watch our [video](https://drive.google.com/file/d/14cwGgfRi-NV80jQxtaMlwt
 * Heroku - for deployment 
 
 <hr>
-![image](https://drive.google.com/uc?export=view&id=1uNTPiT7IRQaWFfeX9J77EGFrxpc9VWnP)
+Gallery :
+
+![image1](https://drive.google.com/uc?export=view&id=1uNTPiT7IRQaWFfeX9J77EGFrxpc9VWnP)
+
+![image2](https://drive.google.com/uc?export=view&id=1pDl1ypa2_AM8kNB6B7LAC87QmQveLXP0)
+
+![image3](https://drive.google.com/uc?export=view&id=1VH1aOf0b65itKcMlN_9bLDdIsQIBxDf3)
+
+<hr>
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
