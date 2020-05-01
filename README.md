@@ -19,8 +19,6 @@ Please watch our [video](https://drive.google.com/file/d/14cwGgfRi-NV80jQxtaMlwt
 <hr>
 Gallery :
 
-![image 1](https://drive.google.com/uc?export=view&id=1fnBMHTKchMrJ0YrBmEajWJJoUxm-jD73)
-
 ![image 2](https://drive.google.com/uc?export=view&id=1hpwUjNMDWfmYYJ_9VCTeJMzyVM3ApxZg)
 
 ![image 3](https://drive.google.com/uc?export=view&id=14-lpRTUMVeHdLHq2DskH8Ln9HxqgHcVm)
@@ -30,6 +28,8 @@ Gallery :
 ![image 5](https://drive.google.com/uc?export=view&id=1s0VrApCLDqhdmaHtICLEhnWOnXUmmUFb)
 
 ![image 6](https://drive.google.com/uc?export=view&id=1i00CSAXiLdtPrQejks82DED18Szyiln8)
+
+![image 1](https://drive.google.com/uc?export=view&id=1fnBMHTKchMrJ0YrBmEajWJJoUxm-jD73)
 
 ![image 7](https://drive.google.com/uc?export=view&id=1hYqRRM4sR_noXz_OeD2Y8l7JksCTdH5O)
 
