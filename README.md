@@ -1,3 +1,25 @@
+# yummyDB
+yummyDB is a website that provides food recipes 
+Please watch our [video](https://drive.google.com/file/d/14cwGgfRi-NV80jQxtaMlwtPf1AUtJmVn/view?usp=sharing) for understanding what is yummyDb about.
+
+## Built with
+* React and React Hooks - for all the UI components
+* Context API  - to manage states
+* Vanilla JavaScript - to handle big part of logic on CV and Cover Letter builders
+* React-strap and CSS - site is completely responsive and renders the same in all browsers
+* Restful API - for communication between front end and back end
+* Spoonacular API - recipes library
+* Node.js  and Express.js- for backend environment
+* MongoDB - Database for storing user information 
+* Mongoose - for queries and User Schema
+* JWT - for authentication  
+* Hashing -  for encryption
+* Heroku - for deployment 
+
+<hr>
+![image](https://drive.google.com/uc?export=view&id=1uNTPiT7IRQaWFfeX9J77EGFrxpc9VWnP)
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
