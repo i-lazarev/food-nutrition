@@ -17,7 +17,9 @@ Please watch our [video](https://drive.google.com/file/d/14cwGgfRi-NV80jQxtaMlwt
 * Heroku - for deployment 
 
 <hr>
+
 Gallery :
+
 ![image 1](screenshots/image1.png)
 
 ![image 2](screenshots/image2.png)
